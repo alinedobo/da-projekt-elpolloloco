@@ -4,16 +4,21 @@ import { Clouds } from "./clouds.class.js";
 import { Enemy } from "./enemy.class.js";
 
 export class World {
+    //#region Properties
     character = new Character();
     enemies = [new Enemy(), new Enemy(), new Enemy()];
     clouds = [new Clouds()];
     backgroundObjects = [
         new BackgroundObject(
-            "../Assets/img/5_background/layers/1_first_layer/1.png",
+            "../Assets/img/5_background/layers/3_third_layer/1.png",
+            0,
         ),
     ];
     ctx;
     canvas;
+    static CANVAS_WIDTH = 720; //doesn't work
+    static CANVAS_HEIGHT = 480; //doesn't work
+    //#endregion
 
     constructor(canvas) {
         this.ctx = canvas.getContext("2d");
@@ -21,29 +26,23 @@ export class World {
         this.draw();
     }
 
-    
+    //#region Methods
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.addToMap(this.character);
-        this.addObjectToMap(this.backgroundObjects);
         this.addObjectToMap(this.clouds);
+        this.addObjectToMap(this.backgroundObjects);
+        this.addToMap(this.character);
         this.addObjectToMap(this.enemies);
 
-        //#region Draw() is being called over and over again with this:
-        //"this" is not reqcognised within the function so we need to declare and define a new variable "self" that we can then use within the requestAnimationFrame function.
-        let self = this;
-        requestAnimationFrame(function () {
-            self.draw();
-        });
-        //#endregion
+        requestAnimationFrame(() => this.draw()); //repeat the redraw of the canvas based on graphics card ability
     }
 
 
-    addObjectToMap(objects){
-        objects.forEach(o => {
+    addObjectToMap(objects) {
+        objects.forEach((o) => {
             this.addToMap(o);
-        })
+        });
     }
 
 
@@ -56,4 +55,5 @@ export class World {
             mo.height,
         );
     }
+    //#endregion
 }

@@ -10,8 +10,4 @@ export class Character extends MovableObject{
         this.height = 200;
         this.width = 100;
     }
-
-    jump(){
-
-    }
 }

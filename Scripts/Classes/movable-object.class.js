@@ -7,12 +7,7 @@ export class MovableObject {
     image;
     //#endregion
 
-    /*     constructor{
-
-    } */
-
     //#region Methods
-
     loadImage(path) {
         this.image = new Image();
         this.image.src = path;

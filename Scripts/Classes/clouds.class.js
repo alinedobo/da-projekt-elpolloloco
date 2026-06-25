@@ -10,5 +10,3 @@ export class Clouds extends MovableObject {
         this.position_x = Math.random() * 500;
     }
 }
-
-//
