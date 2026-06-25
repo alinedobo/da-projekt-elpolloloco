@@ -1,0 +1,19 @@
+import { Character } from "./Scripts/Classes/character.class.js";
+import { Enemy } from "./Scripts/Classes/enemy.class.js";
+import { MovableObject } from "./Scripts/Classes/movable-object.class.js";
+import { World } from "./Scripts/Classes/world.class.js";
+
+
+let canvas;
+let ctx;
+let world;
+
+function init() {
+    canvas = document.getElementById('canvas');
+    world = new World(canvas);
+
+    console.log("my character is", world.character);
+    console.log(world.enemies);
+}
+
+window.onload = init;
