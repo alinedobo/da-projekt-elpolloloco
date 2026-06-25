@@ -79,3 +79,4 @@
 - Canvas: HTML elements can be put in fullscreen (inline code) but it should never be applied to <canvas>. Instead create a div in which to put canvas and the put the div in fullscreen
 - Deactivate GoogleTranslate: https://stackoverflow.com/questions/12238396/how-to-disable-google-translate-from-html-in-chrome
 - newImage(); is a predefined method in JS that replaced document.getelementbyID(#id) with the difference that the image is not called in the html but in the js file
+- requestAnimationFrame: within the function "this" is not reqcognised, so we need to declare and define a new variable "self" that we can then use within the requestAnimationFrame function.

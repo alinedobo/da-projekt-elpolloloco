@@ -5,7 +5,6 @@ import { World } from "./Scripts/Classes/world.class.js";
 
 
 let canvas;
-let ctx;
 let world;
 
 function init() {
