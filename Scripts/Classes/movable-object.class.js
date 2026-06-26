@@ -5,12 +5,21 @@ export class MovableObject {
     height = 100;
     width = 50;
     image;
+    imageCache = {};
     //#endregion
 
     //#region Methods
     loadImage(path) {
         this.image = new Image();
         this.image.src = path;
+    }
+
+    loadImages(arr) {
+        arr.forEach(path => {
+            let img = new Image();
+            img.src = path;
+            this.imageCache[path] = img;
+        });
     }
 
     moveRight() {

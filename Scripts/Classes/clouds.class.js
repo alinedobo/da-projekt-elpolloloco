@@ -6,7 +6,7 @@ export class Clouds extends MovableObject {
     height = 350;
 
     constructor() {
-        super().loadImage("../Assets/img/5_background/layers/4_clouds/1.png");
+        super().loadImage("./Assets/img/5_background/layers/4_clouds/1.png");
         this.position_x = Math.random() * 500;
         this.animate();
     }
