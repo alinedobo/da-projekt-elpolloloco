@@ -3,13 +3,24 @@ import { MovableObject } from "./movable-object.class.js";
 
 export class Enemy extends MovableObject {
     constructor() {
-        /* super().loadImage("../Assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png"); */
         super().loadImage(ImageHub.CHICKEN.walking[0]);
+        this.loadImages(ImageHub.CHICKEN.walking);
 
         this.position_x = 200 + Math.random() * 500;
         this.position_y = 380;
         this.width = 50;
         this.height = 50;
+
+        this.animate();
+    }
+
+    animate(){
+        setInterval(() => {
+            let i = this.currentImage % ImageHub.CHICKEN.walking.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
+            let path = ImageHub.CHICKEN.walking[i];
+            this.image = this.imageCache[path];
+            this.currentImage++;
+        }, 200);
     }
 }
 

@@ -6,6 +6,7 @@ export class MovableObject {
     width = 50;
     image;
     imageCache = {};
+    currentImage = 0;
     //#endregion
 
     //#region Methods

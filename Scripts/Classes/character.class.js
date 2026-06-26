@@ -3,7 +3,6 @@ import { MovableObject } from "./movable-object.class.js";
 
 
 export class Character extends MovableObject{
-    currentImage = 0;
 
     constructor(){
         super().loadImage(ImageHub.PEPE.walking[0]);
