@@ -30,8 +30,8 @@ export class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.addObjectToMap(this.clouds);
         this.addObjectToMap(this.backgroundObjects);
+        this.addObjectToMap(this.clouds);
         this.addToMap(this.character);
         this.addObjectToMap(this.enemies);
 
