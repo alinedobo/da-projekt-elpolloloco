@@ -7,6 +7,7 @@ export class MovableObject {
     image;
     imageCache = {};
     currentImage = 0;
+    speed = 0;
     //#endregion
 
     //#region Methods
@@ -16,7 +17,7 @@ export class MovableObject {
     }
 
     loadImages(arr) {
-        arr.forEach(path => {
+        arr.forEach((path) => {
             let img = new Image();
             img.src = path;
             this.imageCache[path] = img;
@@ -31,8 +32,10 @@ export class MovableObject {
         console.log("moving left");
     }
 
-    moveLeft() {}
+    moveLeft() {
+        setInterval(() => {
+            this.position_x -= this.speed;
+        }, 1000 / 60);
+    }
     //#endregion
 }
-
-

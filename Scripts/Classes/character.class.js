@@ -1,4 +1,5 @@
 import { ImageHub } from "../Helpers/image-hub.js";
+import { Keyboard } from "../Helpers/keyboard.js";
 import { MovableObject } from "./movable-object.class.js";
 
 
@@ -18,10 +19,12 @@ export class Character extends MovableObject{
 
     animate(){
         setInterval(() => {
-            let i = this.currentImage % ImageHub.PEPE.walking.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
-            let path = ImageHub.PEPE.walking[i];
-            this.image = this.imageCache[path];
-            this.currentImage++;
+            if(Keyboard.KEY_RIGHT){
+                let i = this.currentImage % ImageHub.PEPE.walking.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
+                let path = ImageHub.PEPE.walking[i];
+                this.image = this.imageCache[path];
+                this.currentImage++;
+            }
         }, 200);
     }
 }

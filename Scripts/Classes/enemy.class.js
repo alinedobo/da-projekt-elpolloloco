@@ -10,17 +10,22 @@ export class Enemy extends MovableObject {
         this.position_y = 380;
         this.width = 50;
         this.height = 50;
+        this.speed = 0.1 + Math.random();
 
         this.animate();
     }
 
     animate(){
+        this.moveLeft();
+
         setInterval(() => {
             let i = this.currentImage % ImageHub.CHICKEN.walking.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
             let path = ImageHub.CHICKEN.walking[i];
             this.image = this.imageCache[path];
             this.currentImage++;
         }, 200);
+
+
     }
 }
 
