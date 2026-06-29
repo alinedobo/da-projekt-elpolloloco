@@ -80,3 +80,17 @@
 - Deactivate GoogleTranslate: https://stackoverflow.com/questions/12238396/how-to-disable-google-translate-from-html-in-chrome
 - newImage(); is a predefined method in JS that replaced document.getelementbyID(#id) with the difference that the image is not called in the html but in the js file
 - requestAnimationFrame: within the function "this" is not reqcognised, so we need to declare and define a new variable "self" that we can then use within the requestAnimationFrame function.
+
+
+
+
+
+
+
+
+
+
+
+PROBLEM: Camera kommt nicht mit
+LOOM: https://www.loom.com/share/9204a0fd33a54ce5ba2dc407ddbd128a
+FTP: alinedobo.developerakademie.net/07_da-projekt-elpolloloco/index.html

@@ -10,13 +10,31 @@ export class World {
     enemies = [new Enemy(), new Enemy(), new Enemy()];
     clouds = [new Clouds()];
     backgroundObjects = [
+        new BackgroundObject("./Assets/img/5_background/layers/air.png",-719),
+        new BackgroundObject("./Assets/img/5_background/layers/3_third_layer/2.png",-719),
+        new BackgroundObject("./Assets/img/5_background/layers/2_second_layer/2.png",-719),
+        new BackgroundObject("./Assets/img/5_background/layers/1_first_layer/2.png",-719),
+
         new BackgroundObject("./Assets/img/5_background/layers/air.png",0,),
         new BackgroundObject("./Assets/img/5_background/layers/3_third_layer/1.png",0,),
         new BackgroundObject("./Assets/img/5_background/layers/2_second_layer/1.png",0,),
         new BackgroundObject("./Assets/img/5_background/layers/1_first_layer/1.png",0,),
+
+        new BackgroundObject("./Assets/img/5_background/layers/air.png",720,),
+        new BackgroundObject("./Assets/img/5_background/layers/3_third_layer/2.png",720,),
+        new BackgroundObject("./Assets/img/5_background/layers/2_second_layer/2.png",720,),
+        new BackgroundObject("./Assets/img/5_background/layers/1_first_layer/2.png",720,),
+
+        new BackgroundObject("./Assets/img/5_background/layers/air.png",720*2),
+        new BackgroundObject("./Assets/img/5_background/layers/3_third_layer/1.png",720*2),
+        new BackgroundObject("./Assets/img/5_background/layers/2_second_layer/1.png",720*2),
+        new BackgroundObject("./Assets/img/5_background/layers/1_first_layer/1.png",720*2),
+
     ];
     ctx;
     canvas;
+    camera_x = -0;
+
     static CANVAS_WIDTH = 720; //doesn't work
     static CANVAS_HEIGHT = 480; //doesn't work
     //#endregion
@@ -31,10 +49,14 @@ export class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+        this.ctx.translate(this.camera_x, 0);
+
         this.addObjectToMap(this.backgroundObjects);
         this.addObjectToMap(this.clouds);
         this.addToMap(this.character);
         this.addObjectToMap(this.enemies);
+
+        this.ctx.translate(-this.camera_x, 0);
 
         requestAnimationFrame(() => this.draw()); //repeat the redraw of the canvas based on graphics card ability
     }

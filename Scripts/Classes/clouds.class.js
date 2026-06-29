@@ -15,9 +15,4 @@ export class Clouds extends MovableObject {
     animate() {
         this.moveLeft();
     }
-    
-    /*     startInterval(func, timer) {
-        const newInterval = setInterval(func, timer);
-        IntervalHub.allIntervals.push(newInterval);
-        } */
 }
