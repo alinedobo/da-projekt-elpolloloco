@@ -6,6 +6,7 @@ import { World } from "./world.class.js";
 
 
 export class Character extends MovableObject{
+    world;
 
     constructor(){
         super().loadImage(ImageHub.PEPE.walking[0]);
@@ -15,7 +16,7 @@ export class Character extends MovableObject{
         this.position_y = 235;
         this.height = 200;
         this.width = 100;
-        this.speed = 1;
+        this.speed = 2;
 
         this.animate();
     }
@@ -30,9 +31,9 @@ export class Character extends MovableObject{
                 this.reverseDirection = true;
                 this.position_x -= this.speed;
             }
-            
-            World.camera_x = -this.position_x; // DOESN4T WORK YET - 11 - Kamera verschieben
 
+            this.world.camera_x = -this.position_x + 100;
+            
         }, 1000/60);
 
         IntervalHub.startInterval(() => {
@@ -45,5 +46,3 @@ export class Character extends MovableObject{
         }, 100);
     }
 }
-
-

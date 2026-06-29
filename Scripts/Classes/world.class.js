@@ -16,18 +16,21 @@ export class World {
     ctx;
     canvas;
     camera_x = -0;
-
-    static CANVAS_WIDTH = 720; //doesn't work
-    static CANVAS_HEIGHT = 480; //doesn't work
     //#endregion
 
     constructor(canvas) {
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
         this.draw();
+        this.setWorld();
     }
 
     //#region Methods
+    setWorld(){
+        this.character.world = this;
+    }
+
+
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 

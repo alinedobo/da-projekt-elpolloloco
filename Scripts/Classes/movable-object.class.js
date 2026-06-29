@@ -11,6 +11,7 @@ export class MovableObject {
     currentImage = 0;
     speed = 0;
     reverseDirection = false;
+    world;
     //#endregion
 
     //#region Methods
