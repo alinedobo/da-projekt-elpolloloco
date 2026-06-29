@@ -7,7 +7,7 @@ export class Enemy extends MovableObject {
         super().loadImage(ImageHub.CHICKEN.walking[0]);
         this.loadImages(ImageHub.CHICKEN.walking);
 
-        this.position_x = 200 + Math.random() * 500;
+        this.position_x = 200 + Math.random() * 1000;
         this.position_y = 380;
         this.width = 50;
         this.height = 50;

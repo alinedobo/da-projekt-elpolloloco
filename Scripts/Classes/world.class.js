@@ -1,36 +1,18 @@
+import { ImageHub } from "../Helpers/image-hub.js";
+import { level1 } from "../Levels/level-01.js";
 import { BackgroundObject } from "./background-object.class.js";
 import { Character } from "./character.class.js";
 import { Clouds } from "./clouds.class.js";
 import { Enemy } from "./enemy.class.js";
+import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 
 export class World {
     //#region Properties
     character = new Character();
-    enemies = [new Enemy(), new Enemy(), new Enemy()];
-    clouds = [new Clouds()];
-    backgroundObjects = [
-        new BackgroundObject("./Assets/img/5_background/layers/air.png",-719),
-        new BackgroundObject("./Assets/img/5_background/layers/3_third_layer/2.png",-719),
-        new BackgroundObject("./Assets/img/5_background/layers/2_second_layer/2.png",-719),
-        new BackgroundObject("./Assets/img/5_background/layers/1_first_layer/2.png",-719),
-
-        new BackgroundObject("./Assets/img/5_background/layers/air.png",0,),
-        new BackgroundObject("./Assets/img/5_background/layers/3_third_layer/1.png",0,),
-        new BackgroundObject("./Assets/img/5_background/layers/2_second_layer/1.png",0,),
-        new BackgroundObject("./Assets/img/5_background/layers/1_first_layer/1.png",0,),
-
-        new BackgroundObject("./Assets/img/5_background/layers/air.png",720,),
-        new BackgroundObject("./Assets/img/5_background/layers/3_third_layer/2.png",720,),
-        new BackgroundObject("./Assets/img/5_background/layers/2_second_layer/2.png",720,),
-        new BackgroundObject("./Assets/img/5_background/layers/1_first_layer/2.png",720,),
-
-        new BackgroundObject("./Assets/img/5_background/layers/air.png",720*2),
-        new BackgroundObject("./Assets/img/5_background/layers/3_third_layer/1.png",720*2),
-        new BackgroundObject("./Assets/img/5_background/layers/2_second_layer/1.png",720*2),
-        new BackgroundObject("./Assets/img/5_background/layers/1_first_layer/1.png",720*2),
-
-    ];
+    enemies = level1.enemies;
+    clouds = level1.clouds;
+    backgroundObjects = level1.backgroundObjects;
     ctx;
     canvas;
     camera_x = -0;
@@ -85,5 +67,6 @@ export class World {
     }
     //#endregion
 }
+
 
 
