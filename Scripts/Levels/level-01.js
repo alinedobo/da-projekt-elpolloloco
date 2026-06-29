@@ -1,5 +1,6 @@
 import { BackgroundObject } from "../Classes/background-object.class.js";
 import { Clouds } from "../Classes/clouds.class.js";
+import { Endboss } from "../Classes/endboss.class.js";
 import { Enemy } from "../Classes/enemy.class.js";
 import { Level } from "../Classes/level.class.js";
 
@@ -12,6 +13,7 @@ export const level1 = new Level(
         new Enemy(),
         new Enemy(),
         new Enemy(),
+        new Endboss(),
     ],
 
     [

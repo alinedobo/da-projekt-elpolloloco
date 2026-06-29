@@ -28,6 +28,13 @@ export class MovableObject {
         });
     }
 
+    playAnimation(images) {
+        let i = this.currentImage % images.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
+        let path = images[i];
+        this.image = this.imageCache[path];
+        this.currentImage++;
+    }
+
     moveRight() {
         console.log("moving right");
     }

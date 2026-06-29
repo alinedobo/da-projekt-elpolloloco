@@ -39,10 +39,7 @@ export class Character extends MovableObject{
 
         IntervalHub.startInterval(() => {
             if(Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT){
-                let i = this.currentImage % ImageHub.PEPE.walking.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
-                let path = ImageHub.PEPE.walking[i];
-                this.image = this.imageCache[path];
-                this.currentImage++;
+                this.playAnimation(ImageHub.PEPE.walking);
             }
         }, 100);
     }

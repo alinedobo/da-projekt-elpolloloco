@@ -18,5 +18,24 @@ export class ImageHub{
             './Assets/img/3_enemies_chicken/chicken_normal/1_walk/3_w.png',
         ]
     }
+
+    static ENDBOSS = {
+        walking : [
+            './Assets/img/4_enemie_boss_chicken/1_walk/G1.png',
+            './Assets/img/4_enemie_boss_chicken/1_walk/G2.png',
+            './Assets/img/4_enemie_boss_chicken/1_walk/G3.png',
+            './Assets/img/4_enemie_boss_chicken/1_walk/G4.png',
+        ],
+        alert : [
+            './Assets/img/4_enemie_boss_chicken/2_alert/G5.png',
+            './Assets/img/4_enemie_boss_chicken/2_alert/G6.png',
+            './Assets/img/4_enemie_boss_chicken/2_alert/G7.png',
+            './Assets/img/4_enemie_boss_chicken/2_alert/G8.png',
+            './Assets/img/4_enemie_boss_chicken/2_alert/G9.png',
+            './Assets/img/4_enemie_boss_chicken/2_alert/G10.png',
+            './Assets/img/4_enemie_boss_chicken/2_alert/G11.png',
+            './Assets/img/4_enemie_boss_chicken/2_alert/G12.png',
+        ]
+    }
 }
 
