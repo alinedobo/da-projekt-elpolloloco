@@ -1,4 +1,5 @@
 import { ImageHub } from "../Helpers/image-hub.js";
+import { IntervalHub } from "../Helpers/interval-hub.js";
 import { MovableObject } from "./movable-object.class.js";
 
 export class Enemy extends MovableObject {
@@ -18,7 +19,7 @@ export class Enemy extends MovableObject {
     animate(){
         this.moveLeft();
 
-        setInterval(() => {
+        IntervalHub.startInterval(() => {
             let i = this.currentImage % ImageHub.CHICKEN.walking.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
             let path = ImageHub.CHICKEN.walking[i];
             this.image = this.imageCache[path];
@@ -28,6 +29,5 @@ export class Enemy extends MovableObject {
 
     }
 }
-
 
 

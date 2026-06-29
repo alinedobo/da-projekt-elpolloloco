@@ -2,6 +2,7 @@ import { BackgroundObject } from "./background-object.class.js";
 import { Character } from "./character.class.js";
 import { Clouds } from "./clouds.class.js";
 import { Enemy } from "./enemy.class.js";
+import { MovableObject } from "./movable-object.class.js";
 
 export class World {
     //#region Properties
@@ -47,13 +48,20 @@ export class World {
 
 
     addToMap(mo) {
-        this.ctx.drawImage(
-            mo.image,
-            mo.position_x,
-            mo.position_y,
-            mo.width,
-            mo.height,
-        );
+        if(mo.reverseDirection){
+            this.ctx.save();
+            this.ctx.translate(mo.width, 0);
+            this.ctx.scale(-1, 1);
+            mo.position_x = mo.position_x * -1;
+        }
+        this.ctx.drawImage(mo.image, mo.position_x, mo.position_y, mo.width, mo.height,);
+
+        if(mo.reverseDirection){
+            mo.position_x = mo.position_x * -1;
+            this.ctx.restore();
+        }
     }
     //#endregion
 }
+
+
