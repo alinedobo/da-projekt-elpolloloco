@@ -17,6 +17,20 @@ export class MovableObject {
     //#endregion
 
     //#region Methods
+    draw(ctx){
+        ctx.drawImage(this.image, this.position_x, this.position_y, this.width, this.height,);
+    }
+    
+
+    drawFrame(ctx){
+        // Drawing a rectangle: https://www.w3schools.com/tags/canvas_rect.asp
+        ctx.beginPath();
+        ctx.lineWidth = '2';
+        ctx.strokeStyle = 'blue';
+        ctx.rect(this.position_x, this.position_y, this.width, this.height);
+        ctx.stroke();
+    }
+
     applyGravity() {
         IntervalHub.startInterval(() => {
             if (this.isAboveGround() || this.speed_Y > 0) {
@@ -26,14 +40,17 @@ export class MovableObject {
         }, 1000 / 25);
     }
 
+
     isAboveGround() {
         return this.position_y < 220;
     }
+
 
     loadImage(path) {
         this.image = new Image();
         this.image.src = path;
     }
+
 
     loadImages(arr) {
         arr.forEach((path) => {
@@ -43,12 +60,14 @@ export class MovableObject {
         });
     }
 
+
     playAnimation(images) {
         let i = this.currentImage % images.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
         let path = images[i];
         this.image = this.imageCache[path];
         this.currentImage++;
     }
+
 
     moveLeft() {
         this.position_x -= this.speed;
