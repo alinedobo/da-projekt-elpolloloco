@@ -90,7 +90,3 @@
 
 
 
-
-PROBLEM: Camera kommt nicht mit
-LOOM: https://www.loom.com/share/ae8dfa7536434306896b5b053697f871
-FTP: alinedobo.developerakademie.net/07_da-projekt-elpolloloco/index.html

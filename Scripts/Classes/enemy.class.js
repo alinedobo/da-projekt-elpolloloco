@@ -1,5 +1,6 @@
 import { ImageHub } from "../Helpers/image-hub.js";
 import { IntervalHub } from "../Helpers/interval-hub.js";
+import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 
 export class Enemy extends MovableObject {
@@ -30,5 +31,4 @@ export class Enemy extends MovableObject {
         }, 200);
     }
 }
-
 

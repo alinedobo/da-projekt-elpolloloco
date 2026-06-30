@@ -83,5 +83,13 @@ export class MovableObject {
     jump() {
         this.speed_Y = 30;
     }
+
+
+    isColliding(mo){
+        return this.position_x + this.width > mo.position_x &&
+        this.position_y + this.height > mo.position_y &&
+        this.position_x < mo.position_x &&
+        this.position_y < mo.position_y + mo.height;
+    }
     //#endregion
 }
