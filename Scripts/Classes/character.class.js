@@ -29,19 +29,19 @@ export class Character extends MovableObject{
             if(Keyboard.KEY_RIGHT && this.position_x < this.world.level.level_end_x){ 
                 // level_end_x is part of the level, the level is part of the world
                 // for the character to access the value level_end_x in level, we need to go up into the world and back down into the world
+                this.moveRight();
                 this.reverseDirection = false;
-                this.position_x += this.speed;
+                // Missing the sound here
             }
             
             if(Keyboard.KEY_LEFT && this.position_x > 0){
+                this.moveLeft();
                 this.reverseDirection = true;
-                this.position_x -= this.speed;
+                // Missing the sound here
             }
-/* 
-            console.log(this.speed_Y); */
 
-            if(Keyboard.KEY_UP){
-                this.speed_Y = 20;
+            if((Keyboard.KEY_UP || Keyboard.KEY_SPACE) && !this.isAboveGround()){
+                this.jump();
             }
 
             this.world.camera_x = -this.position_x + 100;

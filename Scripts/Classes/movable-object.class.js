@@ -19,14 +19,14 @@ export class MovableObject {
     //#region Methods
     applyGravity() {
         IntervalHub.startInterval(() => {
-            if(this.isAboveGround() || this.speed_Y > 0){
+            if (this.isAboveGround() || this.speed_Y > 0) {
                 this.position_y -= this.speed_Y;
                 this.speed_Y -= this.accelaration;
             }
-        }, 1000/25);
+        }, 1000 / 25);
     }
 
-    isAboveGround(){
+    isAboveGround() {
         return this.position_y < 220;
     }
 
@@ -50,18 +50,16 @@ export class MovableObject {
         this.currentImage++;
     }
 
+    moveLeft() {
+        this.position_x -= this.speed;
+    }
+
     moveRight() {
-        console.log("moving right");
+        this.position_x += this.speed
     }
 
-    moveLeft() {
-        console.log("moving left");
-    }
-
-    moveLeft() {
-        IntervalHub.startInterval(() => {
-            this.position_x -= this.speed;
-        }, 1000 / 60);
+    jump() {
+        this.speed_Y = 30;
     }
     //#endregion
 }
