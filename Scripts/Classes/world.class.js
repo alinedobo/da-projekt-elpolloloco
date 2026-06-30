@@ -25,7 +25,12 @@ export class World {
 
     //#region Methods
     setWorld(){
-        this.character.world = this;
+        this.character.world = this; 
+        // Everything that gets created, get created in the world, so the world has access to everyting
+        // The character is in the world, and only sees itself in the world
+        // If we want to character t have access to the world (i.e. the camera showing the world), we need to give it access to said world
+        // this method says: "this character's world (property 'world') is this world (this instance of the class World)"
+        // meaning the character has now access to everyhting in the world
     }
 
 

@@ -14,17 +14,20 @@ export class Character extends MovableObject{
         this.loadImages(ImageHub.PEPE.walking);
 
         this.position_x = 20;
-        this.position_y = 235;
+        this.position_y = 80;
         this.height = 200;
         this.width = 100;
         this.speed = 2;
 
+        this.applyGravity();
         this.animate();
     }
 
     animate(){
         IntervalHub.startInterval(() => {
-            if(Keyboard.KEY_RIGHT && this.position_x < this.world.level.level_end_x){
+            if(Keyboard.KEY_RIGHT && this.position_x < this.world.level.level_end_x){ 
+                // level_end_x is part of the level, the level is part of the world
+                // for the character to access the value level_end_x in level, we need to go up into the world and back down into the world
                 this.reverseDirection = false;
                 this.position_x += this.speed;
             }

@@ -4,6 +4,7 @@ export class IntervalHub {
 
     // Startet ein neues Intervall und
     // fügt es dem Array allIntervals hinzu
+    // All intervals are saved (their ID) in the allIntervals array
     static startInterval(func, timer) {
         const newInterval = setInterval(func, timer);
         IntervalHub.allIntervals.push(newInterval);

@@ -12,9 +12,24 @@ export class MovableObject {
     speed = 0;
     reverseDirection = false;
     world;
+    speed_Y = 0;
+    accelaration = 2.5;
     //#endregion
 
     //#region Methods
+    applyGravity() {
+        IntervalHub.startInterval(() => {
+            if(this.isAboveGround()){
+                this.position_y -= this.speed_Y;
+                this.speed_Y -= this.accelaration;
+            }
+        }, 1000/25);
+    }
+
+    isAboveGround(){
+        return this.position_y < 230;
+    }
+
     loadImage(path) {
         this.image = new Image();
         this.image.src = path;
