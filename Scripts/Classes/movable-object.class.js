@@ -19,7 +19,7 @@ export class MovableObject {
     //#region Methods
     applyGravity() {
         IntervalHub.startInterval(() => {
-            if(this.isAboveGround()){
+            if(this.isAboveGround() || this.speed_Y > 0){
                 this.position_y -= this.speed_Y;
                 this.speed_Y -= this.accelaration;
             }
@@ -27,7 +27,7 @@ export class MovableObject {
     }
 
     isAboveGround(){
-        return this.position_y < 230;
+        return this.position_y < 220;
     }
 
     loadImage(path) {

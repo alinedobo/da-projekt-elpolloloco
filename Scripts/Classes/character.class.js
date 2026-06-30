@@ -32,9 +32,16 @@ export class Character extends MovableObject{
                 this.reverseDirection = false;
                 this.position_x += this.speed;
             }
-            else if(Keyboard.KEY_LEFT && this.position_x > 0){
+            
+            if(Keyboard.KEY_LEFT && this.position_x > 0){
                 this.reverseDirection = true;
                 this.position_x -= this.speed;
+            }
+/* 
+            console.log(this.speed_Y); */
+
+            if(Keyboard.KEY_UP){
+                this.speed_Y = 20;
             }
 
             this.world.camera_x = -this.position_x + 100;
