@@ -9,8 +9,32 @@ export class ImageHub{
             './Assets/img/2_character_pepe/2_walk/W-25.png',
             './Assets/img/2_character_pepe/2_walk/W-26.png',
         ],
-        idle : [ ]
+        idle : [
+            './Assets/img/2_character_pepe/1_idle/idle/I-1.png',
+            './Assets/img/2_character_pepe/1_idle/idle/I-2.png',
+            './Assets/img/2_character_pepe/1_idle/idle/I-3.png',
+            './Assets/img/2_character_pepe/1_idle/idle/I-4.png',
+            './Assets/img/2_character_pepe/1_idle/idle/I-5.png',
+            './Assets/img/2_character_pepe/1_idle/idle/I-6.png',
+            './Assets/img/2_character_pepe/1_idle/idle/I-7.png',
+            './Assets/img/2_character_pepe/1_idle/idle/I-8.png',
+            './Assets/img/2_character_pepe/1_idle/idle/I-9.png',
+            './Assets/img/2_character_pepe/1_idle/idle/I-10.png',
+        ],
+        jumping : [
+            './Assets/img/2_character_pepe/3_jump/J-31.png',
+            './Assets/img/2_character_pepe/3_jump/J-32.png',
+            './Assets/img/2_character_pepe/3_jump/J-33.png',
+            './Assets/img/2_character_pepe/3_jump/J-34.png',
+            './Assets/img/2_character_pepe/3_jump/J-35.png',
+            './Assets/img/2_character_pepe/3_jump/J-36.png',
+            './Assets/img/2_character_pepe/3_jump/J-37.png',
+            './Assets/img/2_character_pepe/3_jump/J-38.png',
+            './Assets/img/2_character_pepe/3_jump/J-39.png',
+        ]
     }
+
+
     static CHICKEN = {
         walking : [
             './Assets/img/3_enemies_chicken/chicken_normal/1_walk/1_w.png',
@@ -18,6 +42,7 @@ export class ImageHub{
             './Assets/img/3_enemies_chicken/chicken_normal/1_walk/3_w.png',
         ]
     }
+
 
     static ENDBOSS = {
         walking : [

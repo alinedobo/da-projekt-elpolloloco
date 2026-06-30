@@ -12,9 +12,10 @@ export class Character extends MovableObject{
     constructor(){
         super().loadImage(ImageHub.PEPE.walking[0]);
         this.loadImages(ImageHub.PEPE.walking);
+        this.loadImages(ImageHub.PEPE.jumping);
 
         this.position_x = 20;
-        this.position_y = 80;
+        this.position_y = 50;
         this.height = 200;
         this.width = 100;
         this.speed = 2;
@@ -41,7 +42,9 @@ export class Character extends MovableObject{
         }, 1000/60);
 
         IntervalHub.startInterval(() => {
-            if(Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT){
+            if(this.isAboveGround()){
+                this.playAnimation(ImageHub.PEPE.jumping);
+            } else if(Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT){
                 this.playAnimation(ImageHub.PEPE.walking);
             }
         }, 100);
