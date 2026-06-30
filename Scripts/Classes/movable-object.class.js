@@ -14,7 +14,7 @@ export class MovableObject {
     world;
     speed_Y = 0;
     accelaration = 2.5;
-    energy = 100;
+    energy = 20;
     //#endregion
 
     //#region Methods
@@ -91,6 +91,19 @@ export class MovableObject {
         this.position_y + this.height > mo.position_y &&
         this.position_x < mo.position_x &&
         this.position_y < mo.position_y + mo.height;
+    }
+
+
+    hit(){
+        this.energy -= 2;
+        if(this.energy < 0){
+            this.energy = 0;
+        }
+    }
+
+
+    isDead(){
+        return this.energy == 0;
     }
     //#endregion
 }

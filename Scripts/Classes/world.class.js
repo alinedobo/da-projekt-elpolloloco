@@ -42,7 +42,8 @@ export class World {
         IntervalHub.startInterval(() => {
             this.level.enemies.forEach((enemy) => {
                 if(this.character.isColliding(enemy)){
-                    this.character.energy -= 2;
+                    this.character.hit();
+                    console.log(this.character.energy);
                 };
             });
         }, 200);

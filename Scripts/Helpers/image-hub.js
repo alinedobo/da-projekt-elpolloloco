@@ -31,6 +31,14 @@ export class ImageHub{
             './Assets/img/2_character_pepe/3_jump/J-37.png',
             './Assets/img/2_character_pepe/3_jump/J-38.png',
             './Assets/img/2_character_pepe/3_jump/J-39.png',
+        ],
+        dead : [
+            './Assets/img/2_character_pepe/5_dead/D-51.png',
+            './Assets/img/2_character_pepe/5_dead/D-52.png',
+            './Assets/img/2_character_pepe/5_dead/D-53.png',
+            './Assets/img/2_character_pepe/5_dead/D-54.png',
+            './Assets/img/2_character_pepe/5_dead/D-55.png',
+            './Assets/img/2_character_pepe/5_dead/D-56.png',
         ]
     }
 
