@@ -22,6 +22,8 @@ export class Character extends MovableObject{
 
         this.applyGravity();
         this.animate();
+
+        this.MOVABLE_OBJECT = true;
     }
 
     animate(){

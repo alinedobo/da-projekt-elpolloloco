@@ -13,6 +13,8 @@ export class Enemy extends MovableObject {
         this.height = 50;
         this.speed = 0.1 + Math.random();
 
+        this.MOVABLE_OBJECT = true;
+
         this.animate();
     }
 

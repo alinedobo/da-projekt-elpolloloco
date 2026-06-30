@@ -12,6 +12,7 @@ export class Endboss extends MovableObject {
         this.width = 300;
         this.height = 300;
         this.speed = 0.1 + Math.random();
+        this.MOVABLE_OBJECT = true;
         
         this.animate();
     }

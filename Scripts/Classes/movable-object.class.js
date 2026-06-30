@@ -24,12 +24,15 @@ export class MovableObject {
 
     drawFrame(ctx){
         // Drawing a rectangle: https://www.w3schools.com/tags/canvas_rect.asp
-        ctx.beginPath();
-        ctx.lineWidth = '2';
-        ctx.strokeStyle = 'blue';
-        ctx.rect(this.position_x, this.position_y, this.width, this.height);
-        ctx.stroke();
+        if(this.MOVABLE_OBJECT){
+            ctx.beginPath();
+            ctx.lineWidth = '2';
+            ctx.strokeStyle = 'blue';
+            ctx.rect(this.position_x, this.position_y, this.width, this.height);
+            ctx.stroke();
+        }
     }
+
 
     applyGravity() {
         IntervalHub.startInterval(() => {
