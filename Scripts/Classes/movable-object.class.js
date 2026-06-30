@@ -14,6 +14,7 @@ export class MovableObject {
     world;
     speed_Y = 0;
     accelaration = 2.5;
+    energy = 100;
     //#endregion
 
     //#region Methods

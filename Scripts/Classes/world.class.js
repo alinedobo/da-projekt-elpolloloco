@@ -42,7 +42,7 @@ export class World {
         IntervalHub.startInterval(() => {
             this.level.enemies.forEach((enemy) => {
                 if(this.character.isColliding(enemy)){
-                    console.log("collision with enemy", enemy);
+                    this.character.energy -= 2;
                 };
             });
         }, 200);
@@ -64,11 +64,13 @@ export class World {
         requestAnimationFrame(() => this.draw()); //repeat the redraw of the canvas based on graphics card ability
     }
 
+
     addObjectToMap(objects) {
         objects.forEach((o) => {
             this.addToMap(o);
         });
     }
+
 
     addToMap(mo) {
         if (mo.reverseDirection) {
