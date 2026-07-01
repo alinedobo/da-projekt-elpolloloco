@@ -38,6 +38,7 @@ export class World {
         // meaning the character has now access to everyhting in the world
     }
 
+    
     checkCollisions() {
         IntervalHub.startInterval(() => {
             this.level.enemies.forEach((enemy) => {
@@ -86,12 +87,14 @@ export class World {
         }
     }
 
+
     flipImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
         this.ctx.scale(-1, 1);
         mo.position_x = mo.position_x * -1;
     }
+
 
     flipImageBack(mo) {
         mo.position_x = mo.position_x * -1;

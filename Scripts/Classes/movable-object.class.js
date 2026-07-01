@@ -68,14 +68,17 @@ export class MovableObject {
         }, 1000 / 25);
     }
 
+
     isAboveGround() {
         return this.position_y < 220;
     }
+
 
     loadImage(path) {
         this.image = new Image();
         this.image.src = path;
     }
+
 
     loadImages(arr) {
         arr.forEach((path) => {
@@ -85,6 +88,7 @@ export class MovableObject {
         });
     }
 
+
     playAnimation(images) {
         let i = this.currentImage % images.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
         let path = images[i];
@@ -92,33 +96,40 @@ export class MovableObject {
         this.currentImage++;
     }
 
+
     moveLeft() {
         this.position_x -= this.speed;
     }
+
 
     moveRight() {
         this.position_x += this.speed;
     }
 
+
     jump() {
         this.speed_Y = 30;
     }
 
+
     isColliding(mo) {
         return (
-            this.position_x + this.width > mo.position_x &&
-            this.position_y + this.height > mo.position_y &&
-            this.position_x < mo.position_x &&
-            this.position_y < mo.position_y + mo.height
+            this.rX + this.rH > mo.rX &&
+            this.rY + this.rH > mo.rY &&
+            this.rX < mo.rX &&
+            this.rY < mo.rY + mo.rH
         );
     }
 
+
     hit() {
         this.energy -= 2;
+        console.log(this.energy);
         if (this.energy < 0) {
             this.energy = 0;
         }
     }
+
 
     isDead() {
         return this.energy == 0;
