@@ -12,6 +12,12 @@ export class Enemy extends MovableObject {
         this.position_y = 380;
         this.width = 50;
         this.height = 50;
+        this.offset = {
+            top: 5,
+            right: 5,
+            bottom: 5,
+            left: 5,
+        };
         this.speed = 0.1 + Math.random();
 
         this.MOVABLE_OBJECT = true;
@@ -19,7 +25,7 @@ export class Enemy extends MovableObject {
         this.animate();
     }
 
-    animate(){
+    animate() {
         this.moveLeft();
 
         IntervalHub.startInterval(() => {
@@ -31,4 +37,3 @@ export class Enemy extends MovableObject {
         }, 200);
     }
 }
-

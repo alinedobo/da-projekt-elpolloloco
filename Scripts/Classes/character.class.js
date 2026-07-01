@@ -5,11 +5,10 @@ import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 import { World } from "./world.class.js";
 
-
-export class Character extends MovableObject{
+export class Character extends MovableObject {
     world;
 
-    constructor(){
+    constructor() {
         super().loadImage(ImageHub.PEPE.walking[0]);
         this.loadImages(ImageHub.PEPE.walking);
         this.loadImages(ImageHub.PEPE.jumping);
@@ -21,47 +20,57 @@ export class Character extends MovableObject{
         this.width = 100;
         this.speed = 2;
 
+        this.offset = {
+            top: 100,
+            right: 30,
+            bottom: 20,
+            left: 20,
+        };
+
         this.applyGravity();
         this.animate();
 
         this.MOVABLE_OBJECT = true;
+
     }
 
-    animate(){
+    animate() {
         IntervalHub.startInterval(() => {
-            if(Keyboard.KEY_RIGHT && this.position_x < this.world.level.level_end_x){ 
+            if (
+                Keyboard.KEY_RIGHT &&
+                this.position_x < this.world.level.level_end_x
+            ) {
                 // level_end_x is part of the level, the level is part of the world
                 // for the character to access the value level_end_x in level, we need to go up into the world and back down into the world
                 this.moveRight();
                 this.reverseDirection = false;
                 // Missing the sound here
             }
-            
-            if(Keyboard.KEY_LEFT && this.position_x > 0){
+
+            if (Keyboard.KEY_LEFT && this.position_x > 0) {
                 this.moveLeft();
                 this.reverseDirection = true;
                 // Missing the sound here
             }
 
-            if((Keyboard.KEY_UP || Keyboard.KEY_SPACE) && !this.isAboveGround()){
+            if (
+                (Keyboard.KEY_UP || Keyboard.KEY_SPACE) &&
+                !this.isAboveGround()
+            ) {
                 this.jump();
             }
 
             this.world.camera_x = -this.position_x + 100;
-            
-        }, 1000/60);
+        }, 1000 / 60);
 
         IntervalHub.startInterval(() => {
-            if(this.isAboveGround()){
+            if (this.isAboveGround()) {
                 this.playAnimation(ImageHub.PEPE.jumping);
-            } 
-            else if(Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT){
+            } else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
                 this.playAnimation(ImageHub.PEPE.walking);
-            } 
-            else if(this.isDead()){    
+            } else if (this.isDead()) {
                 this.playAnimation(ImageHub.PEPE.dead);
             }
         }, 100);
     }
 }
-

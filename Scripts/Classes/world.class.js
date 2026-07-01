@@ -43,7 +43,6 @@ export class World {
             this.level.enemies.forEach((enemy) => {
                 if(this.character.isColliding(enemy)){
                     this.character.hit();
-                    console.log(this.character.energy);
                 };
             });
         }, 200);
@@ -79,6 +78,7 @@ export class World {
         }
 
         mo.draw(this.ctx);
+        mo.getRealFrame(this.ctx);
         mo.drawFrame(this.ctx);
 
         if (mo.reverseDirection) {

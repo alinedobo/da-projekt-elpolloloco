@@ -11,9 +11,15 @@ export class Endboss extends MovableObject {
         this.position_y = 150;
         this.width = 300;
         this.height = 300;
+        this.offset = {
+            top: 60,
+            right: 50,
+            bottom: 50,
+            left: 30,
+        };
         this.speed = 0.1 + Math.random();
         this.MOVABLE_OBJECT = true;
-        
+
         this.animate();
     }
 
