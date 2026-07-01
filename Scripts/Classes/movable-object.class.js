@@ -6,15 +6,6 @@ export class MovableObject {
     position_y = 0;
     height = 100;
     width = 100;
-    image;
-    imageCache = {};
-    currentImage = 0;
-    speed = 0;
-    reverseDirection = false;
-    world;
-    speed_Y = 0;
-    acceleration = 2.5;
-    energy = 1000;
     offset = {
         top: 0,
         right: 0,
@@ -25,6 +16,16 @@ export class MovableObject {
     rY;
     rH;
     rW;
+    image;
+    imageCache = {};
+    currentImage = 0;
+    speed = 0;
+    reverseDirection = false;
+    world;
+    speed_Y = 0;
+    acceleration = 2.5;
+    energy = 1000;
+    lastHit = 0;
     //#endregion
 
     //#region Methods
@@ -124,10 +125,18 @@ export class MovableObject {
 
     hit() {
         this.energy -= 2;
-        console.log(this.energy);
         if (this.energy < 0) {
             this.energy = 0;
+        } 
+        else{
+            this.lastHit = new Date().getTime(); //timestamp: seconds passed since 01.01.1970
         }
+    }
+
+    isHurt(){
+        let timePassed = new Date().getTime() - this.lastHit;
+        timePassed = timePassed / 1000; // time passed in ms
+        return timePassed < 1;
     }
 
 

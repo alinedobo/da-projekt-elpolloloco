@@ -32,6 +32,11 @@ export class ImageHub{
             './Assets/img/2_character_pepe/3_jump/J-38.png',
             './Assets/img/2_character_pepe/3_jump/J-39.png',
         ],
+        hurt : [
+            './Assets/img/2_character_pepe/4_hurt/H-41.png',
+            './Assets/img/2_character_pepe/4_hurt/H-42.png',
+            './Assets/img/2_character_pepe/4_hurt/H-43.png',
+        ],
         dead : [
             './Assets/img/2_character_pepe/5_dead/D-51.png',
             './Assets/img/2_character_pepe/5_dead/D-52.png',

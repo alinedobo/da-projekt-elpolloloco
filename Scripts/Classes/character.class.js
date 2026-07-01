@@ -12,6 +12,7 @@ export class Character extends MovableObject {
         super().loadImage(ImageHub.PEPE.walking[0]);
         this.loadImages(ImageHub.PEPE.walking);
         this.loadImages(ImageHub.PEPE.jumping);
+        this.loadImages(ImageHub.PEPE.hurt);
         this.loadImages(ImageHub.PEPE.dead);
 
         this.position_x = 20;
@@ -66,11 +67,16 @@ export class Character extends MovableObject {
         IntervalHub.startInterval(() => {
             if (this.isAboveGround()) {
                 this.playAnimation(ImageHub.PEPE.jumping);
-            } else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
-                this.playAnimation(ImageHub.PEPE.walking);
-            } else if (this.isDead()) {
+            } 
+            else if(this.isHurt()){
+                this.playAnimation(ImageHub.PEPE.hurt);
+            }
+            else if (this.isDead()) {
                 this.playAnimation(ImageHub.PEPE.dead);
             }
+            else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
+                this.playAnimation(ImageHub.PEPE.walking);
+            } 
         }, 100);
     }
 }
