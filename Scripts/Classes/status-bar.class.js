@@ -9,10 +9,11 @@ export class StatusBar extends DrawableObject {
 
     constructor() {
         super();
+        this.loadImage(ImageHub.STATUS_BAR.health[0])
         this.loadImages(ImageHub.STATUS_BAR.health);
         this.setPercentage(100);
-        this.position_x = 0;
-        this.position_y = 0;
+        this.position_x = 100;
+        this.position_y = 100;
     }
 
     //#region Methods

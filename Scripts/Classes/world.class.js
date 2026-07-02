@@ -4,9 +4,11 @@ import { level1 } from "../Levels/level-01.js";
 import { BackgroundObject } from "./background-object.class.js";
 import { Character } from "./character.class.js";
 import { Clouds } from "./clouds.class.js";
+import { DrawableObject } from "./drawable-object.class.js";
 import { Enemy } from "./enemy.class.js";
 import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
+import { StatusBar } from "./status-bar.class.js";
 
 export class World {
     //#region Properties
@@ -14,10 +16,11 @@ export class World {
     level = level1;
     ctx;
     canvas;
-    camera_x = -0;
+    camera_x = 0;
     static MOVABLE_OBJECT = false;
     // Needed to replace "instanceof" in video S3V9 because there is a dependency (A needs B to be created but B needs A to be created first)
     // Using Daniel's idea of a variable that allows to define if an object is a movable object or not
+    statusBar = new StatusBar();
     //#endregion
 
     constructor(canvas) {
@@ -38,17 +41,15 @@ export class World {
         // meaning the character has now access to everyhting in the world
     }
 
-    
     checkCollisions() {
         IntervalHub.startInterval(() => {
             this.level.enemies.forEach((enemy) => {
-                if(this.character.isColliding(enemy)){
+                if (this.character.isColliding(enemy)) {
                     this.character.hit();
-                };
+                }
             });
         }, 200);
     }
-
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -62,7 +63,22 @@ export class World {
 
         this.ctx.translate(-this.camera_x, 0);
 
+        this.addToMap(this.statusBar);
+
         requestAnimationFrame(() => this.draw()); //repeat the redraw of the canvas based on graphics card ability
+    }
+
+
+    addToMap(mo) {
+        if (mo.reverseDirection) {
+            this.flipImage(mo);
+        }
+
+        mo.draw(this.ctx);
+        mo.drawFrame(this.ctx);
+        if (mo.reverseDirection) {
+            this.flipImageBack(mo);
+        }
     }
 
 
@@ -73,21 +89,6 @@ export class World {
     }
 
 
-    addToMap(mo) {
-        if (mo.reverseDirection) {
-            this.flipImage(mo);
-        }
-
-        mo.draw(this.ctx);
-        mo.getRealFrame(this.ctx);
-        mo.drawFrame(this.ctx);
-
-        if (mo.reverseDirection) {
-            this.flipImageBack(mo);
-        }
-    }
-
-
     flipImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
@@ -95,11 +96,9 @@ export class World {
         mo.position_x = mo.position_x * -1;
     }
 
-
     flipImageBack(mo) {
         mo.position_x = mo.position_x * -1;
         this.ctx.restore();
     }
     //#endregion
 }
-

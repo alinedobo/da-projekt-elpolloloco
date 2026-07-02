@@ -1,24 +1,8 @@
 import { IntervalHub } from "../Helpers/interval-hub.js";
+import { DrawableObject } from "./drawable-object.class.js";
 
-export class MovableObject {
+export class MovableObject extends DrawableObject {
     //#region Properties
-    position_x = 0;
-    position_y = 0;
-    height = 100;
-    width = 100;
-    offset = {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-    };
-    rX;
-    rY;
-    rH;
-    rW;
-    image;
-    imageCache = {};
-    currentImage = 0;
     speed = 0;
     reverseDirection = false;
     world;
@@ -29,36 +13,6 @@ export class MovableObject {
     //#endregion
 
     //#region Methods
-    getRealFrame() {
-        this.rX = this.position_x + this.offset.left;
-        this.rY = this.position_y + this.offset.top;
-        this.rH = this.height - this.offset.top - this.offset.bottom;
-        this.rW = this.width - this.offset.left - this.offset.right;
-    }
-
-
-    draw(ctx) {
-        ctx.drawImage(
-            this.image,
-            this.position_x,
-            this.position_y,
-            this.width,
-            this.height,
-        );
-    }
-
-
-    drawFrame(ctx) {
-        // Drawing a rectangle: https://www.w3schools.com/tags/canvas_rect.asp
-        if (this.MOVABLE_OBJECT) {
-            ctx.beginPath();
-            ctx.lineWidth = "2";
-            ctx.strokeStyle = "red";
-            ctx.rect(this.rX, this.rY, this.rW, this.rH);
-            ctx.stroke();
-        }
-    }
-
 
     applyGravity() {
         IntervalHub.startInterval(() => {
@@ -72,21 +26,6 @@ export class MovableObject {
 
     isAboveGround() {
         return this.position_y < 220;
-    }
-
-
-    loadImage(path) {
-        this.image = new Image();
-        this.image.src = path;
-    }
-
-
-    loadImages(arr) {
-        arr.forEach((path) => {
-            let img = new Image();
-            img.src = path;
-            this.imageCache[path] = img;
-        });
     }
 
 
@@ -114,6 +53,8 @@ export class MovableObject {
 
 
     isColliding(mo) {
+        this.getRealFrame();
+        mo.getRealFrame();
         return (
             this.rX + this.rH > mo.rX &&
             this.rY + this.rH > mo.rY &&
@@ -122,23 +63,21 @@ export class MovableObject {
         );
     }
 
-
+    
     hit() {
         this.energy -= 2;
         if (this.energy < 0) {
             this.energy = 0;
-        } 
-        else{
+        } else {
             this.lastHit = new Date().getTime(); //timestamp: seconds passed since 01.01.1970
         }
     }
 
-    isHurt(){
+    isHurt() {
         let timePassed = new Date().getTime() - this.lastHit;
         timePassed = timePassed / 1000; // time passed in ms
         return timePassed < 1;
     }
-
 
     isDead() {
         return this.energy == 0;
