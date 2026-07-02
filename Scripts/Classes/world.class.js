@@ -75,10 +75,11 @@ export class World {
         }
 
         mo.draw(this.ctx);
-        mo.drawFrame(this.ctx);
         if (mo.reverseDirection) {
             this.flipImageBack(mo);
         }
+        
+        mo.drawFrame(this.ctx);
     }
 
 
