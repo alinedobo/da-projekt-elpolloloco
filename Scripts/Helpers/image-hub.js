@@ -75,5 +75,16 @@ export class ImageHub{
             './Assets/img/4_enemie_boss_chicken/2_alert/G12.png',
         ]
     }
+
+    static STATUS_BAR = {
+        health : [
+            './Assets/img/7_statusbars/1_statusbar/2_statusbar_health/green/0.png',
+            './Assets/img/7_statusbars/1_statusbar/2_statusbar_health/green/20.png',
+            './Assets/img/7_statusbars/1_statusbar/2_statusbar_health/green/40.png',
+            './Assets/img/7_statusbars/1_statusbar/2_statusbar_health/green/60.png',
+            './Assets/img/7_statusbars/1_statusbar/2_statusbar_health/green/80.png',
+            './Assets/img/7_statusbars/1_statusbar/2_statusbar_health/green/100.png',
+        ]
+    }
 }
 
