@@ -51,6 +51,7 @@ export class DrawableObject {
     }
 
     drawFrame(ctx) {
+        this.getRealFrame();
         // Drawing a rectangle: https://www.w3schools.com/tags/canvas_rect.asp
         if (this.MOVABLE_OBJECT) {
             ctx.beginPath();

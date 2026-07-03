@@ -23,11 +23,9 @@ export class MovableObject extends DrawableObject {
         }, 1000 / 25);
     }
 
-
     isAboveGround() {
         return this.position_y < 220;
     }
-
 
     playAnimation(images) {
         let i = this.currentImage % images.length; // Modulo only keeps the rest of the div -> i = 0, 1, 2, 3, 4, 5, 0, 1, ...
@@ -36,34 +34,29 @@ export class MovableObject extends DrawableObject {
         this.currentImage++;
     }
 
-
     moveLeft() {
         this.position_x -= this.speed;
     }
-
 
     moveRight() {
         this.position_x += this.speed;
     }
 
-
     jump() {
         this.speed_Y = 30;
     }
-
 
     isColliding(mo) {
         this.getRealFrame();
         mo.getRealFrame();
         return (
-            this.rX + this.rH > mo.rX &&
+            this.rX + this.rW > mo.rX &&
             this.rY + this.rH > mo.rY &&
-            this.rX < mo.rX &&
+            this.rX < mo.rX + mo.rW &&
             this.rY < mo.rY + mo.rH
         );
     }
 
-    
     hit() {
         this.energy -= 2;
         if (this.energy < 0) {

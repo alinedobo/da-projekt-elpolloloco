@@ -48,7 +48,7 @@ export class World {
                     this.character.hit();
                 }
             });
-        }, 200);
+        }, 50);
     }
 
     draw() {
@@ -68,7 +68,6 @@ export class World {
         requestAnimationFrame(() => this.draw()); //repeat the redraw of the canvas based on graphics card ability
     }
 
-
     addToMap(mo) {
         if (mo.reverseDirection) {
             this.flipImage(mo);
@@ -78,17 +77,15 @@ export class World {
         if (mo.reverseDirection) {
             this.flipImageBack(mo);
         }
-        
+
         mo.drawFrame(this.ctx);
     }
-
 
     addObjectToMap(objects) {
         objects.forEach((o) => {
             this.addToMap(o);
         });
     }
-
 
     flipImage(mo) {
         this.ctx.save();

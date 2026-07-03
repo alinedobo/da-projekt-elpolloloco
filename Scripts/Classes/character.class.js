@@ -25,7 +25,7 @@ export class Character extends MovableObject {
             top: 100,
             right: 30,
             bottom: 20,
-            left: 20,
+            left: 30,
         };
 
         this.applyGravity();
