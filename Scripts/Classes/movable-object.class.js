@@ -13,16 +13,13 @@ export class MovableObject extends DrawableObject {
     showFrame = false;
     //#endregion
 
-    
     //#region Methods
-    applyGravity() {
-        IntervalHub.startInterval(() => {
-            if (this.isAboveGround() || this.speed_Y > 0) {
-                this.position_y -= this.speed_Y;
-                this.speed_Y -= this.acceleration;
-            }
-        }, 1000 / 25);
-    }
+    applyGravity = () => {
+        if (this.isAboveGround() || this.speed_Y > 0) {
+            this.position_y -= this.speed_Y;
+            this.speed_Y -= this.acceleration;
+        }
+    };
 
     isAboveGround() {
         return this.position_y < 220;

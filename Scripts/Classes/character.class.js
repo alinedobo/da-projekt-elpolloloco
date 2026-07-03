@@ -29,7 +29,7 @@ export class Character extends MovableObject {
             left: 30,
         };
 
-        this.applyGravity();
+        IntervalHub.startInterval(this.applyGravity, 1000/25);
         this.animate();
 
     }
