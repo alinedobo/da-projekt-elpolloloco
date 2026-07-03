@@ -8,6 +8,7 @@ import { World } from "./world.class.js";
 export class Character extends MovableObject {
     world;
     showFrame = true;
+    energy = 100;
 
     constructor() {
         super().loadImage(ImageHub.PEPE.walking[0]);

@@ -43,11 +43,15 @@ export class World {
             this.level.enemies.forEach((enemy) => {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
+                    console.log("character energy: " + this.character.energy);
+                    this.statusBar.setPercentage(this.character.energy);
+                    console.log("Energy übergeben: " + this.statusBar.setPercentage(this.character.energy));
                 }
             });
         }, 50);
     }
 
+    
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
