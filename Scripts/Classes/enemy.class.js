@@ -4,6 +4,8 @@ import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 
 export class Enemy extends MovableObject {
+    showFrame = true;
+
     constructor() {
         super().loadImage(ImageHub.CHICKEN.walking[0]);
         this.loadImages(ImageHub.CHICKEN.walking);
@@ -19,8 +21,6 @@ export class Enemy extends MovableObject {
             left: 5,
         };
         this.speed = 0.1 + Math.random();
-
-        this.MOVABLE_OBJECT = true;
 
         this.animate();
     }

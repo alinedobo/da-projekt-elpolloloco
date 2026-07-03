@@ -7,6 +7,7 @@ import { World } from "./world.class.js";
 
 export class Character extends MovableObject {
     world;
+    showFrame = true;
 
     constructor() {
         super().loadImage(ImageHub.PEPE.walking[0]);
@@ -30,8 +31,6 @@ export class Character extends MovableObject {
 
         this.applyGravity();
         this.animate();
-
-        this.MOVABLE_OBJECT = true;
 
     }
 

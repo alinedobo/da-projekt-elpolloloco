@@ -17,9 +17,6 @@ export class World {
     ctx;
     canvas;
     camera_x = 0;
-    static MOVABLE_OBJECT = false;
-    // Needed to replace "instanceof" in video S3V9 because there is a dependency (A needs B to be created but B needs A to be created first)
-    // Using Daniel's idea of a variable that allows to define if an object is a movable object or not
     statusBar = new StatusBar();
     //#endregion
 

@@ -10,10 +10,11 @@ export class MovableObject extends DrawableObject {
     acceleration = 2.5;
     energy = 1000;
     lastHit = 0;
+    showFrame = false;
     //#endregion
 
+    
     //#region Methods
-
     applyGravity() {
         IntervalHub.startInterval(() => {
             if (this.isAboveGround() || this.speed_Y > 0) {

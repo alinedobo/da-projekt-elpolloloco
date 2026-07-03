@@ -17,6 +17,9 @@ export class DrawableObject {
     image;
     imageCache = {};
     currentImage = 0;
+    showFrame = false;
+    // Needed to replace "instanceof" in video S3V9 because there is a dependency (A needs B to be created but B needs A to be created first)
+    // Using Daniel's idea of a variable that allows to define if an object is a movable object or not
     //#endregion
 
     //#region Methods
@@ -53,7 +56,7 @@ export class DrawableObject {
     drawFrame(ctx) {
         this.getRealFrame();
         // Drawing a rectangle: https://www.w3schools.com/tags/canvas_rect.asp
-        if (this.MOVABLE_OBJECT) {
+        if (this.showFrame) {
             ctx.beginPath();
             ctx.lineWidth = "2";
             ctx.strokeStyle = "red";
