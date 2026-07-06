@@ -1,24 +1,22 @@
 ## **Aufgaben / Todos**
-[ ] Create folder structure
-[ ] Download Assets
-[ ] Create imageHelper.js
-[ ] Create world in canvas
-[ ] Extend canvas
-[ ] Integrate Character in World
-[ ] Integrate Ennemy in World
-[ ] Integrate Background in World
-[ ] Make Character move
-      [ ] Stop left
-      [ ] Stop right
-[ ] Make Ennemies move
-      [ ] Stop left
-      [ ] Stop right
-[ ] Make Background move
-[ ] Implement Camera
-[ ] Make character defy gravity
-[ ] Implement collision
-      [ ] Draw boxes around movable objects
-[ ] Integrate status bar for health
+[x] Create folder structure
+[x] Download Assets
+[x] Create imageHelper.js
+[x] Create world in canvas
+[x] Extend canvas
+[x] Integrate Character in World
+[x] Integrate Ennemy in World
+[x] Integrate Background in World
+[x] Make Character move
+      [x] Stop left
+      [x] Stop right
+[x] Make Ennemies move
+[x] Make Background move
+[x] Implement Camera
+[x] Make character defy gravity
+[x] Implement collision
+      [x] Draw boxes around movable objects
+[x] Integrate status bar for health
 [ ] Integrate status bar for coins
 [ ] Integrate status bar for bottles
 [ ] Make Bottle defy gravity

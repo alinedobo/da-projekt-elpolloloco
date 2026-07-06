@@ -9,6 +9,7 @@ import { Enemy } from "./enemy.class.js";
 import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 import { StatusBar } from "./status-bar.class.js";
+import { ThrowableObject } from "./throwable-object.class.js";
 
 export class World {
     //#region Properties
@@ -18,6 +19,7 @@ export class World {
     canvas;
     camera_x = 0;
     statusBar = new StatusBar();
+    throwableObjects = [new ThrowableObject()];
     //#endregion
 
     constructor(canvas) {
@@ -59,6 +61,7 @@ export class World {
         this.addObjectToMap(this.level.clouds);
         this.addToMap(this.character);
         this.addObjectToMap(this.level.enemies);
+        this.addObjectToMap(this.throwableObjects);
 
         this.ctx.translate(-this.camera_x, 0);
 

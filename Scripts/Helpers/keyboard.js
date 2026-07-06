@@ -8,7 +8,6 @@ export class Keyboard {
 
 // https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
 
-
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
         case "ArrowLeft":
@@ -26,13 +25,15 @@ document.addEventListener("keydown", (event) => {
         case " ":
             Keyboard.KEY_SPACE = true;
             break;
+        case "d":
+            Keyboard.KEY_D = true;
+            break;
         default:
             // Ignore other keys
             return;
     }
     event.preventDefault();
 });
-
 
 document.addEventListener("keyup", (event) => {
     switch (event.key) {
@@ -50,6 +51,9 @@ document.addEventListener("keyup", (event) => {
             break;
         case " ":
             Keyboard.KEY_SPACE = false;
+            break;
+        case "d":
+            Keyboard.KEY_D = false;
             break;
         default:
             // Ignore other keys
