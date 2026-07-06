@@ -28,6 +28,7 @@ export class Character extends MovableObject {
         this.loadImages(ImageHub.PEPE.jumping);
         this.loadImages(ImageHub.PEPE.hurt);
         this.loadImages(ImageHub.PEPE.dead);
+        this.loadImages(ImageHub.PEPE.idle);
 
         IntervalHub.startInterval(this.applyGravity, 1000 / 25);
         this.animate();
@@ -72,8 +73,9 @@ export class Character extends MovableObject {
                 this.playAnimation(ImageHub.PEPE.dead);
             } else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
                 this.playAnimation(ImageHub.PEPE.walking);
+            } else {
+                this.playAnimation(ImageHub.PEPE.idle);
             }
         }, 100);
     }
 }
-
