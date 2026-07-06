@@ -3,7 +3,7 @@ import { MovableObject } from "./movable-object.class.js";
 IntervalHub
 
 export class ThrowableObject extends MovableObject {
-    position_x = 500 + Math.random() * 1250;
+    position_x = 500 + Math.random() * 2250;
     position_y = 370;
     height = 60;
     width = 50;
