@@ -3,7 +3,7 @@ import { MovableObject } from "./movable-object.class.js";
 IntervalHub
 
 export class ThrowableObject extends MovableObject {
-    position_x = 200;
+    position_x = 500 + Math.random() * 1250;
     position_y = 350;
     showFrame = true;
     throwableObject = true;
@@ -19,10 +19,9 @@ export class ThrowableObject extends MovableObject {
         super().loadImage(
             "./Assets/img/6_salsa_bottle/1_salsa_bottle_on_ground.png",
         );
-        this.throw(200, 219);
     }
 
-    throw(x, y){
+/*     throw(x, y){
         this.position_x = x;
         this.position_y = y;
         this.speed_Y = 30;
@@ -31,5 +30,5 @@ export class ThrowableObject extends MovableObject {
         setInterval(() => {
             this.position_x += 10;
         }, 1000/25);
-    }
+    } */
 }

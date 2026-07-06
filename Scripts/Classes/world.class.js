@@ -19,7 +19,7 @@ export class World {
     canvas;
     camera_x = 0;
     statusBar = new StatusBar();
-    throwableObjects = [new ThrowableObject()];
+/*     throwableObjects = [new ThrowableObject()]; */
     //#endregion
 
     constructor(canvas) {
@@ -62,7 +62,7 @@ export class World {
         this.addObjectToMap(this.level.clouds);
         this.addToMap(this.character);
         this.addObjectToMap(this.level.enemies);
-        this.addObjectToMap(this.throwableObjects);
+        this.addObjectToMap(this.level.throwableObjects);
 
         this.ctx.translate(-this.camera_x, 0);
 
