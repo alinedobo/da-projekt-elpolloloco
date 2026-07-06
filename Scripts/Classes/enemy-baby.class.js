@@ -10,7 +10,7 @@ export class enemyBaby extends MovableObject {
         super().loadImage(ImageHub.CHICK.walking[0]);
         this.loadImages(ImageHub.CHICK.walking);
 
-        this.position_x = 200 + Math.random() * 3000;
+        this.position_x = 400 + Math.random() * 3000;
         this.position_y = 400;
         this.width = 25;
         this.height = 25;

@@ -6,7 +6,7 @@ export class CollectableObject extends MovableObject{
     height = 150;
     width = 150;
     showFrame = true;
-    throwableObject = true;
+    throwableObject = false;
 
     offset = {
         top: 55,

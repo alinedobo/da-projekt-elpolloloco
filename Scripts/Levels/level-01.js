@@ -127,7 +127,13 @@ export const level1 = new Level(
         new ThrowableObject(),
         new ThrowableObject(),
     ],
+    
     [
+        new CollectableObject(),
+        new CollectableObject(),
+        new CollectableObject(),
+        new CollectableObject(),
+        new CollectableObject(),
         new CollectableObject(),
         new CollectableObject(),
         new CollectableObject(),
