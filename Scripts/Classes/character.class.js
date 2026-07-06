@@ -7,8 +7,20 @@ import { World } from "./world.class.js";
 
 export class Character extends MovableObject {
     world;
+    position_x = 20;
+    position_y = 50;
+    height = 200;
+    width = 100;
+    speed = 2;
+
+    offset = {
+        top: 100,
+        right: 30,
+        bottom: 20,
+        left: 30,
+    };
     showFrame = true;
-    energy = 100;
+    energy = 1000;
 
     constructor() {
         super().loadImage(ImageHub.PEPE.walking[0]);
@@ -17,22 +29,9 @@ export class Character extends MovableObject {
         this.loadImages(ImageHub.PEPE.hurt);
         this.loadImages(ImageHub.PEPE.dead);
 
-        this.position_x = 20;
-        this.position_y = 50;
-        this.height = 200;
-        this.width = 100;
-        this.speed = 2;
-
-        this.offset = {
-            top: 100,
-            right: 30,
-            bottom: 20,
-            left: 30,
-        };
-
-        IntervalHub.startInterval(this.applyGravity, 1000/25);
+        IntervalHub.startInterval(this.applyGravity, 1000 / 25);
         this.animate();
-
+        this.getRealFrame();
     }
 
     animate() {
@@ -67,16 +66,13 @@ export class Character extends MovableObject {
         IntervalHub.startInterval(() => {
             if (this.isAboveGround()) {
                 this.playAnimation(ImageHub.PEPE.jumping);
-            } 
-            else if(this.isHurt()){
+            } else if (this.isHurt()) {
                 this.playAnimation(ImageHub.PEPE.hurt);
-            }
-            else if (this.isDead()) {
+            } else if (this.isDead()) {
                 this.playAnimation(ImageHub.PEPE.dead);
-            }
-            else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
+            } else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
                 this.playAnimation(ImageHub.PEPE.walking);
-            } 
+            }
         }, 100);
     }
 }

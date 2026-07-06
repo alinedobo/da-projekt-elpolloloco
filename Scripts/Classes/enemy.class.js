@@ -20,20 +20,13 @@ export class Enemy extends MovableObject {
             bottom: 5,
             left: 5,
         };
-        this.speed = 0.1 + Math.random();
+        this.speed = 0.75 + Math.random();
 
-        this.animate();
+        IntervalHub.startInterval(this.animate, 100);
     }
 
-    animate() {
+    animate = () => {
+        this.playAnimation(ImageHub.CHICKEN.walking);
         this.moveLeft();
-
-        IntervalHub.startInterval(() => {
-            this.moveLeft();
-        }, 1000 / 60);
-
-        IntervalHub.startInterval(() => {
-            this.playAnimation(ImageHub.CHICKEN.walking);
-        }, 200);
     }
 }

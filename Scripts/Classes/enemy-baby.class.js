@@ -22,18 +22,11 @@ export class enemyBaby extends MovableObject {
         };
         this.speed = 0.1 + Math.random();
 
-        this.animate();
+        IntervalHub.startInterval(this.animate, 50);
     }
 
-    animate() {
+    animate = () => {
+        this.playAnimation(ImageHub.CHICK.walking);
         this.moveLeft();
-
-        IntervalHub.startInterval(() => {
-            this.moveLeft();
-        }, 1000 / 60);
-
-        IntervalHub.startInterval(() => {
-            this.playAnimation(ImageHub.CHICK.walking);
-        }, 200);
     }
 }

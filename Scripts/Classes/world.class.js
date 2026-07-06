@@ -60,7 +60,6 @@ export class World {
         this.addObjectToMap(this.level.clouds);
         this.addToMap(this.character);
         this.addObjectToMap(this.level.enemies);
-/*         this.addObjectToMap(this.level.enemyBabies); */
         this.addObjectToMap(this.level.throwableObjects);
 
         this.ctx.translate(-this.camera_x, 0);

@@ -4,15 +4,17 @@ IntervalHub
 
 export class ThrowableObject extends MovableObject {
     position_x = 500 + Math.random() * 1250;
-    position_y = 350;
+    position_y = 370;
+    height = 60;
+    width = 50;
     showFrame = true;
     throwableObject = true;
 
     offset = {
-        top: 20,
-        right: 20,
-        bottom: 10,
-        left: 45,
+        top: 10,
+        right: 10,
+        bottom: 5,
+        left: 20,
     };
 
     constructor() {

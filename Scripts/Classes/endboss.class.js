@@ -3,13 +3,14 @@ import { IntervalHub } from "../Helpers/interval-hub.js";
 import { MovableObject } from "./movable-object.class.js";
 
 export class Endboss extends MovableObject {
-    showFrame = true; 
+    showFrame = true;
 
     constructor() {
         super().loadImage(ImageHub.ENDBOSS.alert[0]);
         this.loadImages(ImageHub.ENDBOSS.alert);
+        this.loadImages(ImageHub.ENDBOSS.walking);
 
-        this.position_x = 1500;
+        this.position_x = 3000;
         this.position_y = 150;
         this.width = 300;
         this.height = 300;
@@ -21,12 +22,11 @@ export class Endboss extends MovableObject {
         };
         this.speed = 0.1 + Math.random();
 
-        this.animate();
+        IntervalHub.startInterval(this.animate, 500);
     }
 
-    animate() {
-        IntervalHub.startInterval(() => {
-            this.playAnimation(ImageHub.ENDBOSS.alert);
-        }, 200);
-    }
+    animate = () => {
+        this.playAnimation(ImageHub.ENDBOSS.walking);
+        this.moveLeft();
+    };
 }
