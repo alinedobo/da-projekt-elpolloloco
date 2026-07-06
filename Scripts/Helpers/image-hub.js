@@ -94,7 +94,31 @@ export class ImageHub{
             './Assets/img/7_statusbars/1_statusbar/2_statusbar_health/green/60.png',
             './Assets/img/7_statusbars/1_statusbar/2_statusbar_health/green/80.png',
             './Assets/img/7_statusbars/1_statusbar/2_statusbar_health/green/100.png',
-        ]
+        ],
+        coins : [
+            './Assets/img/7_statusbars/1_statusbar/1_statusbar_coin/orange/0.png',
+            './Assets/img/7_statusbars/1_statusbar/1_statusbar_coin/orange/20.png',
+            './Assets/img/7_statusbars/1_statusbar/1_statusbar_coin/orange/40.png',
+            './Assets/img/7_statusbars/1_statusbar/1_statusbar_coin/orange/60.png',
+            './Assets/img/7_statusbars/1_statusbar/1_statusbar_coin/orange/80.png',
+            './Assets/img/7_,statusbars/1_statusbar/1_statusbar_coin/orange/100.png',
+        ],
+        bottles : [
+            './Assets/img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/0.png',
+            './Assets/img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/20.png',
+            './Assets/img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/40.png',
+            './Assets/img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/60.png',
+            './Assets/img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/80.png',
+            './Assets/img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/100.png',
+        ],
+        bossHealth : [
+            './Assets/img/7_statusbars/2_statusbar_endboss/orange/orange0.png',
+            './Assets/img/7_statusbars/2_statusbar_endboss/orange/orange20.png',
+            './Assets/img/7_statusbars/2_statusbar_endboss/orange/orange40.png',
+            './Assets/img/7_statusbars/2_statusbar_endboss/orange/orange60.png',
+            './Assets/img/7_statusbars/2_statusbar_endboss/orange/orange80.png',
+            './Assets/img/7_statusbars/2_statusbar_endboss/orange/orange100.png',
+        ],
     }
 }
 
