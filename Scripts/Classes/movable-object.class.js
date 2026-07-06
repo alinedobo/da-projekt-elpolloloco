@@ -11,6 +11,7 @@ export class MovableObject extends DrawableObject {
     energy = 100;
     lastHit = 0;
     showFrame = false;
+    throwableObject = false;
     //#endregion
 
     //#region Methods
@@ -22,7 +23,11 @@ export class MovableObject extends DrawableObject {
     };
 
     isAboveGround() {
-        return this.position_y < 220;
+        if (this.throwableObject) {
+            return true;
+        } else {
+            return this.position_y < 220;
+        }
     }
 
     playAnimation(images) {

@@ -40,6 +40,7 @@ export class World {
         // meaning the character has now access to everyhting in the world
     }
 
+    
     checkCollisions() {
         IntervalHub.startInterval(() => {
             this.level.enemies.forEach((enemy) => {
