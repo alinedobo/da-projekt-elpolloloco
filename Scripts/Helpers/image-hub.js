@@ -56,6 +56,16 @@ export class ImageHub{
         ]
     }
 
+    static CHICK = {
+        walking : [
+            './Assets/img/3_enemies_chicken/chicken_small/1_walk/1_w.png',
+            './Assets/img/3_enemies_chicken/chicken_small/1_walk/2_w.png',
+            './Assets/img/3_enemies_chicken/chicken_small/1_walk/3_w.png',
+        ],
+        dead : [
+            './Assets/img/3_enemies_chicken/chicken_small/2_dead/dead.png',
+        ]
+    }
 
     static ENDBOSS = {
         walking : [
