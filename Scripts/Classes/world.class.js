@@ -145,16 +145,7 @@ export class World {
                 this.level.collectableBottles.splice(i, 1);
                 this.collectedBottles++;
 
-                let percentage =
-                    (this.collectedBottles / this.totalBottles) * 100;
-                console.log(
-                    "collected bottle: " +
-                        this.collectedBottles +
-                        " total Collectable Bottles: " +
-                        this.totalBottles +
-                        "Percentage: " +
-                        percentage,
-                );
+                let percentage = (this.collectedBottles / this.totalBottles) * 100;
                 this.bottleBar.showPercentageStatusBar(percentage);
             }
         }
@@ -169,16 +160,7 @@ export class World {
                 this.level.coins.splice(i, 1);
                 this.collectedCoins++;
 
-                let percentage =
-                    ((this.collectedCoins - 1) / this.totalCoins) * 100;
-                console.log(
-                    "collected coins: " +
-                        this.collectedCoins +
-                        " total Collectable coins: " +
-                        this.totalCoins +
-                        " Percentage: " +
-                        percentage,
-                );
+                let percentage = ((this.collectedCoins - 1) / this.totalCoins) * 100;
                 this.coinBar.showPercentageStatusBar(percentage);
             }
         }
