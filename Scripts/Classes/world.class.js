@@ -28,6 +28,8 @@ export class World {
     endbossHealthBar = new EndbossHealthBar();
     collectedBottles = 0;
     totalBottles = 5;
+    collectedCoins = 0;
+    totalCoins = 10;
     //#endregion
 
     constructor(canvas) {
@@ -51,6 +53,7 @@ export class World {
     checkCollisions() {
         IntervalHub.startInterval(this.checkCollisionWithEnemy, 50);
         IntervalHub.startInterval(this.checkCollisionWithBottle, 50);
+        IntervalHub.startInterval(this.checkCollisionWithCoin, 50);
     }
 
     checkCollisionWithEnemy = () => {
@@ -78,6 +81,24 @@ export class World {
             }
         }
     };
+
+
+
+    checkCollisionWithCoin = () => {
+        for (let i = 0; i < this.level.collectableObjects.length; i++){
+            let coin = this.level.collectableObjects[i];
+
+            if(this.character.isColliding(coin)){
+                this.level.collectableObjects.splice(i, 1);
+                this.collectedCoins++;
+
+                let percentage = ((this.collectedCoins - 1) / this.totalCoins) * 100;
+                console.log("collected coins: " + this.collectedCoins + " total Collectable coins: " + this.totalCoins + " Percentage: " + percentage);
+                this.coinBar.showPercentageStatusBar(percentage);
+            }
+        }
+    };
+
 
 
     draw() {
