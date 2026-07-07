@@ -142,7 +142,6 @@ export class World {
     };
 
 
-
     checkCollisionWithBottle = () => {
         for (let i = 0; i < this.level.collectableBottles.length; i++) {
             let bottle = this.level.collectableBottles[i];
@@ -151,8 +150,7 @@ export class World {
                 this.level.collectableBottles.splice(i, 1);
                 this.collectedBottles++;
 
-                let percentage = (this.collectedBottles / this.totalBottles) * 100;
-                this.bottleBar.showPercentageStatusBar(percentage);
+                this.updateBottleStatusBar();
             }
         }
     };
@@ -174,10 +172,19 @@ export class World {
 
 
     checkThrowBottle = () => {
-        if(Keyboard.KEY_D){
+        if(Keyboard.KEY_D && this.collectedBottles > 0){
             let bottle = new ThrowableBottle(this.character.position_x + 100, this.character.position_y + 100);
             this.throwableBottles.push(bottle);
+            
+            this.collectedBottles--;
+            this.updateBottleStatusBar();
         }
+    }
+
+    
+    updateBottleStatusBar(){
+        let percentage = (this.collectedBottles / this.totalBottles) * 100;
+        this.bottleBar.showPercentageStatusBar(percentage);
     }
     //#endregion
 }
