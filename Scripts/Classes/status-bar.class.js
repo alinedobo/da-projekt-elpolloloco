@@ -4,24 +4,25 @@ import { DrawableObject } from "./drawable-object.class.js";
 export class StatusBar extends DrawableObject {
     //#region Properties
     percentage = 100;
+    position_x = 0;
+    position_y = 0;
+    height = 50;
+    width = 200;
+    imageArray = [];
 
     //#endregion
 
     constructor() {
         super();
-        this.loadImage(ImageHub.STATUS_BAR.health[0])
-        this.loadImages(ImageHub.STATUS_BAR.health);
+        this.loadImage(this.imageArray[0]);
+        this.loadImages(this.imageArray);
         this.setPercentage(100);
-        this.position_x = 10;
-        this.position_y = 0;
-        this.height = 50;
-        this.width = 200;
     }
 
     //#region Methods
     setPercentage(percentage) {
         this.percentage = percentage;
-        let path = ImageHub.STATUS_BAR.health[this.getImageIndex()];
+        let path = this.imageArray[this.getImageIndex()];
         this.image.src = path;
     }
 
@@ -37,12 +38,63 @@ export class StatusBar extends DrawableObject {
             return 3;
         } else if (this.percentage > 20) {
             return 2;
-        } else if (this.percentage > 0){
+        } else if (this.percentage > 0) {
             return 1;
-        }
-        else {
+        } else {
             return 0;
         }
     }
     //#endregion
+}
+
+export class HealthBar extends StatusBar {
+    position_x = 10;
+    position_y = 0;
+    imageArray = ImageHub.STATUS_BAR.health;
+
+    constructor() {
+        super();
+        this.loadImage(this.imageArray[0]);
+        this.loadImages(this.imageArray);
+        this.setPercentage(100);
+    }
+}
+
+
+export class CoinBar extends StatusBar {
+    position_x = 10;
+    position_y = 50;
+    imageArray = ImageHub.STATUS_BAR.coins;
+
+    constructor() {
+        super().loadImage(this.imageArray[0]);
+        this.loadImages(this.imageArray);
+        this.setPercentage(100);
+    }
+}
+
+
+export class BottleBar extends StatusBar {
+    position_x = 10;
+    position_y = 100;
+    imageArray = ImageHub.STATUS_BAR.bottles;
+
+    constructor() {
+        super().loadImage(this.imageArray[0]);
+        this.loadImages(this.imageArray);
+        this.setPercentage(100);
+    }
+}
+
+
+export class EndbossHealthBar extends StatusBar {
+    position_x = 500;
+    position_y = 5;
+    imageArray = ImageHub.STATUS_BAR.bossHealth;
+
+    constructor() {
+        super().loadImage(this.imageArray[0]);
+        this.loadImages(this.imageArray);
+        this.setPercentage(100);
+    }
 }

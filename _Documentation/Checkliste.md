@@ -120,15 +120,19 @@ Als Benutzer möchte ich das Spiel über einen Start Button starten können, um 
 - [ ] Es gibt einen Button, der das Spiel startet.  
 - [ ] Wenn das Spiel startet, sollte man nicht direkt von Gegnern überrannt werden.  
 - [ ] Der Hintergrund des Spiels ist gleichmäßig und hat keine Lücken.  
-- [ ] Das Spiel verfügt über Hintergrundmusik und zusätzliche Soundeffekte. Alle Sounds können jederzeit über einen Button stummgeschaltet werden. Der Status des Mute-Buttons wird dabei im Local Storage gespeichert.  
-- [ ] Wenn das Spiel gewonnen oder verloren ist, wird mir ein Endscreen gezeigt. Es sollte die Möglichkeit zum Restart des Spiels sowie die Möglichkeit zum Verlassen des Spiels gegeben sein (zurück zum Home Screen).
+- [ ] Das Spiel verfügt über Hintergrundmusik und zusätzliche Soundeffekte. 
+- [ ] Alle Sounds können jederzeit über einen Button stummgeschaltet werden.
+- [ ] Der Status des Mute-Buttons wird dabei im Local Storage gespeichert.  
+- [ ] Wenn das Spiel gewonnen oder verloren ist, wird mir ein Endscreen gezeigt. 
+- [ ] Es sollte die Möglichkeit zum Restart des Spiels sowie die Möglichkeit zum Verlassen des Spiels gegeben sein (zurück zum Home Screen).
 
 
 ### **Charakter:** {#charakter:}
 Als Benutzer möchte ich einen Charakter spielen, welcher durchgehend animiert ist und Spaß bringt.
 - [ ] Wenn der Charakter springt wird eine flüssige Sprunganimation ausgeführt  
 - [ ] Die Animationen des Charakters sind grundsätzlich flüssig, auch wenn er verletzt wird oder springt.  
-- [ ] Die Idle-Animation muss vorhanden sein und auch die Sleep Animation sollte nach spätestens 15 sec. eintreten, grundsätzlich ist der Charakter immer in der Idle-Animation, wenn er nichts anderes tut.  
+- [ ] Die Idle-Animation muss vorhanden sein - grundsätzlich ist der Charakter immer in der Idle-Animation, wenn er nichts anderes tut.  
+- [ ] Die Sleep Animation sollte nach spätestens 15 sec. idle eintreten. 
 - [ ] Der Charakter kann Coins und Flaschen / Blubberblasen einsammeln, hierbei sollte sich seine Statusbar aktualisieren.  
 - [ ] **Pollo Loco:** Der Charakter kann Flaschen werfen, normale Gegner werden bei einem Treffer getötet und dem Endboss wird Schaden zugefügt, auch die Statusbar reduziert sich nach einem Wurf.
 

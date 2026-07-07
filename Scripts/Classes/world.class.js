@@ -6,7 +6,7 @@ import { Character } from "./character.class.js";
 import { Clouds } from "./clouds.class.js";
 import { Enemy } from "./enemy.class.js";
 import { Level } from "./level.class.js";
-import { StatusBar } from "./status-bar.class.js";
+import { CoinBar, HealthBar, StatusBar, BottleBar, EndbossHealthBar } from "./status-bar.class.js";
 import { ThrowableObject } from "./throwable-object.class.js";
 
 
@@ -17,7 +17,10 @@ export class World {
     ctx;
     canvas;
     camera_x = 0;
-    statusBar = new StatusBar();
+    healthBar = new HealthBar();
+    coinBar = new CoinBar();
+    bottleBar = new BottleBar();
+    endbossHealthBar = new EndbossHealthBar();
     //#endregion
 
     constructor(canvas) {
@@ -44,7 +47,7 @@ export class World {
             this.level.enemies.forEach((enemy) => {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
-                    this.statusBar.setPercentage(this.character.energy);
+                    this.healthBar.setPercentage(this.character.energy);
                 }
             });
         }, 50);
@@ -65,7 +68,10 @@ export class World {
 
         this.ctx.translate(-this.camera_x, 0);
 
-        this.addToMap(this.statusBar);
+        this.addToMap(this.healthBar);
+        this.addToMap(this.bottleBar);
+        this.addToMap(this.coinBar);
+        this.addToMap(this.endbossHealthBar);
 
         requestAnimationFrame(() => this.draw()); //repeat the redraw of the canvas based on graphics card ability
     }

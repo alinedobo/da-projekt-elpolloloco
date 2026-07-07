@@ -44,6 +44,18 @@ export class ImageHub{
             './Assets/img/2_character_pepe/5_dead/D-54.png',
             './Assets/img/2_character_pepe/5_dead/D-55.png',
             './Assets/img/2_character_pepe/5_dead/D-56.png',
+        ],
+        sleeping : [
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-11.png',
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-12.png',
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-13.png',
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-14.png',
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-15.png',
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-16.png',
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-17.png',
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-18.png',
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-19.png',
+            './Assets/img/2_character_pepe/1_idle/long_idle/I-20.png',
         ]
     }
 
@@ -101,7 +113,7 @@ export class ImageHub{
             './Assets/img/7_statusbars/1_statusbar/1_statusbar_coin/orange/40.png',
             './Assets/img/7_statusbars/1_statusbar/1_statusbar_coin/orange/60.png',
             './Assets/img/7_statusbars/1_statusbar/1_statusbar_coin/orange/80.png',
-            './Assets/img/7_,statusbars/1_statusbar/1_statusbar_coin/orange/100.png',
+            './Assets/img/7_statusbars/1_statusbar/1_statusbar_coin/orange/100.png',
         ],
         bottles : [
             './Assets/img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/0.png',
