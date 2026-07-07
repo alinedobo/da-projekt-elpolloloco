@@ -6,7 +6,7 @@ export class Clouds extends MovableObject {
     position_y = 0;
     width = 600;
     height = 350;
-    speed = 0.15;
+    speed_X = 0.15;
     showFrame = false;
     //#endregion
 

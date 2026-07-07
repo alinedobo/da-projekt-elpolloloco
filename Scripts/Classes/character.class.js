@@ -11,7 +11,7 @@ export class Character extends MovableObject {
     position_y = 50;
     height = 200;
     width = 100;
-    speed = 2;
+    speed_X = 2;
 
     offset = {
         top: 100,

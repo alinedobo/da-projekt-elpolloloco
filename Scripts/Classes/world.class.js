@@ -1,5 +1,6 @@
 import { ImageHub } from "../Helpers/image-hub.js";
 import { IntervalHub } from "../Helpers/interval-hub.js";
+import { Keyboard } from "../Helpers/keyboard.js";
 import { level1 } from "../Levels/level-01.js";
 import { BackgroundObject } from "./background-object.class.js";
 import { Character } from "./character.class.js";
@@ -14,6 +15,8 @@ import {
     BottleBar,
     EndbossHealthBar,
 } from "./status-bar.class.js";
+import { ThrowableBottle } from "./throwable-bottle.class.js";
+
 
 
 export class World {
@@ -31,6 +34,7 @@ export class World {
     totalBottles = 5;
     collectedCoins = 0;
     totalCoins = 10;
+    throwableBottles = [];
     //#endregion
 
     constructor(canvas) {
@@ -39,6 +43,7 @@ export class World {
         this.draw();
         this.setWorld();
         this.checkCollisions();
+        IntervalHub.startInterval(this.checkThrowBottle, 50);
     }
 
     //#region Methods
@@ -55,6 +60,7 @@ export class World {
         this.addObjectToMap(this.level.endBosses);
         this.addObjectToMap(this.level.coins);
         this.addObjectToMap(this.level.collectableBottles);
+        this.addObjectToMap(this.throwableBottles);
 
         this.ctx.translate(-this.camera_x, 0);
 
@@ -165,5 +171,13 @@ export class World {
             }
         }
     };
+
+
+    checkThrowBottle = () => {
+        if(Keyboard.KEY_D){
+            let bottle = new ThrowableBottle(this.character.position_x + 100, this.character.position_y + 100);
+            this.throwableBottles.push(bottle);
+        }
+    }
     //#endregion
 }

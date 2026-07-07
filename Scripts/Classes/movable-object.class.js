@@ -3,10 +3,10 @@ import { DrawableObject } from "./drawable-object.class.js";
 
 export class MovableObject extends DrawableObject {
     //#region Properties
-    speed = 0;
+    speed_X = 0;
+    speed_Y = 0;
     reverseDirection = false;
     world;
-    speed_Y = 0;
     acceleration = 2.5;
     energy = 100;
     lastHit = 0;
@@ -38,11 +38,11 @@ export class MovableObject extends DrawableObject {
     }
 
     moveLeft() {
-        this.position_x -= this.speed;
+        this.position_x -= this.speed_X;
     }
 
     moveRight() {
-        this.position_x += this.speed;
+        this.position_x += this.speed_X;
     }
 
     jump() {

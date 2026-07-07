@@ -17,7 +17,7 @@ export class CollectableBottle extends DrawableObject {
     };
 
     constructor() {
-        super().loadImage("./Assets/img/6_salsa_bottle/1_salsa_bottle_on_ground.png");
+        super().loadImage(ImageHub.BOTTLE.onTheGround[0]);
     }
     
 }

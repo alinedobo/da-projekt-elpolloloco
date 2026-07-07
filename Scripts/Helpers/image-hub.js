@@ -1,4 +1,5 @@
 
+
 export class ImageHub{
     static PEPE = {
         walking : [
@@ -9,6 +10,7 @@ export class ImageHub{
             './Assets/img/2_character_pepe/2_walk/W-25.png',
             './Assets/img/2_character_pepe/2_walk/W-26.png',
         ],
+
         idle : [
             './Assets/img/2_character_pepe/1_idle/idle/I-1.png',
             './Assets/img/2_character_pepe/1_idle/idle/I-2.png',
@@ -134,12 +136,22 @@ export class ImageHub{
     }
 
     static BOTTLE = {
+        normal : [
+            './Assets/img/6_salsa_bottle/salsa_bottle.png',
+        ],
+        
+
+        onTheGround : [
+            './Assets/img/6_salsa_bottle/1_salsa_bottle_on_ground.png',
+        ],
+
         rotating : [
             './Assets/img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png',
             './Assets/img/6_salsa_bottle/bottle_rotation/2_bottle_rotation.png',
             './Assets/img/6_salsa_bottle/bottle_rotation/3_bottle_rotation.png',
             './Assets/img/6_salsa_bottle/bottle_rotation/4_bottle_rotation.png',
         ],
+
         splashing : [
             './Assets/img/6_salsa_bottle/bottle_rotation/bottle_splash/1_bottle_splash.png',
             './Assets/img/6_salsa_bottle/bottle_rotation/bottle_splash/2_bottle_splash.png',
@@ -150,4 +162,3 @@ export class ImageHub{
         ],
     }
 }
-
