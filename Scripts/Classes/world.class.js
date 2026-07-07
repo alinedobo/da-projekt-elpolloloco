@@ -6,9 +6,14 @@ import { Character } from "./character.class.js";
 import { Clouds } from "./clouds.class.js";
 import { Enemy } from "./enemy.class.js";
 import { Level } from "./level.class.js";
-import { CoinBar, HealthBar, StatusBar, BottleBar, EndbossHealthBar } from "./status-bar.class.js";
+import {
+    CoinBar,
+    HealthBar,
+    StatusBar,
+    BottleBar,
+    EndbossHealthBar,
+} from "./status-bar.class.js";
 import { ThrowableObject } from "./throwable-object.class.js";
-
 
 export class World {
     //#region Properties
@@ -21,6 +26,8 @@ export class World {
     coinBar = new CoinBar();
     bottleBar = new BottleBar();
     endbossHealthBar = new EndbossHealthBar();
+    collectedBottles = 0;
+    totalBottles = 5;
     //#endregion
 
     constructor(canvas) {
@@ -41,19 +48,38 @@ export class World {
         // meaning the character has now access to everyhting in the world
     }
 
-    
     checkCollisions() {
-        IntervalHub.startInterval(() => {
-            this.level.enemies.forEach((enemy) => {
-                if (this.character.isColliding(enemy)) {
-                    this.character.hit();
-                    this.healthBar.setPercentage(this.character.energy);
-                }
-            });
-        }, 50);
+        IntervalHub.startInterval(this.checkCollisionWithEnemy, 50);
+        IntervalHub.startInterval(this.checkCollisionWithBottle, 50);
     }
 
-    
+    checkCollisionWithEnemy = () => {
+        this.level.enemies.forEach((enemy) => {
+            if (this.character.isColliding(enemy)) {
+                this.character.hit();
+                this.healthBar.showPercentageStatusBar(this.character.energy);
+                console.log(this.character.energy);
+            }
+        });
+    };
+
+
+    checkCollisionWithBottle = () => {
+        for (let i = 0; i < this.level.throwableObjects.length; i++){
+            let bottle = this.level.throwableObjects[i];
+
+            if(this.character.isColliding(bottle)){
+                this.level.throwableObjects.splice(i, 1);
+                this.collectedBottles++;
+
+                let percentage = (this.collectedBottles / this.totalBottles) * 100;
+                console.log("collected bottle: " + this.collectedBottles + " total Collectable Bottles: " + this.totalBottles + "Percentage: " + percentage);
+                this.bottleBar.showPercentageStatusBar(percentage);
+            }
+        }
+    };
+
+
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 

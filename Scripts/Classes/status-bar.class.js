@@ -16,11 +16,11 @@ export class StatusBar extends DrawableObject {
         super();
         this.loadImage(this.imageArray[0]);
         this.loadImages(this.imageArray);
-        this.setPercentage(100);
+        this.showPercentageStatusBar(100);
     }
 
     //#region Methods
-    setPercentage(percentage) {
+    showPercentageStatusBar(percentage) {
         this.percentage = percentage;
         let path = this.imageArray[this.getImageIndex()];
         this.image.src = path;
@@ -56,7 +56,7 @@ export class HealthBar extends StatusBar {
         super();
         this.loadImage(this.imageArray[0]);
         this.loadImages(this.imageArray);
-        this.setPercentage(100);
+        this.showPercentageStatusBar(100);
     }
 }
 
@@ -69,7 +69,7 @@ export class CoinBar extends StatusBar {
     constructor() {
         super().loadImage(this.imageArray[0]);
         this.loadImages(this.imageArray);
-        this.setPercentage(100);
+        this.showPercentageStatusBar(0);
     }
 }
 
@@ -82,7 +82,7 @@ export class BottleBar extends StatusBar {
     constructor() {
         super().loadImage(this.imageArray[0]);
         this.loadImages(this.imageArray);
-        this.setPercentage(100);
+        this.showPercentageStatusBar(0);
     }
 }
 
@@ -95,6 +95,6 @@ export class EndbossHealthBar extends StatusBar {
     constructor() {
         super().loadImage(this.imageArray[0]);
         this.loadImages(this.imageArray);
-        this.setPercentage(100);
+        this.showPercentageStatusBar(100);
     }
 }

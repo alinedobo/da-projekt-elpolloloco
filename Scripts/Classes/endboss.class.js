@@ -20,9 +20,9 @@ export class Endboss extends MovableObject {
             bottom: 50,
             left: 30,
         };
-        this.speed = 0.1 + Math.random();
+        this.speed = 0.5 + Math.random();
 
-        IntervalHub.startInterval(this.animate, 500);
+        IntervalHub.startInterval(this.animate, 1000);
     }
 
     animate = () => {
