@@ -17,9 +17,9 @@
 [x] Implement collision
       [x] Draw boxes around movable objects
 [x] Integrate status bar for health
-[ ] Integrate status bar for coins
-[ ] Integrate status bar for bottles
-[ ] Make Bottle defy gravity
+[x] Integrate status bar for coins
+[x] Integrate status bar for bottles
+[x] Make Bottle defy gravity
 [ ] Make Character throw bottles
 [ ] Impelement sounds
 [ ] Make responsive

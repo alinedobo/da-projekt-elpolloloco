@@ -1,13 +1,24 @@
 import { BackgroundObject } from "../Classes/background-object.class.js";
 import { Clouds } from "../Classes/clouds.class.js";
-import { CollectableObject } from "../Classes/collectable-object.class.js";
+import { Coin } from "../Classes/coin.class.js";
+import { CollectableBottle } from "../Classes/collectable-bottle.class.js";
 import { Endboss } from "../Classes/endboss.class.js";
-import { enemyBaby } from "../Classes/enemy-baby.class.js";
+import { EnemyBaby } from "../Classes/enemy-baby.class.js";
 import { Enemy } from "../Classes/enemy.class.js";
 import { Level } from "../Classes/level.class.js";
-import { ThrowableObject } from "../Classes/throwable-object.class.js";
+CollectableBottle
 
 export const level1 = new Level(
+    [
+        new EnemyBaby(),
+        new EnemyBaby(),
+        new EnemyBaby(),
+        new EnemyBaby(),
+        new EnemyBaby(),
+        new EnemyBaby(),
+        new EnemyBaby(),
+        new EnemyBaby(),
+    ],
     [
         new Enemy(),
         new Enemy(),
@@ -15,16 +26,9 @@ export const level1 = new Level(
         new Enemy(),
         new Enemy(),
         new Enemy(),
-        new enemyBaby(),
-        new enemyBaby(),
-        new enemyBaby(),
-        new enemyBaby(),
-        new enemyBaby(),
-        new enemyBaby(),
-        new enemyBaby(),
-        new enemyBaby(),
-        new Endboss(),
     ],
+
+    [new Endboss()],
 
     [new Clouds()],
 
@@ -121,23 +125,17 @@ export const level1 = new Level(
     ],
 
     [
-        new ThrowableObject(),
-        new ThrowableObject(),
-        new ThrowableObject(),
-        new ThrowableObject(),
-        new ThrowableObject(),
+        new Coin(),
+        new Coin(),
+        new Coin(),
+        new Coin(),
+        new Coin(),
+        new Coin(),
+        new Coin(),
+        new Coin(),
+        new Coin(),
+        new Coin(),
     ],
-    
-    [
-        new CollectableObject(),
-        new CollectableObject(),
-        new CollectableObject(),
-        new CollectableObject(),
-        new CollectableObject(),
-        new CollectableObject(),
-        new CollectableObject(),
-        new CollectableObject(),
-        new CollectableObject(),
-        new CollectableObject(),
-    ],
+
+    [new CollectableBottle(), new CollectableBottle(), new CollectableBottle(), new CollectableBottle(), new CollectableBottle()],
 );

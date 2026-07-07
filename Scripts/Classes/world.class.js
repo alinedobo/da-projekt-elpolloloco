@@ -4,6 +4,7 @@ import { level1 } from "../Levels/level-01.js";
 import { BackgroundObject } from "./background-object.class.js";
 import { Character } from "./character.class.js";
 import { Clouds } from "./clouds.class.js";
+import { CollectableBottle } from "./collectable-bottle.class.js";
 import { Enemy } from "./enemy.class.js";
 import { Level } from "./level.class.js";
 import {
@@ -13,7 +14,7 @@ import {
     BottleBar,
     EndbossHealthBar,
 } from "./status-bar.class.js";
-import { ThrowableObject } from "./throwable-object.class.js";
+
 
 export class World {
     //#region Properties
@@ -41,66 +42,6 @@ export class World {
     }
 
     //#region Methods
-    setWorld() {
-        this.character.world = this;
-        // Everything that gets created, get created in the world, so the world has access to everyting
-        // The character is in the world, and only sees itself in the world
-        // If we want to character t have access to the world (i.e. the camera showing the world), we need to give it access to said world
-        // this method says: "this character's world (property 'world') is this world (this instance of the class World)"
-        // meaning the character has now access to everyhting in the world
-    }
-
-    checkCollisions() {
-        IntervalHub.startInterval(this.checkCollisionWithEnemy, 50);
-        IntervalHub.startInterval(this.checkCollisionWithBottle, 50);
-        IntervalHub.startInterval(this.checkCollisionWithCoin, 50);
-    }
-
-    checkCollisionWithEnemy = () => {
-        this.level.enemies.forEach((enemy) => {
-            if (this.character.isColliding(enemy)) {
-                this.character.hit();
-                this.healthBar.showPercentageStatusBar(this.character.energy);
-                console.log(this.character.energy);
-            }
-        });
-    };
-
-
-    checkCollisionWithBottle = () => {
-        for (let i = 0; i < this.level.throwableObjects.length; i++){
-            let bottle = this.level.throwableObjects[i];
-
-            if(this.character.isColliding(bottle)){
-                this.level.throwableObjects.splice(i, 1);
-                this.collectedBottles++;
-
-                let percentage = (this.collectedBottles / this.totalBottles) * 100;
-                console.log("collected bottle: " + this.collectedBottles + " total Collectable Bottles: " + this.totalBottles + "Percentage: " + percentage);
-                this.bottleBar.showPercentageStatusBar(percentage);
-            }
-        }
-    };
-
-
-
-    checkCollisionWithCoin = () => {
-        for (let i = 0; i < this.level.collectableObjects.length; i++){
-            let coin = this.level.collectableObjects[i];
-
-            if(this.character.isColliding(coin)){
-                this.level.collectableObjects.splice(i, 1);
-                this.collectedCoins++;
-
-                let percentage = ((this.collectedCoins - 1) / this.totalCoins) * 100;
-                console.log("collected coins: " + this.collectedCoins + " total Collectable coins: " + this.totalCoins + " Percentage: " + percentage);
-                this.coinBar.showPercentageStatusBar(percentage);
-            }
-        }
-    };
-
-
-
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -109,9 +50,11 @@ export class World {
         this.addObjectToMap(this.level.backgroundObjects);
         this.addObjectToMap(this.level.clouds);
         this.addToMap(this.character);
+        this.addObjectToMap(this.level.enemyBabies);
         this.addObjectToMap(this.level.enemies);
-        this.addObjectToMap(this.level.throwableObjects);
-        this.addObjectToMap(this.level.collectableObjects);
+        this.addObjectToMap(this.level.endBosses);
+        this.addObjectToMap(this.level.coins);
+        this.addObjectToMap(this.level.collectableBottles);
 
         this.ctx.translate(-this.camera_x, 0);
 
@@ -153,5 +96,92 @@ export class World {
         mo.position_x = mo.position_x * -1;
         this.ctx.restore();
     }
+
+    setWorld() {
+        this.character.world = this;
+        // Everything that gets created, get created in the world, so the world has access to everyting
+        // The character is in the world, and only sees itself in the world
+        // If we want to character t have access to the world (i.e. the camera showing the world), we need to give it access to said world
+        // this method says: "this character's world (property 'world') is this world (this instance of the class World)"
+        // meaning the character has now access to everyhting in the world
+    }
+
+
+    checkCollisions() {
+        IntervalHub.startInterval(this.checkCollisionWithEnemy, 50);
+        IntervalHub.startInterval(this.checkCollisionWithBottle, 50);
+        IntervalHub.startInterval(this.checkCollisionWithCoin, 50);
+    }
+
+
+    checkCollisionWithEnemy = () => {
+        this.level.enemyBabies.forEach((enemy) => {
+            if (this.character.isColliding(enemy)) {
+                this.character.hit(1);
+                this.healthBar.showPercentageStatusBar(this.character.energy);
+            }
+        });
+        this.level.enemies.forEach((enemy) => {
+            if (this.character.isColliding(enemy)) {
+                this.character.hit(2);
+                this.healthBar.showPercentageStatusBar(this.character.energy);
+            }
+        });
+        this.level.endBosses.forEach((enemy) => {
+            if (this.character.isColliding(enemy)) {
+                this.character.hit(5);
+                this.healthBar.showPercentageStatusBar(this.character.energy);
+            }
+        });
+    };
+
+
+
+    checkCollisionWithBottle = () => {
+        for (let i = 0; i < this.level.collectableBottles.length; i++) {
+            let bottle = this.level.collectableBottles[i];
+
+            if (this.character.isColliding(bottle)) {
+                this.level.collectableBottles.splice(i, 1);
+                this.collectedBottles++;
+
+                let percentage =
+                    (this.collectedBottles / this.totalBottles) * 100;
+                console.log(
+                    "collected bottle: " +
+                        this.collectedBottles +
+                        " total Collectable Bottles: " +
+                        this.totalBottles +
+                        "Percentage: " +
+                        percentage,
+                );
+                this.bottleBar.showPercentageStatusBar(percentage);
+            }
+        }
+    };
+
+
+    checkCollisionWithCoin = () => {
+        for (let i = 0; i < this.level.coins.length; i++) {
+            let coin = this.level.coins[i];
+
+            if (this.character.isColliding(coin)) {
+                this.level.coins.splice(i, 1);
+                this.collectedCoins++;
+
+                let percentage =
+                    ((this.collectedCoins - 1) / this.totalCoins) * 100;
+                console.log(
+                    "collected coins: " +
+                        this.collectedCoins +
+                        " total Collectable coins: " +
+                        this.totalCoins +
+                        " Percentage: " +
+                        percentage,
+                );
+                this.coinBar.showPercentageStatusBar(percentage);
+            }
+        }
+    };
     //#endregion
 }

@@ -3,7 +3,7 @@ import { IntervalHub } from "../Helpers/interval-hub.js";
 import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 
-export class enemyBaby extends MovableObject {
+export class EnemyBaby extends MovableObject {
     showFrame = true;
 
     constructor() {

@@ -22,12 +22,6 @@ export class MovableObject extends DrawableObject {
         }
     };
 
-    defyGravity = () => {
-        this.position_y -= this.speed_Y;
-        this.speed_Y -= this.acceleration;
-    };
-
-    
     isAboveGround() {
         if (this.throwableObject) {
             return true;
@@ -66,8 +60,9 @@ export class MovableObject extends DrawableObject {
         );
     }
 
-    hit() {
-        this.energy -= 1;
+    hit(damage) {
+        this.energy -= damage;
+        console.log(this.energy);
         if (this.energy < 0) {
             this.energy = 0;
         } else {

@@ -4,6 +4,7 @@ export class Keyboard {
     static KEY_UP = false;
     static KEY_DOWN = false;
     static KEY_SPACE = false;
+    static KEY_D = false;
 }
 
 // https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
