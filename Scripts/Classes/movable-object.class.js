@@ -60,6 +60,17 @@ export class MovableObject extends DrawableObject {
         );
     }
 
+    isCollidingFromAbove(mo) {
+        this.getRealFrame();
+        mo.getRealFrame();
+        return (
+            this.rX + this.rW > mo.rX
+            && this.rY + this.rH < mo.rY - 1
+            && this.rY + this.rH > mo.rY - 20
+            && this.rX < mo.rX + mo.rW
+        );
+    }
+
     hit(damage) {
         this.energy -= damage;
         if (this.energy < 0) {
@@ -68,6 +79,7 @@ export class MovableObject extends DrawableObject {
             this.lastHit = new Date().getTime(); //timestamp: seconds passed since 01.01.1970
         }
     }
+
 
     isHurt() {
         let timePassed = new Date().getTime() - this.lastHit;

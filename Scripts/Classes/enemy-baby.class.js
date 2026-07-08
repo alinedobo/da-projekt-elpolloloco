@@ -27,14 +27,20 @@ export class EnemyBaby extends MovableObject {
     }
 
     animate = () => {
-        if(this.energy > 0){
+        if (this.energy > 0) {
             this.playAnimation(ImageHub.CHICK.walking);
             this.moveLeft();
-        }
-        else {
+        } else {
             this.position_y = 410;
             this.playAnimation(ImageHub.CHICK.dead);
-            this.showFrame = false;
+            this.offset = {
+                top: 25,
+                right: 5,
+                bottom: 0,
+                left: 5,
+            };
+
+            /* this.showFrame = false; */
         }
-    }
+    };
 }
