@@ -17,8 +17,6 @@ import {
 } from "./status-bar.class.js";
 import { ThrowableBottle } from "./throwable-bottle.class.js";
 
-
-
 export class World {
     //#region Properties
     character = new Character();
@@ -113,23 +111,41 @@ export class World {
         // meaning the character has now access to everyhting in the world
     }
 
-
     checkCollisions() {
+        IntervalHub.startInterval(this.checkCollisionWithBabyEnemy, 50);
         IntervalHub.startInterval(this.checkCollisionWithEnemy, 50);
-        IntervalHub.startInterval(this.checkCollisionWithBottle, 50);
+        IntervalHub.startInterval(this.checkCollisionWithEndboss, 50);
+        IntervalHub.startInterval(this.checkCollisionWithBottle,50);
         IntervalHub.startInterval(this.checkCollisionWithCoin, 50);
     }
 
-
-    checkCollisionWithEnemy = () => {
-        this.checkCollisionWithBabyEnemy();
-
-        this.level.enemies.forEach((enemy) => {
-            if (this.character.isColliding(enemy)) {
-                this.character.hit(2);
+    
+    checkCollisionWithBabyEnemy = () => {
+        this.level.enemyBabies.forEach((enemy) => {
+            if (this.character.isCollidingFromAbove(enemy)) {
+                enemy.energy = 0;
+            } else if (this.character.isColliding(enemy)) {
+                this.character.hit(1);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
+    }
+    
+    
+    checkCollisionWithEnemy = () => {
+        this.level.enemies.forEach((enemy) => {
+            if (this.character.isCollidingFromAbove(enemy)) {
+                enemy.energy = 0;
+                console.log(enemy.energy);
+            } else if (this.character.isColliding(enemy)) {
+                this.character.hit(1);
+                this.healthBar.showPercentageStatusBar(this.character.energy);
+            }
+        });
+    }
+    
+    
+    checkCollisionWithEndboss = () => {
         this.level.endBosses.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
                 this.character.hit(5);
@@ -138,19 +154,6 @@ export class World {
         });
     };
 
-
-    checkCollisionWithBabyEnemy(){
-        this.level.enemyBabies.forEach((enemy) => {
-            if(this.character.isCollidingFromAbove(enemy)){
-                console.log("colliding from above");
-                enemy.energy = 0;
-            }
-            else if (this.character.isColliding(enemy)) {
-                this.character.hit(1);
-                this.healthBar.showPercentageStatusBar(this.character.energy);
-            } 
-        });
-    }
 
 
     checkCollisionWithBottle = () => {
@@ -166,7 +169,6 @@ export class World {
         }
     };
 
-
     checkCollisionWithCoin = () => {
         for (let i = 0; i < this.level.coins.length; i++) {
             let coin = this.level.coins[i];
@@ -175,29 +177,35 @@ export class World {
                 this.level.coins.splice(i, 1);
                 this.collectedCoins++;
 
-                let percentage = ((this.collectedCoins - 1) / this.totalCoins) * 100;
+                let percentage =
+                    ((this.collectedCoins - 1) / this.totalCoins) * 100;
                 this.coinBar.showPercentageStatusBar(percentage);
             }
         }
     };
 
-
     checkThrowBottle = () => {
         let currentTime = new Date().getTime();
         let timePassedSinceLastThrow = (currentTime - this.lastThrow) / 1000;
 
-        if(Keyboard.KEY_D && this.collectedBottles > 0 && timePassedSinceLastThrow > 0.5){
-            let bottle = new ThrowableBottle(this.character.position_x + 100, this.character.position_y + 100);
+        if (
+            Keyboard.KEY_D &&
+            this.collectedBottles > 0 &&
+            timePassedSinceLastThrow > 0.5
+        ) {
+            let bottle = new ThrowableBottle(
+                this.character.position_x + 100,
+                this.character.position_y + 100,
+            );
             this.throwableBottles.push(bottle);
 
             this.collectedBottles--;
             this.updateBottleStatusBar();
             this.lastThrow = new Date().getTime();
         }
-    }
+    };
 
-    
-    updateBottleStatusBar(){
+    updateBottleStatusBar() {
         let percentage = (this.collectedBottles / this.totalBottles) * 100;
         this.bottleBar.showPercentageStatusBar(percentage);
     }

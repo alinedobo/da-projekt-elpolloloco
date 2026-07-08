@@ -9,6 +9,7 @@ export class Enemy extends MovableObject {
     constructor() {
         super().loadImage(ImageHub.CHICKEN.walking[0]);
         this.loadImages(ImageHub.CHICKEN.walking);
+        this.loadImages(ImageHub.CHICKEN.dead);
 
         this.position_x = 400 + Math.random() * 3000;
         this.position_y = 380;
@@ -21,12 +22,24 @@ export class Enemy extends MovableObject {
             left: 5,
         };
         this.speed_X = 0.75 + Math.random();
+        this.energy = 100;
 
         IntervalHub.startInterval(this.animate, 100);
     }
 
     animate = () => {
-        this.playAnimation(ImageHub.CHICKEN.walking);
-        this.moveLeft();
-    }
+        if (this.energy > 50) {
+            this.playAnimation(ImageHub.CHICKEN.walking);
+            this.moveLeft();
+        } else{
+            this.position_y = 400;
+            this.playAnimation(ImageHub.CHICKEN.dead);
+            this.offset = {
+                top: 30,
+                right: 5,
+                bottom: 0,
+                left: 5,
+            };
+        }
+    };
 }
