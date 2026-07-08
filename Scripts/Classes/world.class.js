@@ -35,6 +35,7 @@ export class World {
     collectedCoins = 0;
     totalCoins = 10;
     throwableBottles = [];
+    lastThrow = 0;
     //#endregion
 
     constructor(canvas) {
@@ -172,12 +173,16 @@ export class World {
 
 
     checkThrowBottle = () => {
-        if(Keyboard.KEY_D && this.collectedBottles > 0){
+        let currentTime = new Date().getTime();
+        let timePassedSinceLastThrow = (currentTime - this.lastThrow) / 1000;
+
+        if(Keyboard.KEY_D && this.collectedBottles > 0 && timePassedSinceLastThrow > 0.5){
             let bottle = new ThrowableBottle(this.character.position_x + 100, this.character.position_y + 100);
             this.throwableBottles.push(bottle);
-            
+
             this.collectedBottles--;
             this.updateBottleStatusBar();
+            this.lastThrow = new Date().getTime();
         }
     }
 
@@ -186,5 +191,6 @@ export class World {
         let percentage = (this.collectedBottles / this.totalBottles) * 100;
         this.bottleBar.showPercentageStatusBar(percentage);
     }
+
     //#endregion
 }

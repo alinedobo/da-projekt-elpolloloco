@@ -2,6 +2,7 @@ import { ImageHub } from "../Helpers/image-hub.js";
 import { IntervalHub } from "../Helpers/interval-hub.js";
 import { MovableObject } from "./movable-object.class.js";
 
+
 export class ThrowableBottle extends MovableObject {
     height = 60;
     width = 50;
@@ -26,3 +27,4 @@ export class ThrowableBottle extends MovableObject {
         this.position_x += this.speed_X;
     };
 }
+
