@@ -9,6 +9,7 @@ export class EnemyBaby extends MovableObject {
     constructor() {
         super().loadImage(ImageHub.CHICK.walking[0]);
         this.loadImages(ImageHub.CHICK.walking);
+        this.loadImages(ImageHub.CHICK.dead);
 
         this.position_x = 400 + Math.random() * 3000;
         this.position_y = 400;
@@ -26,7 +27,14 @@ export class EnemyBaby extends MovableObject {
     }
 
     animate = () => {
-        this.playAnimation(ImageHub.CHICK.walking);
-        this.moveLeft();
+        if(this.energy > 0){
+            this.playAnimation(ImageHub.CHICK.walking);
+            this.moveLeft();
+        }
+        else {
+            this.position_y = 410;
+            this.playAnimation(ImageHub.CHICK.dead);
+            this.showFrame = false;
+        }
     }
 }
