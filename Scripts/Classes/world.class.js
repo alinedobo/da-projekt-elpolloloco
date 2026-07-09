@@ -6,6 +6,8 @@ import { BackgroundObject } from "./background-object.class.js";
 import { Character } from "./character.class.js";
 import { Clouds } from "./clouds.class.js";
 import { CollectableBottle } from "./collectable-bottle.class.js";
+import { Endboss } from "./endboss.class.js";
+import { EnemyBaby } from "./enemy-baby.class.js";
 import { Enemy } from "./enemy.class.js";
 import { Level } from "./level.class.js";
 import {
@@ -126,6 +128,7 @@ export class World {
         IntervalHub.startInterval(this.checkCollisionWithEndboss, 50);
         IntervalHub.startInterval(this.checkCollisionWithBottle, 50);
         IntervalHub.startInterval(this.checkCollisionWithCoin, 50);
+        IntervalHub.startInterval(this.checkBottleCollisionWithEnemies, 50);
     }
 
     checkCollisionWithBabyEnemy = () => {
@@ -167,10 +170,32 @@ export class World {
             if (this.character.isColliding(bottle)) {
                 this.level.collectableBottles.splice(i, 1);
                 this.collectedBottles++;
-
                 this.updateBottleStatusBar();
             }
         }
+    };
+
+    checkBottleCollisionWithEnemies = () => {
+        this.throwableBottles.forEach((bottle) => {
+            this.level.enemyBabies.forEach((enemy) => {
+                if (enemy.isColliding(bottle)) {
+                    enemy.energy = 0;
+                }
+            });
+
+            this.level.enemies.forEach((enemy) => {
+                if (enemy.isColliding(bottle)) {
+                    enemy.energy -= 20;
+                }
+            });
+
+            this.level.endBosses.forEach((enemy) => {
+                if (enemy.isColliding(bottle)) {
+                    enemy.energy -= 20;
+                    console.log(enemy.energy);
+                }
+            });
+        });
     };
 
     checkCollisionWithCoin = () => {

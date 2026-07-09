@@ -22,6 +22,7 @@ export class EnemyBaby extends MovableObject {
             left: 5,
         };
         this.speed_X = 0.1 + Math.random();
+        this.energy = 20;
 
         IntervalHub.startInterval(this.animate, 50);
     }

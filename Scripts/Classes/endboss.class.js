@@ -15,12 +15,13 @@ export class Endboss extends MovableObject {
         this.width = 300;
         this.height = 300;
         this.offset = {
-            top: 60,
+            top: 70,
             right: 50,
-            bottom: 50,
-            left: 30,
+            bottom: 60,
+            left: 50,
         };
         this.speed_X = 0.5 + Math.random();
+        this.energy = 500;
 
         IntervalHub.startInterval(this.animate, 1000);
     }

@@ -26,5 +26,6 @@ export class ThrowableBottle extends MovableObject {
         this.speed_Y -= this.acceleration;
         this.position_x += this.speed_X;
     };
+
 }
 

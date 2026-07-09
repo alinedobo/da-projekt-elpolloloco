@@ -22,13 +22,13 @@ export class Enemy extends MovableObject {
             left: 5,
         };
         this.speed_X = 0.75 + Math.random();
-        this.energy = 100;
+        this.energy = 60;
 
         IntervalHub.startInterval(this.animate, 100);
     }
 
     animate = () => {
-        if (this.energy > 50) {
+        if (this.energy > 0) {
             this.playAnimation(ImageHub.CHICKEN.walking);
             this.moveLeft();
         } else{
