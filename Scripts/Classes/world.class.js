@@ -115,11 +115,10 @@ export class World {
         IntervalHub.startInterval(this.checkCollisionWithBabyEnemy, 50);
         IntervalHub.startInterval(this.checkCollisionWithEnemy, 50);
         IntervalHub.startInterval(this.checkCollisionWithEndboss, 50);
-        IntervalHub.startInterval(this.checkCollisionWithBottle,50);
+        IntervalHub.startInterval(this.checkCollisionWithBottle, 50);
         IntervalHub.startInterval(this.checkCollisionWithCoin, 50);
     }
 
-    
     checkCollisionWithBabyEnemy = () => {
         this.level.enemyBabies.forEach((enemy) => {
             if (this.character.isCollidingFromAbove(enemy)) {
@@ -129,9 +128,8 @@ export class World {
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
-    }
-    
-    
+    };
+
     checkCollisionWithEnemy = () => {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isCollidingFromAbove(enemy)) {
@@ -142,9 +140,8 @@ export class World {
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
-    }
-    
-    
+    };
+
     checkCollisionWithEndboss = () => {
         this.level.endBosses.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
@@ -153,8 +150,6 @@ export class World {
             }
         });
     };
-
-
 
     checkCollisionWithBottle = () => {
         for (let i = 0; i < this.level.collectableBottles.length; i++) {
@@ -185,18 +180,10 @@ export class World {
     };
 
     checkThrowBottle = () => {
-        let currentTime = new Date().getTime();
-        let timePassedSinceLastThrow = (currentTime - this.lastThrow) / 1000;
-
-        if (
-            Keyboard.KEY_D &&
+        if (Keyboard.KEY_D &&
             this.collectedBottles > 0 &&
-            timePassedSinceLastThrow > 0.5
-        ) {
-            let bottle = new ThrowableBottle(
-                this.character.position_x + 100,
-                this.character.position_y + 100,
-            );
+            this.checkThrowingDelay()) {
+            let bottle = new ThrowableBottle(this.character.position_x + 100, this.character.position_y + 100);
             this.throwableBottles.push(bottle);
 
             this.collectedBottles--;
@@ -204,6 +191,14 @@ export class World {
             this.lastThrow = new Date().getTime();
         }
     };
+
+
+    checkThrowingDelay() {
+        let currentTime = new Date().getTime();
+        let timePassedSinceLastThrow = (currentTime - this.lastThrow) / 1000;
+        return timePassedSinceLastThrow > 0.75;
+    }
+
 
     updateBottleStatusBar() {
         let percentage = (this.collectedBottles / this.totalBottles) * 100;
