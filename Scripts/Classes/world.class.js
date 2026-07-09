@@ -109,6 +109,15 @@ export class World {
         // If we want to character t have access to the world (i.e. the camera showing the world), we need to give it access to said world
         // this method says: "this character's world (property 'world') is this world (this instance of the class World)"
         // meaning the character has now access to everyhting in the world
+        this.level.enemies.forEach((enemy) => {
+            enemy.world = this;
+        });
+        this.level.enemyBabies.forEach((enemy) => {
+            enemy.world = this;
+        });
+        this.level.endBosses.forEach((enemy) => {
+            enemy.world = this;
+        });
     }
 
     checkCollisions() {
@@ -180,10 +189,15 @@ export class World {
     };
 
     checkThrowBottle = () => {
-        if (Keyboard.KEY_D &&
+        if (
+            Keyboard.KEY_D &&
             this.collectedBottles > 0 &&
-            this.checkThrowingDelay()) {
-            let bottle = new ThrowableBottle(this.character.position_x + 100, this.character.position_y + 100);
+            this.checkThrowingDelay()
+        ) {
+            let bottle = new ThrowableBottle(
+                this.character.position_x + 100,
+                this.character.position_y + 100,
+            );
             this.throwableBottles.push(bottle);
 
             this.collectedBottles--;
@@ -192,13 +206,11 @@ export class World {
         }
     };
 
-
     checkThrowingDelay() {
         let currentTime = new Date().getTime();
         let timePassedSinceLastThrow = (currentTime - this.lastThrow) / 1000;
         return timePassedSinceLastThrow > 0.75;
     }
-
 
     updateBottleStatusBar() {
         let percentage = (this.collectedBottles / this.totalBottles) * 100;
