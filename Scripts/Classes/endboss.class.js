@@ -35,7 +35,6 @@ export class Endboss extends MovableObject {
         } else if (this.isDead()) {
             this.playAnimation(ImageHub.ENDBOSS.dead);
             if (this.checkIfDeadLongEnough()) {
-                console.log(this.checkIfDeadLongEnough());
                 IntervalHub.stopAllIntervals();
             }
         } else {

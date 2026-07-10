@@ -19,6 +19,21 @@
 /* https://pixabay.com/illustrations/dinosaur-desert-fantasy-background-7155713/ */
 /* https://pixabay.com/illustrations/ai-generated-sunset-desert-nature-8286299/ */
 
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+    list-style: none;
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    background: initial;
+    border: initial;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -26,28 +41,28 @@ body {
     align-items: center;
     background-color: black;
     font-family: "Coustard";
+    background-position: center;
+    background-image: url("./Assets/img/background/thrashero-ai-generated-8286299.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
     h1 {
         color: white;
-        font-size: 40px;
+        font-size: 64px;
+        text-shadow: 50px;
     }
 
     main {
-        border: 2px solid yellow;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: top;
         align-items: center;
-        height: 100%;
+        min-height: 70dvh;
+        height: fit-content;
         width: 100%;
         padding: 64px;
         gap: 16px;
-        background-image: url("./Assets/img/background/thrashero-ai-generated-8286299.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        overflow: hidden;
-        max-width: 1280px;
+        max-width: 1440px;
 
         canvas {
             background: black;
@@ -57,7 +72,6 @@ body {
             background: rgb(255, 255, 255, 0.5);
             border-radius: 8px;
             padding: 8px 16px;
-            line-height: 1;
             text-align: center;
         }
     }
@@ -65,9 +79,12 @@ body {
     header,
     footer {
         color: white;
-        height: 10dvh;
-        border: 2px solid pink;
+        height: 15dvh;
         width: 100%;
+        padding: 16px;
         max-width: 1440px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

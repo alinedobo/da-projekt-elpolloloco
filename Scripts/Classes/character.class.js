@@ -20,7 +20,7 @@ export class Character extends MovableObject {
         left: 30,
     };
     showFrame = true;
-    energy = 10000;
+    energy = 100;
 
     constructor() {
         super().loadImage(ImageHub.PEPE.walking[0]);
@@ -71,6 +71,9 @@ export class Character extends MovableObject {
                 this.playAnimation(ImageHub.PEPE.hurt);
             } else if (this.isDead()) {
                 this.playAnimation(ImageHub.PEPE.dead);
+                if (this.checkIfDeadLongEnough()) {
+                    IntervalHub.stopAllIntervals();
+                }
             } else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
                 this.playAnimation(ImageHub.PEPE.walking);
             } else {
