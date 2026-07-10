@@ -7,11 +7,11 @@ export class Endboss extends MovableObject {
 
     constructor() {
         super().loadImage(ImageHub.ENDBOSS.alert[0]);
+        this.loadImage(ImageHub.ENDBOSS.dead[2]);
         this.loadImages(ImageHub.ENDBOSS.alert);
         this.loadImages(ImageHub.ENDBOSS.walking);
         this.loadImages(ImageHub.ENDBOSS.hurt);
         this.loadImages(ImageHub.ENDBOSS.dead);
-
 
         this.position_x = 3000;
         this.position_y = 150;
@@ -24,7 +24,7 @@ export class Endboss extends MovableObject {
             left: 50,
         };
         this.speed_X = 0.5;
-        this.energy = 300;
+        this.energy = 100;
 
         IntervalHub.startInterval(this.animate, 200);
     }
@@ -34,6 +34,10 @@ export class Endboss extends MovableObject {
             this.playAnimation(ImageHub.ENDBOSS.hurt);
         } else if (this.isDead()) {
             this.playAnimation(ImageHub.ENDBOSS.dead);
+            if (this.checkIfDeadLongEnough()) {
+                console.log(this.checkIfDeadLongEnough());
+                IntervalHub.stopAllIntervals();
+            }
         } else {
             this.playAnimation(ImageHub.ENDBOSS.walking);
             this.moveLeft();

@@ -175,24 +175,24 @@ export class World {
     };
 
     checkBottleCollisionWithEnemies = () => {
-        this.throwableBottles.forEach((bottle) => {
+        this.throwableBottles.forEach((bottle, i) => {
             this.level.enemyBabies.forEach((enemy) => {
                 if (enemy.isColliding(bottle)) {
-                    this.throwableBottles.splice(1,1);
+                    this.throwableBottles.splice(i,1);
                     enemy.isHit(20);
                 }
             });
 
             this.level.enemies.forEach((enemy) => {
-                if (enemy.isColliding(bottle)) {
-                    this.throwableBottles.splice(1,1);
+                if (enemy.isColliding(bottle, i)) {
+                    this.throwableBottles.splice(i,1);
                     enemy.isHit(20);
                 }
             });
 
             this.level.endBosses.forEach((enemy) => {
-                if (enemy.isColliding(bottle)) {
-                    this.throwableBottles.splice(1,1);
+                if (enemy.isColliding(bottle, i)) {
+                    this.throwableBottles.splice(i,1);
                     enemy.isHit(20);
                     this.endbossHealthBar.showPercentageStatusBar(enemy.energy);
                 }

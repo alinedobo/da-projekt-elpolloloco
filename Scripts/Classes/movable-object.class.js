@@ -12,6 +12,7 @@ export class MovableObject extends DrawableObject {
     lastHit = 0;
     showFrame = false;
     throwableObject = false;
+    timeOfDeath = 0;
     //#endregion
 
     //#region Methods
@@ -64,24 +65,22 @@ export class MovableObject extends DrawableObject {
         this.getRealFrame();
         mo.getRealFrame();
         return (
-            this.rX + this.rW > mo.rX
-            && this.rY + this.rH < mo.rY - 1
-            && this.rY + this.rH > mo.rY - 20
-            && this.rX < mo.rX + mo.rW
+            this.rX + this.rW > mo.rX &&
+            this.rY + this.rH < mo.rY - 1 &&
+            this.rY + this.rH > mo.rY - 20 &&
+            this.rX < mo.rX + mo.rW
         );
     }
 
-
     isHit(damage) {
         this.energy -= damage;
-        if (this.energy < 0) {
+        if (this.energy <= 0) {
             this.energy = 0;
+            this.timeOfDeath = new Date().getTime();
         } else {
             this.lastHit = new Date().getTime(); //timestamp: seconds passed since 01.01.1970
-            console.log(this.energy);
         }
     }
-
 
     isHurt() {
         let timePassed = new Date().getTime() - this.lastHit;
@@ -89,6 +88,11 @@ export class MovableObject extends DrawableObject {
         return timePassed < 1;
     }
 
+    checkIfDeadLongEnough = () => {
+        let timePassed = new Date().getTime() - this.timeOfDeath;
+        timePassed = timePassed / 1000; // time passed in ms
+        return timePassed > 3;
+    };
 
     isDead() {
         return this.energy == 0;
