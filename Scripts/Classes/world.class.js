@@ -191,12 +191,13 @@ export class World {
 
             this.level.endBosses.forEach((enemy) => {
                 if (enemy.isColliding(bottle)) {
-                    enemy.energy -= 20;
+                    enemy.isHit(20);
                     console.log(enemy.energy);
                 }
             });
         });
     };
+
 
     checkCollisionWithCoin = () => {
         for (let i = 0; i < this.level.coins.length; i++) {

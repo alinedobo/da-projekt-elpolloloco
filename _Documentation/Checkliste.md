@@ -21,18 +21,19 @@
 [x] Integrate status bar for bottles
 [x] Make Bottle defy gravity
 [x] Make Character throw bottles
-[ ] Collision between bottle and enemies
-[ ] Collision between bottle and baby enemies
-[ ] Collision bewteen bottle and endboss
+[x] Collision between bottle and enemies
+[x] Collision between bottle and baby enemies
+[x] Collision bewteen bottle and endboss
+[ ] Dyning animation Endboss
+[ ] Impelement sounds
+      [ ] Volume control
+[ ] Save sound settings to local storage
 [ ] Get font
 [ ] Start screen
       [ ]  Game rules explanation
       [ ] Start Button
 [ ] Win Screen
 [ ] Loose screen
-[ ] Impelement sounds
-      [ ] Volume control
-[ ] Save sound settings to local storage
 [ ] Make responsive
       [ ] Build div for buttons
 [ ] JSDOC comments & file

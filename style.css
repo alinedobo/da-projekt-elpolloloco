@@ -1,10 +1,73 @@
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* coustard-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Coustard";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./Assets/fonts/coustard-v19-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-canvas{
-    background: black;
+/* coustard-900 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Coustard";
+    font-style: normal;
+    font-weight: 900;
+    src: url("./Assets/fonts/coustard-v19-latin-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* https://pixabay.com/illustrations/dinosaur-desert-fantasy-background-7155713/ */
+/* https://pixabay.com/illustrations/ai-generated-sunset-desert-nature-8286299/ */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    background-color: black;
+    font-family: "Coustard";
+
+    h1 {
+        color: white;
+        font-size: 40px;
+    }
+
+    main {
+        border: 2px solid yellow;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        padding: 64px;
+        gap: 16px;
+        background-image: url("./Assets/img/background/thrashero-ai-generated-8286299.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        max-width: 1280px;
+
+        canvas {
+            background: black;
+        }
+
+        div {
+            background: rgb(255, 255, 255, 0.5);
+            border-radius: 8px;
+            padding: 8px 16px;
+            line-height: 1;
+            text-align: center;
+        }
+    }
+
+    header,
+    footer {
+        color: white;
+        height: 10dvh;
+        border: 2px solid pink;
+        width: 100%;
+        max-width: 1440px;
+    }
 }
