@@ -22,7 +22,7 @@ export class Enemy extends MovableObject {
             left: 5,
         };
         this.speed_X = 0.75 + Math.random();
-        this.energy = 60;
+        this.energy = 40;
 
         IntervalHub.startInterval(this.animate, 100);
     }

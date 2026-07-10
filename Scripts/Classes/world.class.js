@@ -136,7 +136,7 @@ export class World {
             if (this.character.isCollidingFromAbove(enemy)) {
                 enemy.energy = 0;
             } else if (this.character.isColliding(enemy)) {
-                this.character.hit(1);
+                this.character.isHit(1);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
@@ -148,7 +148,7 @@ export class World {
                 enemy.energy = 0;
                 console.log(enemy.energy);
             } else if (this.character.isColliding(enemy)) {
-                this.character.hit(1);
+                this.character.isHit(1);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
@@ -157,7 +157,7 @@ export class World {
     checkCollisionWithEndboss = () => {
         this.level.endBosses.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
-                this.character.hit(5);
+                this.character.isHit(5);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
@@ -179,13 +179,15 @@ export class World {
         this.throwableBottles.forEach((bottle) => {
             this.level.enemyBabies.forEach((enemy) => {
                 if (enemy.isColliding(bottle)) {
-                    enemy.energy = 0;
+                    enemy.isHit(20);
+                    this.throwableBottles.splice(1,1);
                 }
             });
 
             this.level.enemies.forEach((enemy) => {
                 if (enemy.isColliding(bottle)) {
-                    enemy.energy -= 20;
+                    enemy.isHit(20);
+                    this.throwableBottles.splice(1,1);
                 }
             });
 
@@ -193,10 +195,17 @@ export class World {
                 if (enemy.isColliding(bottle)) {
                     enemy.isHit(20);
                     console.log(enemy.energy);
+                    this.endbossHealthBar.showPercentageStatusBar(enemy.energy);
+                    this.throwableBottles.splice(1,1);
                 }
             });
         });
     };
+
+
+/*     inflictDamageWithBottle(){
+
+    } */
 
 
     checkCollisionWithCoin = () => {

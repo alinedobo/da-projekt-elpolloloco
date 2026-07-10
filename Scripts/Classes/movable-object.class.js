@@ -72,13 +72,14 @@ export class MovableObject extends DrawableObject {
     }
 
 
-    hit(damage) {
+    isHit(damage) {
         this.energy -= damage;
         if (this.energy < 0) {
             this.energy = 0;
         } else {
             this.lastHit = new Date().getTime(); //timestamp: seconds passed since 01.01.1970
             console.log(this.lastHit);
+            console.log(this.energy);
         }
     }
 
