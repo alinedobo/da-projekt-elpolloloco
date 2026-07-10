@@ -78,7 +78,6 @@ export class MovableObject extends DrawableObject {
             this.energy = 0;
         } else {
             this.lastHit = new Date().getTime(); //timestamp: seconds passed since 01.01.1970
-            console.log(this.lastHit);
             console.log(this.energy);
         }
     }

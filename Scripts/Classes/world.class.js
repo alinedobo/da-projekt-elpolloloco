@@ -146,7 +146,6 @@ export class World {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isCollidingFromAbove(enemy)) {
                 enemy.energy = 0;
-                console.log(enemy.energy);
             } else if (this.character.isColliding(enemy)) {
                 this.character.isHit(1);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
@@ -179,33 +178,27 @@ export class World {
         this.throwableBottles.forEach((bottle) => {
             this.level.enemyBabies.forEach((enemy) => {
                 if (enemy.isColliding(bottle)) {
-                    enemy.isHit(20);
                     this.throwableBottles.splice(1,1);
+                    enemy.isHit(20);
                 }
             });
 
             this.level.enemies.forEach((enemy) => {
                 if (enemy.isColliding(bottle)) {
-                    enemy.isHit(20);
                     this.throwableBottles.splice(1,1);
+                    enemy.isHit(20);
                 }
             });
 
             this.level.endBosses.forEach((enemy) => {
                 if (enemy.isColliding(bottle)) {
-                    enemy.isHit(20);
-                    console.log(enemy.energy);
-                    this.endbossHealthBar.showPercentageStatusBar(enemy.energy);
                     this.throwableBottles.splice(1,1);
+                    enemy.isHit(20);
+                    this.endbossHealthBar.showPercentageStatusBar(enemy.energy);
                 }
             });
         });
     };
-
-
-/*     inflictDamageWithBottle(){
-
-    } */
 
 
     checkCollisionWithCoin = () => {

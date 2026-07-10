@@ -9,6 +9,9 @@ export class Endboss extends MovableObject {
         super().loadImage(ImageHub.ENDBOSS.alert[0]);
         this.loadImages(ImageHub.ENDBOSS.alert);
         this.loadImages(ImageHub.ENDBOSS.walking);
+        this.loadImages(ImageHub.ENDBOSS.hurt);
+        this.loadImages(ImageHub.ENDBOSS.dead);
+
 
         this.position_x = 3000;
         this.position_y = 150;
@@ -20,14 +23,20 @@ export class Endboss extends MovableObject {
             bottom: 60,
             left: 50,
         };
-        this.speed_X = 0.5 + Math.random();
-        this.energy = 100;
+        this.speed_X = 0.5;
+        this.energy = 300;
 
-        IntervalHub.startInterval(this.animate, 1000);
+        IntervalHub.startInterval(this.animate, 200);
     }
 
     animate = () => {
-        this.playAnimation(ImageHub.ENDBOSS.walking);
-        this.moveLeft();
+        if (this.isHurt()) {
+            this.playAnimation(ImageHub.ENDBOSS.hurt);
+        } else if (this.isDead()) {
+            this.playAnimation(ImageHub.ENDBOSS.dead);
+        } else {
+            this.playAnimation(ImageHub.ENDBOSS.walking);
+            this.moveLeft();
+        }
     };
 }
