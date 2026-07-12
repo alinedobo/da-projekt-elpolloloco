@@ -28,12 +28,12 @@
 [ ] Impelement sounds
       [ ] Volume control
 [ ] Save sound settings to local storage
-[ ] Get font
-[ ] Start screen
-      [ ] Game rules explanation
-      [ ] Start Button
-[ ] Win Screen
-[ ] Loose screen
+[x] Get font
+[x] Start screen
+      [x] Game rules explanation
+      [x] Start Button
+[x] Win Screen
+[x] Loose screen
 [ ] Make responsive
       [ ] Build div for buttons
 [ ] JSDOC comments & file
@@ -77,7 +77,7 @@ Als Benutzer möchte ich einen Charakter spielen, welcher durchgehend animiert i
 - [x] Die Idle-Animation muss vorhanden sein - grundsätzlich ist der Charakter immer in der Idle-Animation, wenn er nichts anderes tut.  
 - [ ] Die Sleep Animation sollte nach spätestens 15 sec. idle eintreten. 
 - [x] Der Charakter kann Coins und Flaschen / Blubberblasen einsammeln, hierbei sollte sich seine Statusbar aktualisieren.  
-- [ ] **Pollo Loco:** Der Charakter kann Flaschen werfen, normale Gegner werden bei einem Treffer getötet und dem Endboss wird Schaden zugefügt, auch die Statusbar reduziert sich nach einem Wurf.
+- [x] **Pollo Loco:** Der Charakter kann Flaschen werfen, normale Gegner werden bei einem Treffer getötet und dem Endboss wird Schaden zugefügt, auch die Statusbar reduziert sich nach einem Wurf.
 
 
 ### **Gegner:** {#gegner:}
@@ -120,10 +120,10 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 
 
 ### **Design** {#design}
-- [ ] Bitte setze das Design bestmöglich um, sei dabei auch etwas kreativ  
-- [ ] Richtige Schriftart ausgewählt & lokal eingebunden  
+- [x] Bitte setze das Design bestmöglich um, sei dabei auch etwas kreativ  
+- [x] Richtige Schriftart ausgewählt & lokal eingebunden  
 - [x] Favicon vorhanden  
-- [ ] Haben Buttons die CSS Eigenschaft cursor: pointer; ?
+- [x] Haben Buttons die CSS Eigenschaft cursor: pointer; ?
 
 
 ### **Responsiveness** {#responsiveness}
@@ -150,8 +150,8 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 - [ ] Max 400 LOCs (Lines of Code) pro Datei  
 - [x] Dateien sind richtig benannt: index.html, script.js, style.css  
 - [ ] Ggf. HTML Code in extra Funktion  
-- [ ] Extra Ordner für templates und Bilder (img)  
-- [ ] Statischer HTML Code wird nicht über JavaScript generiert  
+- [x] Extra Ordner für templates und Bilder (img)  
+- [x] Statischer HTML Code wird nicht über JavaScript generiert  
 - [ ] Funktionen sind nach JSDoc Standard dokumentiert: [https://jsdoc.app/about-getting-started.html](https://jsdoc.app/about-getting-started.html)
 
 
@@ -162,7 +162,7 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 - [ ] Zu starke / zu schwache Gegner  
 - [ ] Gegner stirbt auch, wenn ich neben ihn springe  
 - [ ] Die Statusbars werden nicht korrekt aktualisiert  
-- [ ] Charakter sollte nach Ableben unbeweglich sein.  
+- [x] Charakter sollte nach Ableben unbeweglich sein.  
 - [ ] Starten / Stoppen Sounds richtig ?  
 - [ ] Mute Button stoppt alle Sounds? Sind die Sounds zu laut?  
 - [ ] Besteht die Möglichkeit zum Neustart nach GameOver?  
