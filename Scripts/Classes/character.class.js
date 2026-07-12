@@ -20,7 +20,7 @@ export class Character extends MovableObject {
         left: 30,
     };
     showFrame = true;
-    energy = 100;
+    energy = 10;
 
     constructor() {
         super().loadImage(ImageHub.PEPE.walking[0]);

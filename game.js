@@ -9,10 +9,6 @@ const startButtonRef = document.getElementById("start-button");
 
 
 function init() {
-    canvas = document.getElementById("canvas");
-    world = new World(canvas);
-    canvasRef.classList.add("display-none");
-
     startScreenRef.classList.remove("display-none");
     startButtonRef.addEventListener("click", startGame);
 }
@@ -20,6 +16,9 @@ function init() {
 window.onload = init;
 
 function startGame() {
+    canvas = document.getElementById("canvas");
+    world = new World(canvas);
+
     startScreenRef.classList.add("display-none");
     canvasRef.classList.remove("display-none");
 }
