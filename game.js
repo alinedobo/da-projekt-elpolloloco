@@ -23,3 +23,15 @@ function startGame() {
     startScreenRef.classList.add("display-none");
     canvasRef.classList.remove("display-none");
 }
+
+
+const playAgainButtonRef = document.getElementById('play-again');
+playAgainButtonRef.addEventListener("click", restartGame);
+
+const tryAgainButtonRef = document.getElementById('try-again');
+tryAgainButtonRef.addEventListener("click", restartGame);
+
+
+function restartGame(){
+    window.location.reload();
+}
