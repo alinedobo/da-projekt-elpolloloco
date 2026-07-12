@@ -45,6 +45,8 @@ export class World {
         this.setWorld();
         this.checkCollisions();
         IntervalHub.startInterval(this.checkThrowBottle, 50);
+        IntervalHub.startInterval(this.checkGameLost, 50);
+        IntervalHub.startInterval(this.checkGameWon, 50);
     }
 
     //#region Methods
@@ -178,28 +180,27 @@ export class World {
         this.throwableBottles.forEach((bottle, i) => {
             this.level.enemyBabies.forEach((enemy) => {
                 if (enemy.isColliding(bottle)) {
-                    this.throwableBottles.splice(i,1);
+                    this.throwableBottles.splice(i, 1);
                     enemy.isHit(20);
                 }
             });
 
             this.level.enemies.forEach((enemy) => {
                 if (enemy.isColliding(bottle, i)) {
-                    this.throwableBottles.splice(i,1);
+                    this.throwableBottles.splice(i, 1);
                     enemy.isHit(20);
                 }
             });
 
             this.level.endBosses.forEach((enemy) => {
                 if (enemy.isColliding(bottle, i)) {
-                    this.throwableBottles.splice(i,1);
+                    this.throwableBottles.splice(i, 1);
                     enemy.isHit(20);
                     this.endbossHealthBar.showPercentageStatusBar(enemy.energy);
                 }
             });
         });
     };
-
 
     checkCollisionWithCoin = () => {
         for (let i = 0; i < this.level.coins.length; i++) {
@@ -244,6 +245,33 @@ export class World {
         let percentage = (this.collectedBottles / this.totalBottles) * 100;
         this.bottleBar.showPercentageStatusBar(percentage);
     }
+
+    checkGameLost = () => {
+        if (this.character.isDead() && this.character.checkIfDeadLongEnough()) {
+            IntervalHub.stopAllIntervals();
+
+            const loserScreenRef = document.getElementById("you-lost");
+            loserScreenRef.classList.remove("display-none");
+
+            const canvasRef = document.getElementById("canvas");
+            canvasRef.classList.add("display-none");
+        }
+    };
+
+    checkGameWon = () => {
+        this.level.endBosses.forEach((enemy) => {
+            if (enemy.isDead() && enemy.checkIfDeadLongEnough()) {
+                console.log("endboss has died");
+                IntervalHub.stopAllIntervals();
+
+                const WinnerScreenRef = document.getElementById("you-won");
+                WinnerScreenRef.classList.remove("display-none");
+
+                const canvasRef = document.getElementById("canvas");
+                canvasRef.classList.add("display-none");
+            }
+        });
+    };
 
     //#endregion
 }

@@ -1,6 +1,7 @@
 import { ImageHub } from "../Helpers/image-hub.js";
 import { IntervalHub } from "../Helpers/interval-hub.js";
 import { MovableObject } from "./movable-object.class.js";
+import { World } from "./world.class.js";
 
 export class Endboss extends MovableObject {
     showFrame = true;
@@ -34,9 +35,6 @@ export class Endboss extends MovableObject {
             this.playAnimation(ImageHub.ENDBOSS.hurt);
         } else if (this.isDead()) {
             this.playAnimation(ImageHub.ENDBOSS.dead);
-            if (this.checkIfDeadLongEnough()) {
-                IntervalHub.stopAllIntervals();
-            }
         } else {
             this.playAnimation(ImageHub.ENDBOSS.walking);
             this.moveLeft();

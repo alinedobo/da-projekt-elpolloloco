@@ -71,9 +71,6 @@ export class Character extends MovableObject {
                 this.playAnimation(ImageHub.PEPE.hurt);
             } else if (this.isDead()) {
                 this.playAnimation(ImageHub.PEPE.dead);
-                if (this.checkIfDeadLongEnough()) {
-                    IntervalHub.stopAllIntervals();
-                }
             } else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
                 this.playAnimation(ImageHub.PEPE.walking);
             } else {

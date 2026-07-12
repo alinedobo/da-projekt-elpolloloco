@@ -24,13 +24,13 @@
 [x] Collision between bottle and enemies
 [x] Collision between bottle and baby enemies
 [x] Collision bewteen bottle and endboss
-[ ] Dyning animation Endboss
+[x] Dying animation Endboss
 [ ] Impelement sounds
       [ ] Volume control
 [ ] Save sound settings to local storage
 [ ] Get font
 [ ] Start screen
-      [ ]  Game rules explanation
+      [ ] Game rules explanation
       [ ] Start Button
 [ ] Win Screen
 [ ] Loose screen
