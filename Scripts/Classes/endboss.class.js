@@ -1,5 +1,6 @@
 import { ImageHub } from "../Helpers/image-hub.js";
 import { IntervalHub } from "../Helpers/interval-hub.js";
+import { SoundHub } from "../Helpers/sound-hub.js";
 import { MovableObject } from "./movable-object.class.js";
 import { World } from "./world.class.js";
 
@@ -26,6 +27,7 @@ export class Endboss extends MovableObject {
         };
         this.speed_X = 0.5;
         this.energy = 100;
+        this.dyingSound = SoundHub.CHICKEN_DEAD;
 
         IntervalHub.startInterval(this.animate, 200);
     }

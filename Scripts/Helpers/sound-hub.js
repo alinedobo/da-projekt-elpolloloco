@@ -4,8 +4,6 @@ export class SoundHub {
     static PEPE_JUMP = new Audio("./Assets/sounds/sounds/character/characterJump.wav");
     static PEPE_RUN = new Audio("./Assets/sounds/sounds/character/characterRun.mp3",);
     static PEPE_SNORING = new Audio("./Assets/sounds/sounds/character/characterSnoring.mp3");
-
-
     static CHICKEN_DEAD = new Audio('./Assets/sounds/sounds/chicken/chickenDead.mp3');
     static CHICK_DEAD = new Audio('./Assets/sounds/sounds/chicken/chickenDead2.mp3');
     static ENDBOSS_APPROACH = new Audio('./Assets/sounds/sounds/endboss/endbossApproach.wav');
@@ -57,7 +55,7 @@ export class SoundHub {
 
     // Pausiert das Abspielen aller Audiodateien
     static pauseAll() {
-        SoundHub.allSounds.forEach((sound) => {
+        SoundHub.ALL_SOUNDS.forEach((sound) => {
             sound.pause(); // Pausiert jedes Audio in der Liste
         });
 /*         document.getElementById("volume").value = 0.2; // Setzt den Sound-Slider wieder auf 0.2

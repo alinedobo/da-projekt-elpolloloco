@@ -1,4 +1,5 @@
 import { IntervalHub } from "../Helpers/interval-hub.js";
+import { SoundHub } from "../Helpers/sound-hub.js";
 import { DrawableObject } from "./drawable-object.class.js";
 
 export class MovableObject extends DrawableObject {
@@ -13,6 +14,8 @@ export class MovableObject extends DrawableObject {
     showFrame = false;
     throwableObject = false;
     timeOfDeath = 0;
+    dyingSound;
+    hitSound;
     //#endregion
 
     //#region Methods

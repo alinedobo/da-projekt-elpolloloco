@@ -1,5 +1,6 @@
 import { ImageHub } from "../Helpers/image-hub.js";
 import { IntervalHub } from "../Helpers/interval-hub.js";
+import { SoundHub } from "../Helpers/sound-hub.js";
 import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 
@@ -23,6 +24,7 @@ export class Enemy extends MovableObject {
         };
         this.speed_X = 0.75 + Math.random();
         this.energy = 40;
+        this.dyingSound = SoundHub.CHICKEN_DEAD;
 
         IntervalHub.startInterval(this.animate, 100);
     }

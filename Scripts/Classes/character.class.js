@@ -22,6 +22,8 @@ export class Character extends MovableObject {
     };
     showFrame = true;
     energy = 100;
+    hitSound = SoundHub.PEPE_DAMAGE;
+    dyingSound = SoundHub.PEPE_DEAD;
 
     constructor() {
         super().loadImage(ImageHub.PEPE.walking[0]);

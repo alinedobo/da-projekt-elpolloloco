@@ -142,6 +142,7 @@ export class World {
                 enemy.energy = 0;
             } else if (this.character.isColliding(enemy)) {
                 this.character.isHit(1);
+                SoundHub.playOne(this.character.hitSound);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
@@ -151,6 +152,7 @@ export class World {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isCollidingFromAbove(enemy)) {
                 enemy.energy = 0;
+                SoundHub.playOne(enemy.dyingSound);
             } else if (this.character.isColliding(enemy)) {
                 this.character.isHit(1);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
@@ -175,6 +177,7 @@ export class World {
                 this.level.collectableBottles.splice(i, 1);
                 this.collectedBottles++;
                 this.updateBottleStatusBar();
+                SoundHub.playOne(SoundHub.BOTTLE_COLLECT);
             }
         }
     };
@@ -184,21 +187,27 @@ export class World {
             this.level.enemyBabies.forEach((enemy) => {
                 if (enemy.isColliding(bottle)) {
                     this.throwableBottles.splice(i, 1);
+                    SoundHub.playOne(SoundHub.BOTTLE_THROW);
                     enemy.isHit(20);
+                    SoundHub.playOne(enemy.dyingSound);
                 }
             });
 
             this.level.enemies.forEach((enemy) => {
                 if (enemy.isColliding(bottle, i)) {
                     this.throwableBottles.splice(i, 1);
+                    SoundHub.playOne(SoundHub.BOTTLE_THROW);
                     enemy.isHit(20);
+                    SoundHub.playOne(enemy.dyingSound);
                 }
             });
 
             this.level.endBosses.forEach((enemy) => {
                 if (enemy.isColliding(bottle, i)) {
                     this.throwableBottles.splice(i, 1);
+                    SoundHub.playOne(SoundHub.BOTTLE_THROW);
                     enemy.isHit(20);
+                    SoundHub.playOne(enemy.dyingSound);
                     this.endbossHealthBar.showPercentageStatusBar(enemy.energy);
                 }
             });
@@ -212,6 +221,7 @@ export class World {
             if (this.character.isColliding(coin)) {
                 this.level.coins.splice(i, 1);
                 this.collectedCoins++;
+                SoundHub.playOne(SoundHub.COIN_COLLECT);
 
                 let percentage =
                     ((this.collectedCoins - 1) / this.totalCoins) * 100;
