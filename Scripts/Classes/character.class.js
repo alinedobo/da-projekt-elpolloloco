@@ -38,6 +38,7 @@ export class Character extends MovableObject {
         this.loadImages(ImageHub.PEPE.sleeping);
 
         IntervalHub.startInterval(this.applyGravity, 1000 / 25);
+        IntervalHub.startInterval(this.playSound, 50);
         this.animate();
         this.getRealFrame();
     }
@@ -79,11 +80,29 @@ export class Character extends MovableObject {
                 this.speed_X = 0;
             } else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
                 this.playAnimation(ImageHub.PEPE.walking);
-            } else if (this.checkIfSleeping()){
+            } else if (this.checkIfSleeping()) {
                 this.playAnimation(ImageHub.PEPE.sleeping);
             } else {
                 this.playAnimation(ImageHub.PEPE.idle);
             }
         }, 100);
     }
+
+    playSound = () => {
+        if (this.checkIfSleeping()) {
+            SoundHub.playOne(SoundHub.PEPE_SNORING);
+        }
+        
+        if (!this.checkIfSleeping()) {
+            SoundHub.pauseOne(SoundHub.PEPE_SNORING);
+        }
+        
+        if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
+            SoundHub.playOne(SoundHub.PEPE_RUN);
+        }
+        
+        if (!Keyboard.KEY_RIGHT && !Keyboard.KEY_LEFT) {
+            SoundHub.pauseOne(SoundHub.PEPE_RUN);
+        }
+    };
 }

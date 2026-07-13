@@ -51,23 +51,24 @@ Bitte erfülle alle Punkte auf dieser Liste, bevor du das Projekt einreichst. So
 ### **Spielerklärung:** {#spielerklärung:}
 Als Benutzer möchte ich eine ansprechende Landingpage haben, die mir auch erklärt, wie das Spiel funktionieren soll, dafür kann ich z.B. einen Button anklicken und es öffnet sich ein Dialog, in dem alles erklärt wird. Der Dialog schließt sich wieder, wenn ich neben ihn oder auf ein X klicke. 
 
-- [ ] Die Seite hat ein Hintergrundbild welches zum Thema passt  
-- [ ] Die Schriftart ist angepasst  
-- [ ] Es gibt eine Möglichkeit die Tastenbelegung des Spiels nachzuschauen  
+- [x] Die Seite hat ein Hintergrundbild welches zum Thema passt  
+- [x] Die Schriftart ist angepasst  
+- [x] Es gibt eine Möglichkeit die Tastenbelegung des Spiels nachzuschauen  
 - [ ] **Optional:** Es gibt eine Story-Erklärung.  
 - [ ] **Optional:** Man kann das Spiel in den Fullscreen Modus schalten.
 
 
 ### **Spiel:** {#spiel:}
 Als Benutzer möchte ich das Spiel über einen Start Button starten können, um dann ein schönes funktionierendes Spiel zu sehen, hierbei sollte auf einiges geachtet werden, damit man als Benutzer eine gute Spielerfahrung hat.
-- [ ] Es gibt einen Button, der das Spiel startet.  
+- [x] Es gibt einen Button, der das Spiel startet.  
 - [x] Wenn das Spiel startet, sollte man nicht direkt von Gegnern überrannt werden.  
 - [x] Der Hintergrund des Spiels ist gleichmäßig und hat keine Lücken.  
 - [ ] Das Spiel verfügt über Hintergrundmusik und zusätzliche Soundeffekte. 
 - [ ] Alle Sounds können jederzeit über einen Button stummgeschaltet werden.
 - [ ] Der Status des Mute-Buttons wird dabei im Local Storage gespeichert.  
-- [ ] Wenn das Spiel gewonnen oder verloren ist, wird mir ein Endscreen gezeigt. 
-- [ ] Es sollte die Möglichkeit zum Restart des Spiels sowie die Möglichkeit zum Verlassen des Spiels gegeben sein (zurück zum Home Screen).
+- [x] Wenn das Spiel gewonnen oder verloren ist, wird mir ein Endscreen gezeigt. 
+- [x] Es sollte die Möglichkeit zum Restart des Spiels
+- [ ] sowie die Möglichkeit zum Verlassen des Spiels gegeben sein (zurück zum Home Screen).
 
 
 ### **Charakter:** {#charakter:}
@@ -75,7 +76,7 @@ Als Benutzer möchte ich einen Charakter spielen, welcher durchgehend animiert i
 - [x] Wenn der Charakter springt wird eine flüssige Sprunganimation ausgeführt  
 - [x] Die Animationen des Charakters sind grundsätzlich flüssig, auch wenn er verletzt wird oder springt.  
 - [x] Die Idle-Animation muss vorhanden sein - grundsätzlich ist der Charakter immer in der Idle-Animation, wenn er nichts anderes tut.  
-- [ ] Die Sleep Animation sollte nach spätestens 15 sec. idle eintreten. 
+- [x] Die Sleep Animation sollte nach spätestens 15 sec. idle eintreten. 
 - [x] Der Charakter kann Coins und Flaschen / Blubberblasen einsammeln, hierbei sollte sich seine Statusbar aktualisieren.  
 - [x] **Pollo Loco:** Der Charakter kann Flaschen werfen, normale Gegner werden bei einem Treffer getötet und dem Endboss wird Schaden zugefügt, auch die Statusbar reduziert sich nach einem Wurf.
 
@@ -87,7 +88,7 @@ Als Benutzer möchte ich herausfordernde verschiedene Gegner haben, jedoch sollt
 - [x] Die Animationen der Gegner sind flüssig, auch wenn sie verletzt und getötet werden.  
 - [x] Gegner, die man z.B. durch Springen besiegen kann, sollten nur sterben, wenn man von oben auf sie springt.  
 - [x] Die Offsets der Gegner sollten passen. (Wenn ich auf einen Gegner springe, stirbt dieser nur, wenn ich ihn auch treffe.)  
-- [ ] Die Gegner haben zu ihren verschiedenen Animationen auch Sounds, z.B. könnte der Endboss in EPL laut gackern, wenn er getroffen wird und Schaden erleidet.
+- [x] Die Gegner haben zu ihren verschiedenen Animationen auch Sounds, z.B. könnte der Endboss in EPL laut gackern, wenn er getroffen wird und Schaden erleidet.
 
 3. ## **Sonstiges** {#sonstiges}
 
@@ -110,7 +111,7 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 - [x] Nutze GitHub von Anfang an. Denk dran: Dein GitHub-Profil ist deine Visitenkarte für Arbeitgeber – nutze diese Chance\!  
 - [x] Committe nach jeder Coding-Session  
 - [x] Verwende klare, aussagekräftige Commit-Messages  
-- [ ] Verwende *.gitignore* verwenden, um unnötige Dateien auszuschließen  
+- [x] Verwende *.gitignore* verwenden, um unnötige Dateien auszuschließen  
 - [x] Halte dein Repository aktuell und gepflegt
 
 
@@ -156,17 +157,17 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 
 
 ### **Vermeide diese häufigen Fehler** {#vermeide-diese-häufigen-fehler}
-- [ ] Animationen sehen nicht gut aus, da sie zu schnell oder zu langsam abgespielt werden.  
-- [ ] Es gibt Lücken zwischen den Hintergrundbildern  
-- [ ] Zu wenige / zu viele Gegner  
-- [ ] Zu starke / zu schwache Gegner  
-- [ ] Gegner stirbt auch, wenn ich neben ihn springe  
-- [ ] Die Statusbars werden nicht korrekt aktualisiert  
+- [x] Animationen sehen nicht gut aus, da sie zu schnell oder zu langsam abgespielt werden.  
+- [x] Es gibt Lücken zwischen den Hintergrundbildern  
+- [x] Zu wenige / zu viele Gegner  
+- [x] Zu starke / zu schwache Gegner  
+- [x] Gegner stirbt auch, wenn ich neben ihn springe  
+- [x] Die Statusbars werden nicht korrekt aktualisiert  
 - [x] Charakter sollte nach Ableben unbeweglich sein.  
 - [ ] Starten / Stoppen Sounds richtig ?  
 - [ ] Mute Button stoppt alle Sounds? Sind die Sounds zu laut?  
-- [ ] Besteht die Möglichkeit zum Neustart nach GameOver?  
-- [ ] Restart soll nicht über Reload der Seite gelöst sein.  
+- [x] Besteht die Möglichkeit zum Neustart nach GameOver?  
+- [x] Restart soll nicht über Reload der Seite gelöst sein.  
 - [ ] mobile  
 - [ ] Buttons funktionieren nicht auf dem Tablet  
 - [ ] keine echten Daten im Impressum  

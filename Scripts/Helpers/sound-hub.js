@@ -58,19 +58,17 @@ export class SoundHub {
         SoundHub.ALL_SOUNDS.forEach((sound) => {
             sound.pause(); // Pausiert jedes Audio in der Liste
         });
-/*         document.getElementById("volume").value = 0.2; // Setzt den Sound-Slider wieder auf 0.2
-        const instrumentImages = document.querySelectorAll(".sound_img"); // nur wichtig für die Visualisierung
-        instrumentImages.forEach((img) => img.classList.remove("active")); // nur wichtig für die Visualisierung */
     }
 
 
     // Pausiert das Abspielen einer einzelnen Audiodatei
-    static pauseOne(sound, instrumentId) {
+    static pauseOne(sound) {
         sound.pause(); // Pausiert das übergebene Audio
-        const instrumentImg = document.getElementById(instrumentId); // nur wichtig für die Visualisierung
-        instrumentImg.classList.remove("active"); // nur wichtig für die Visualisierung
     }
 
+
+
+    
     // ##########################################################################################################################
     // ################################################  Sound Slider - BONUS !  ################################################
     // Setzt die Lautstärke für alle Audiodateien
