@@ -1,6 +1,7 @@
 import { ImageHub } from "../Helpers/image-hub.js";
 import { IntervalHub } from "../Helpers/interval-hub.js";
 import { Keyboard } from "../Helpers/keyboard.js";
+import { SoundHub } from "../Helpers/sound-hub.js";
 import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 import { World } from "./world.class.js";
@@ -45,13 +46,11 @@ export class Character extends MovableObject {
                 // for the character to access the value level_end_x in level, we need to go up into the world and back down into the world
                 this.moveRight();
                 this.reverseDirection = false;
-                // Missing the sound here
             }
 
             if (Keyboard.KEY_LEFT && this.position_x > 0) {
                 this.moveLeft();
                 this.reverseDirection = true;
-                // Missing the sound here
             }
 
             if (
@@ -59,8 +58,8 @@ export class Character extends MovableObject {
                 !this.isAboveGround()
             ) {
                 this.jump();
+                SoundHub.playOne(SoundHub.PEPE_JUMP);
             }
-
             this.world.camera_x = -this.position_x + 100;
         }, 1000 / 60);
 

@@ -2,6 +2,7 @@ import { ElementHub } from "../Helpers/element-hub.js";
 import { ImageHub } from "../Helpers/image-hub.js";
 import { IntervalHub } from "../Helpers/interval-hub.js";
 import { Keyboard } from "../Helpers/keyboard.js";
+import { SoundHub } from "../Helpers/sound-hub.js";
 import { level1 } from "../Levels/level-01.js";
 import { BackgroundObject } from "./background-object.class.js";
 import { Character } from "./character.class.js";
@@ -48,6 +49,7 @@ export class World {
         IntervalHub.startInterval(this.checkThrowBottle, 50);
         IntervalHub.startInterval(this.checkGameLost, 50);
         IntervalHub.startInterval(this.checkGameWon, 50);
+        SoundHub.playOne(SoundHub.GAME_START);
     }
 
     //#region Methods
@@ -250,6 +252,7 @@ export class World {
     checkGameLost = () => {
         if (this.character.isDead() && this.character.checkIfDeadLongEnough()) {
             IntervalHub.stopAllIntervals();
+            SoundHub.pauseAll();
 
             ElementHub.canvasRef.classList.add("display-none");
             ElementHub.loserScreenRef.classList.remove("display-none");
@@ -260,6 +263,7 @@ export class World {
         this.level.endBosses.forEach((enemy) => {
             if (enemy.isDead() && enemy.checkIfDeadLongEnough()) {
                 IntervalHub.stopAllIntervals();
+                SoundHub.pauseAll();
 
                 ElementHub.canvasRef.classList.add("display-none");
                 ElementHub.winnerScreenRef.classList.remove("display-none");

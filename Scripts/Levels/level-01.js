@@ -6,7 +6,6 @@ import { Endboss } from "../Classes/endboss.class.js";
 import { EnemyBaby } from "../Classes/enemy-baby.class.js";
 import { Enemy } from "../Classes/enemy.class.js";
 import { Level } from "../Classes/level.class.js";
-CollectableBottle
 
 export const level1 = new Level(
     [
