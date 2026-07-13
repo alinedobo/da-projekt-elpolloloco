@@ -24,7 +24,7 @@ import { ThrowableBottle } from "./throwable-bottle.class.js";
 export class World {
     //#region Properties
     character = new Character();
-    level = level1;
+    level;
     ctx;
     canvas;
     camera_x = 0;
@@ -41,6 +41,7 @@ export class World {
     //#endregion
 
     constructor(canvas) {
+        this.level = level1;
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
         this.draw();

@@ -7,7 +7,11 @@ import { EnemyBaby } from "../Classes/enemy-baby.class.js";
 import { Enemy } from "../Classes/enemy.class.js";
 import { Level } from "../Classes/level.class.js";
 
-export const level1 = new Level(
+
+export let level1;
+
+export function initLevel(){
+    level1 = new Level(
     [
         new EnemyBaby(),
         new EnemyBaby(),
@@ -138,3 +142,4 @@ export const level1 = new Level(
 
     [new CollectableBottle(), new CollectableBottle(), new CollectableBottle(), new CollectableBottle(), new CollectableBottle()],
 );
+}
