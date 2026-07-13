@@ -1,3 +1,4 @@
+import { ElementHub } from "../Helpers/element-hub.js";
 import { ImageHub } from "../Helpers/image-hub.js";
 import { IntervalHub } from "../Helpers/interval-hub.js";
 import { Keyboard } from "../Helpers/keyboard.js";
@@ -250,11 +251,8 @@ export class World {
         if (this.character.isDead() && this.character.checkIfDeadLongEnough()) {
             IntervalHub.stopAllIntervals();
 
-            const loserScreenRef = document.getElementById("you-lost");
-            loserScreenRef.classList.remove("display-none");
-
-            const canvasRef = document.getElementById("canvas");
-            canvasRef.classList.add("display-none");
+            ElementHub.loserScreenRef.classList.remove("display-none");
+            ElementHub.canvas.classList.add("display-none");
         }
     };
 
@@ -264,11 +262,8 @@ export class World {
                 console.log("endboss has died");
                 IntervalHub.stopAllIntervals();
 
-                const WinnerScreenRef = document.getElementById("you-won");
-                WinnerScreenRef.classList.remove("display-none");
-
-                const canvasRef = document.getElementById("canvas");
-                canvasRef.classList.add("display-none");
+                ElementHub.WinnerScreenRef.classList.remove("display-none");
+                ElementHub.canvas.classList.add("display-none");
             }
         });
     };
