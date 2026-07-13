@@ -114,7 +114,7 @@ export class World {
         // If we want to character t have access to the world (i.e. the camera showing the world), we need to give it access to said world
         // this method says: "this character's world (property 'world') is this world (this instance of the class World)"
         // meaning the character has now access to everyhting in the world
-        this.level.enemies.forEach((enemy) => {
+/*         this.level.enemies.forEach((enemy) => {
             enemy.world = this;
         });
         this.level.enemyBabies.forEach((enemy) => {
@@ -122,7 +122,7 @@ export class World {
         });
         this.level.endBosses.forEach((enemy) => {
             enemy.world = this;
-        });
+        }); */
     }
 
     checkCollisions() {
@@ -251,19 +251,18 @@ export class World {
         if (this.character.isDead() && this.character.checkIfDeadLongEnough()) {
             IntervalHub.stopAllIntervals();
 
+            ElementHub.canvasRef.classList.add("display-none");
             ElementHub.loserScreenRef.classList.remove("display-none");
-            ElementHub.canvas.classList.add("display-none");
         }
     };
 
     checkGameWon = () => {
         this.level.endBosses.forEach((enemy) => {
             if (enemy.isDead() && enemy.checkIfDeadLongEnough()) {
-                console.log("endboss has died");
                 IntervalHub.stopAllIntervals();
 
-                ElementHub.WinnerScreenRef.classList.remove("display-none");
-                ElementHub.canvas.classList.add("display-none");
+                ElementHub.canvasRef.classList.add("display-none");
+                ElementHub.winnerScreenRef.classList.remove("display-none");
             }
         });
     };

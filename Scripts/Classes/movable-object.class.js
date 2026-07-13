@@ -91,7 +91,6 @@ export class MovableObject extends DrawableObject {
     checkIfDeadLongEnough = () => {
         let timePassed = new Date().getTime() - this.timeOfDeath;
         timePassed = timePassed / 1000; // time passed in ms
-        console.log(timePassed);
         return timePassed > 2;
     };
 
