@@ -1,4 +1,5 @@
 import { World } from "./Scripts/Classes/world.class.js";
+import { ElementHub } from "./Scripts/Helpers/element-hub.js";
 
 let canvas;
 let world;
@@ -6,7 +7,6 @@ let world;
 const startScreenRef = document.getElementById("start-screen");
 const canvasRef = document.getElementById("canvas");
 const startButtonRef = document.getElementById("start-button");
-
 
 function init() {
     startScreenRef.classList.remove("display-none");
@@ -19,18 +19,16 @@ function startGame() {
     canvas = document.getElementById("canvas");
     world = new World(canvas);
 
-    startScreenRef.classList.add("display-none");
-    canvasRef.classList.remove("display-none");
+    ElementHub.startScreenRef.classList.add("display-none");
+    ElementHub.canvas.classList.remove("display-none");
 }
 
-
-const playAgainButtonRef = document.getElementById('play-again');
-playAgainButtonRef.addEventListener("click", restartGame);
-
-const tryAgainButtonRef = document.getElementById('try-again');
-tryAgainButtonRef.addEventListener("click", restartGame);
+ElementHub.playAgainButtonRef.addEventListener("click", restartGame);
+ElementHub.tryAgainButtonRef.addEventListener("click", restartGame);
 
 
-function restartGame(){
-    window.location.reload();
+function restartGame() {
+    ElementHub.startScreenRef.classList.add("display-none");
+    ElementHub.canvas.classList.remove("display-none");
+    world = new World(canvas);
 }
