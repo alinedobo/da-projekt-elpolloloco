@@ -263,7 +263,8 @@ export class World {
     checkGameLost = () => {
         if (this.character.isDead() && this.character.checkIfDeadLongEnough()) {
             IntervalHub.stopAllIntervals();
-            SoundHub.pauseAll();
+
+            SoundHub.playOne(SoundHub.PEPE_DEAD);
 
             ElementHub.canvasRef.classList.add("display-none");
             ElementHub.loserScreenRef.classList.remove("display-none");
@@ -274,7 +275,8 @@ export class World {
         this.level.endBosses.forEach((enemy) => {
             if (enemy.isDead() && enemy.checkIfDeadLongEnough()) {
                 IntervalHub.stopAllIntervals();
-                SoundHub.pauseAll();
+
+                SoundHub.playOne(SoundHub.GAME_START);
 
                 ElementHub.canvasRef.classList.add("display-none");
                 ElementHub.winnerScreenRef.classList.remove("display-none");

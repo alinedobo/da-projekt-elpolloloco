@@ -9,7 +9,7 @@ import { World } from "./world.class.js";
 export class Character extends MovableObject {
     world;
     position_x = 20;
-    position_y = 50;
+    position_y = 240;
     height = 200;
     width = 100;
     speed_X = 5;
@@ -22,8 +22,11 @@ export class Character extends MovableObject {
     };
     showFrame = true;
     energy = 100;
+
     hitSound = SoundHub.PEPE_DAMAGE;
     dyingSound = SoundHub.PEPE_DEAD;
+
+    lastMovement;
 
     constructor() {
         super().loadImage(ImageHub.PEPE.walking[0]);
@@ -32,6 +35,7 @@ export class Character extends MovableObject {
         this.loadImages(ImageHub.PEPE.hurt);
         this.loadImages(ImageHub.PEPE.dead);
         this.loadImages(ImageHub.PEPE.idle);
+        this.loadImages(ImageHub.PEPE.sleeping);
 
         IntervalHub.startInterval(this.applyGravity, 1000 / 25);
         this.animate();
@@ -75,6 +79,8 @@ export class Character extends MovableObject {
                 this.speed_X = 0;
             } else if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
                 this.playAnimation(ImageHub.PEPE.walking);
+            } else if (this.checkIfSleeping()){
+                this.playAnimation(ImageHub.PEPE.sleeping);
             } else {
                 this.playAnimation(ImageHub.PEPE.idle);
             }

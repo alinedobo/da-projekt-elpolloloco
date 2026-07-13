@@ -14,6 +14,7 @@ export class MovableObject extends DrawableObject {
     showFrame = false;
     throwableObject = false;
     timeOfDeath = 0;
+    timeOfLastMovement = 0;
     dyingSound;
     hitSound;
     //#endregion
@@ -43,10 +44,17 @@ export class MovableObject extends DrawableObject {
 
     moveLeft() {
         this.position_x -= this.speed_X;
+        this.timeOfLastMovement = new Date().getTime();
     }
 
     moveRight() {
         this.position_x += this.speed_X;
+        this.timeOfLastMovement = new Date().getTime();
+    }
+
+    checkIfSleeping(){
+        let currentTime = new Date().getTime();
+        return (currentTime - this.timeOfLastMovement)/1000 > 15
     }
 
     jump() {
@@ -70,7 +78,7 @@ export class MovableObject extends DrawableObject {
         return (
             this.rX + this.rW > mo.rX &&
             this.rY + this.rH < mo.rY - 1 &&
-            this.rY + this.rH > mo.rY - 20 &&
+            this.rY + this.rH > mo.rY - 40 &&
             this.rX < mo.rX + mo.rW
         );
     }
@@ -80,8 +88,10 @@ export class MovableObject extends DrawableObject {
         if (this.energy <= 0) {
             this.energy = 0;
             this.timeOfDeath = new Date().getTime();
+            SoundHub.playOne(this.dyingSound);
         } else {
             this.lastHit = new Date().getTime(); //timestamp: seconds passed since 01.01.1970
+            SoundHub.playOne(this.hitSound);
         }
     }
 
