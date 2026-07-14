@@ -28,6 +28,7 @@ export class Endboss extends MovableObject {
         this.speed_X = 0.5;
         this.energy = 100;
         this.dyingSound = SoundHub.CHICKEN_DEAD;
+        this.hitSound = SoundHub.CHICKEN_DEAD;
 
         IntervalHub.startInterval(this.animate, 200);
     }

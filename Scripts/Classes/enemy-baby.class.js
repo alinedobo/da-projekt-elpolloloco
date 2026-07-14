@@ -25,6 +25,7 @@ export class EnemyBaby extends MovableObject {
         this.speed_X = 0.1 + Math.random();
         this.energy = 20;
         this.dyingSound = SoundHub.CHICK_DEAD;
+        this.hitSound = SoundHub.CHICKEN_DEAD;
 
         IntervalHub.startInterval(this.animate, 50);
     }

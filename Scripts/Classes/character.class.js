@@ -38,7 +38,7 @@ export class Character extends MovableObject {
         this.loadImages(ImageHub.PEPE.sleeping);
 
         IntervalHub.startInterval(this.applyGravity, 1000 / 25);
-        IntervalHub.startInterval(this.playSound, 50);
+        IntervalHub.startInterval(this.playSound, 1000/25);
         this.animate();
         this.getRealFrame();
     }

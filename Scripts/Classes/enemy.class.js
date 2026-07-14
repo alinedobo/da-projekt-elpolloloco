@@ -25,6 +25,7 @@ export class Enemy extends MovableObject {
         this.speed_X = 0.75 + Math.random();
         this.energy = 40;
         this.dyingSound = SoundHub.CHICKEN_DEAD;
+        this.hitSound = SoundHub.CHICKEN_DEAD;
 
         IntervalHub.startInterval(this.animate, 100);
     }
@@ -34,12 +35,12 @@ export class Enemy extends MovableObject {
             this.playAnimation(ImageHub.CHICKEN.walking);
             this.moveLeft();
         } else{
-            this.position_y = 400;
+            this.position_y = 410;
             this.playAnimation(ImageHub.CHICKEN.dead);
             this.offset = {
-                top: 30,
+                top: 50,
                 right: 5,
-                bottom: 0,
+                bottom: 5,
                 left: 5,
             };
         }

@@ -1,5 +1,6 @@
 import { World } from "./Scripts/Classes/world.class.js";
 import { ElementHub } from "./Scripts/Helpers/element-hub.js";
+import { SoundHub } from "./Scripts/Helpers/sound-hub.js";
 import { initLevel, level1 } from "./Scripts/Levels/level-01.js";
 
 
@@ -20,6 +21,7 @@ function startGame() {
 
     showCanvas();
     hideAllScreens();
+    SoundHub.playOne(SoundHub.GAME_START);
 }
 
 ElementHub.playAgainButtonRef.addEventListener("click", startGame);
@@ -34,3 +36,4 @@ function hideAllScreens() {
     ElementHub.loserScreenRef.classList.add("display-none");
     ElementHub.winnerScreenRef.classList.add("display-none");
 }
+

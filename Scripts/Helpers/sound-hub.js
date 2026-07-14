@@ -1,16 +1,39 @@
 export class SoundHub {
-    static PEPE_DAMAGE = new Audio("./Assets/sounds/sounds/character/characterDamage.mp3");
-    static PEPE_DEAD = new Audio("./Assets/sounds/sounds/character/characterDead.wav");
-    static PEPE_JUMP = new Audio("./Assets/sounds/sounds/character/characterJump.wav");
-    static PEPE_RUN = new Audio("./Assets/sounds/sounds/character/characterRun.mp3",);
-    static PEPE_SNORING = new Audio("./Assets/sounds/sounds/character/characterSnoring.mp3");
-    static CHICKEN_DEAD = new Audio('./Assets/sounds/sounds/chicken/chickenDead.mp3');
-    static CHICK_DEAD = new Audio('./Assets/sounds/sounds/chicken/chickenDead2.mp3');
-    static ENDBOSS_APPROACH = new Audio('./Assets/sounds/sounds/endboss/endbossApproach.wav');
-    static BOTTLE_COLLECT = new Audio('./Assets/sounds/sounds/collectibles/bottleCollectSound.wav');
-    static BOTTLE_THROW = new Audio('./Assets/sounds/sounds/throwable/bottleBreak.mp3');
-    static COIN_COLLECT = new Audio('./Assets/sounds/sounds/collectibles/collectSound.wav');
-    static GAME_START = new Audio('./Assets/sounds/sounds/game/gameStart.mp3');
+    static PEPE_DAMAGE = new Audio(
+        "./Assets/sounds/sounds/character/characterDamage.mp3",
+    );
+    static PEPE_DEAD = new Audio(
+        "./Assets/sounds/sounds/character/characterDead.wav",
+    );
+    static PEPE_JUMP = new Audio(
+        "./Assets/sounds/sounds/character/characterJump.wav",
+    );
+    static PEPE_RUN = new Audio(
+        "./Assets/sounds/sounds/character/characterRun.mp3",
+    );
+    static PEPE_SNORING = new Audio(
+        "./Assets/sounds/sounds/character/characterSnoring.mp3",
+    );
+    static CHICKEN_DEAD = new Audio(
+        "./Assets/sounds/sounds/chicken/chickenDead.mp3",
+    );
+    static CHICK_DEAD = new Audio(
+        "./Assets/sounds/sounds/chicken/chickenDead2.mp3",
+    );
+    static ENDBOSS_APPROACH = new Audio(
+        "./Assets/sounds/sounds/endboss/endbossApproach.wav",
+    );
+    static BOTTLE_COLLECT = new Audio(
+        "./Assets/sounds/sounds/collectibles/bottleCollectSound.wav",
+    );
+    static BOTTLE_THROW = new Audio(
+        "./Assets/sounds/sounds/throwable/bottleBreak.mp3",
+    );
+    static COIN_COLLECT = new Audio(
+        "./Assets/sounds/sounds/collectibles/collectSound.wav",
+    );
+    static GAME_START = new Audio("./Assets/sounds/sounds/game/gameStart.mp3");
+    static BACKGROUND = new Audio('./Assets/sounds/sounds/background/chickenDance.mp3');
 
     static ALL_SOUNDS = [
         SoundHub.PEPE_DAMAGE,
@@ -24,11 +47,8 @@ export class SoundHub {
         SoundHub.BOTTLE_COLLECT,
         SoundHub.BOTTLE_THROW,
         SoundHub.COIN_COLLECT,
-        SoundHub.GAME_START
+        SoundHub.GAME_START,
     ];
-
-
-
 
     // Spielt eine einzelne Audiodatei ab
     static playOne(sound) {
@@ -37,6 +57,17 @@ export class SoundHub {
         sound.play(); // Spielt das übergebene Sound-Objekt ab
     }
 
+/*     static playOneLoop(sound) {
+        if (typeof sound.loop == "boolean") {
+            sound.loop = true;
+        } else {
+            sound.addEventListener("ended", function () {
+                    sound.volume = 0.2;
+                    sound.currentTime = 0;
+                    sound.play();
+                }, false);
+            }
+        } */
 
     static playOneError(sound) {
         setInterval(() => {
@@ -52,7 +83,6 @@ export class SoundHub {
         }, 200);
     }
 
-
     // Pausiert das Abspielen aller Audiodateien
     static pauseAll() {
         SoundHub.ALL_SOUNDS.forEach((sound) => {
@@ -60,15 +90,11 @@ export class SoundHub {
         });
     }
 
-
     // Pausiert das Abspielen einer einzelnen Audiodatei
     static pauseOne(sound) {
         sound.pause(); // Pausiert das übergebene Audio
     }
 
-
-
-    
     // ##########################################################################################################################
     // ################################################  Sound Slider - BONUS !  ################################################
     // Setzt die Lautstärke für alle Audiodateien

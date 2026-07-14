@@ -50,7 +50,7 @@ export class World {
         IntervalHub.startInterval(this.checkThrowBottle, 50);
         IntervalHub.startInterval(this.checkGameLost, 50);
         IntervalHub.startInterval(this.checkGameWon, 50);
-        SoundHub.playOne(SoundHub.GAME_START);
+        /* SoundHub.playOneLoop(SoundHub.BACKGROUND); */
     }
 
     //#region Methods
@@ -129,12 +129,12 @@ export class World {
     }
 
     checkCollisions() {
-        IntervalHub.startInterval(this.checkCollisionWithBabyEnemy, 50);
-        IntervalHub.startInterval(this.checkCollisionWithEnemy, 50);
-        IntervalHub.startInterval(this.checkCollisionWithEndboss, 50);
-        IntervalHub.startInterval(this.checkCollisionWithBottle, 50);
-        IntervalHub.startInterval(this.checkCollisionWithCoin, 50);
-        IntervalHub.startInterval(this.checkBottleCollisionWithEnemies, 50);
+        IntervalHub.startInterval(this.checkCollisionWithBabyEnemy, 10);
+        IntervalHub.startInterval(this.checkCollisionWithEnemy, 10);
+        IntervalHub.startInterval(this.checkCollisionWithEndboss, 10);
+        IntervalHub.startInterval(this.checkCollisionWithBottle, 10);
+        IntervalHub.startInterval(this.checkCollisionWithCoin, 10);
+        IntervalHub.startInterval(this.checkBottleCollisionWithEnemies, 10);
     }
 
     checkCollisionWithBabyEnemy = () => {
