@@ -8,7 +8,7 @@ export class CollectableBottle extends DrawableObject {
     position_y = 370;
     height = 60;
     width = 50;
-    showFrame = true;
+    showFrame = false;
     offset = {
         top: 10,
         right: 10,

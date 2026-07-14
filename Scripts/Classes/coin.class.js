@@ -5,7 +5,7 @@ export class Coin extends DrawableObject{
     position_y = 220 - Math.random() * 100;
     height = 150;
     width = 150;
-    showFrame = true;
+    showFrame = false;
     throwableObject = false;
 
     offset = {

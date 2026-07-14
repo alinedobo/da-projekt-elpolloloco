@@ -5,7 +5,7 @@ import { MovableObject } from "./movable-object.class.js";
 import { World } from "./world.class.js";
 
 export class Endboss extends MovableObject {
-    showFrame = true;
+    showFrame = false;
 
     constructor() {
         super().loadImage(ImageHub.ENDBOSS.alert[0]);

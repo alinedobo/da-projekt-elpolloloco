@@ -5,7 +5,7 @@ import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 
 export class EnemyBaby extends MovableObject {
-    showFrame = true;
+    showFrame = false;
 
     constructor() {
         super().loadImage(ImageHub.CHICK.walking[0]);

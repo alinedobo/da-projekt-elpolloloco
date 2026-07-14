@@ -20,7 +20,7 @@ export class Character extends MovableObject {
         bottom: 20,
         left: 30,
     };
-    showFrame = true;
+    showFrame = false;
     energy = 100;
 
     hitSound = SoundHub.PEPE_DAMAGE;
