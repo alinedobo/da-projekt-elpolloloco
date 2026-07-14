@@ -1,3 +1,5 @@
+import { ElementHub } from "./element-hub.js";
+
 export class SoundHub {
     static PEPE_DAMAGE = new Audio(
         "./Assets/sounds/sounds/character/characterDamage.mp3",
@@ -55,16 +57,56 @@ export class SoundHub {
 
     static VOLUME;
 
-    static muteAllSounds() {
-        SoundHub.ALL_SOUNDS.forEach((sound) => {
-            sound.muted = true;
-        });
+    static SOUND_MUTED;
+
+    static getSoundSettingFromLocalStorage() {
+        let StoredSoundSetting = localStorage.getItem("soundSetting");
+
+        if (StoredSoundSetting !== null) {
+            SoundHub.SOUND_MUTED = JSON.parse(StoredSoundSetting);
+        }
+        return SoundHub.SOUND_MUTED;
     }
 
-    static unmuteAllSounds() {
-        SoundHub.ALL_SOUNDS.forEach((sound) => {
-            sound.muted = false;
-        });
+    static initialiseSound() {
+        SoundHub.getSoundSettingFromLocalStorage();
+        if (SoundHub.SOUND_MUTED) {
+            SoundHub.ALL_SOUNDS.forEach((sound) => {
+                sound.muted = true;
+                ElementHub.muteButtonRef.classList.add("display-none");
+                ElementHub.unmuteButtonRef.classList.remove("display-none");
+            });
+        } else if (!SoundHub.SOUND_MUTED) {
+            SoundHub.ALL_SOUNDS.forEach((sound) => {
+                sound.muted = false;
+                ElementHub.muteButtonRef.classList.remove("display-none");
+                ElementHub.unmuteButtonRef.classList.add("display-none");
+            });
+        }
+    }
+
+    static toogleSoundSetting() {
+        if (SoundHub.SOUND_MUTED) {
+            SoundHub.ALL_SOUNDS.forEach((sound) => {
+                sound.muted = false;
+            });
+            SoundHub.SOUND_MUTED = false;
+            SoundHub.saveSoundSettingToLocalStorage();
+        } else if (!SoundHub.SOUND_MUTED) {
+            SoundHub.ALL_SOUNDS.forEach((sound) => {
+                sound.muted = true;
+            });
+            SoundHub.SOUND_MUTED = true;
+            SoundHub.saveSoundSettingToLocalStorage();
+        }
+    }
+
+    static saveSoundSettingToLocalStorage() {
+        console.log("saving:", SoundHub.SOUND_MUTED);
+        localStorage.setItem(
+            "soundSetting",
+            JSON.stringify(SoundHub.SOUND_MUTED),
+        );
     }
 
     // Spielt eine einzelne Audiodatei ab
@@ -75,7 +117,7 @@ export class SoundHub {
     }
 
     static playOneContinuously(sound) {
-        sound.volume = 0.2; // Setzt die Lautstärke auf 0.2 = 20% / 1 = 100%
+        sound.volume = 0.3; // Setzt die Lautstärke auf 0.2 = 20% / 1 = 100%
         sound.play(); // Spielt das übergebene Sound-Objekt ab
     }
 
@@ -85,22 +127,8 @@ export class SoundHub {
         if (sound === this.BACKGROUND) {
             sound.volume = this.VOLUME * 0.1;
         } else {
-            sound.volume = 0.2;
+            sound.volume = this.VOLUME * 0.5;
         }
-    }
-
-    static playOneError(sound) {
-        setInterval(() => {
-            // Wiederholt die Überprüfung alle 200ms
-            if (sound.readyState == 4) {
-                // Überprüft, ob die Audiodatei vollständig geladen ist, wenn man die if abfrage rausnehmen würde, würde es bei start & drücken auf den pause Knopf einen Fehler werfen. (am besten low-tier throttling nutzen!)
-                console.log("Sound ready");
-                sound.volume = 0.2; // Setzt die Lautstärke auf 50%
-                sound.play(); // Spielt das übergebene Sound-Objekt ab
-            } else {
-                console.log("Sound not ready");
-            }
-        }, 200);
     }
 
     // Pausiert das Abspielen aller Audiodateien
@@ -116,6 +144,27 @@ export class SoundHub {
     }
 
     // ##########################################################################################################################
+    // ##########################################################################################################################
+
+    static playOneError(sound) {
+        setInterval(() => {
+            // Wiederholt die Überprüfung alle 200ms
+            if (sound.readyState == 4) {
+                // Überprüft, ob die Audiodatei vollständig geladen ist, wenn man die if abfrage rausnehmen würde, würde es bei start & drücken auf den pause Knopf einen Fehler werfen. (am besten low-tier throttling nutzen!)
+                console.log("Sound ready");
+                sound.volume = 0.2; // Setzt die Lautstärke auf 50%
+                sound.play(); // Spielt das übergebene Sound-Objekt ab
+            } else {
+                console.log("Sound not ready");
+            }
+        }, 200);
+    }
+
+    // ##########################################################################################################################
+    // ##########################################################################################################################
+    // ##########################################################################################################################
+    // ##########################################################################################################################
+    // ##########################################################################################################################
     // ################################################  Sound Slider - BONUS !  ################################################
     // Setzt die Lautstärke für alle Audiodateien
     static objSetVolume(sounds) {
@@ -126,3 +175,5 @@ export class SoundHub {
         });
     }
 }
+
+

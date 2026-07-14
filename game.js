@@ -3,7 +3,6 @@ import { ElementHub } from "./Scripts/Helpers/element-hub.js";
 import { SoundHub } from "./Scripts/Helpers/sound-hub.js";
 import { initLevel, level1 } from "./Scripts/Levels/level-01.js";
 
-
 let canvas;
 let world;
 
@@ -21,21 +20,21 @@ function startGame() {
 
     showCanvas();
     hideAllScreens();
+    SoundHub.initialiseSound();
     SoundHub.playOne(SoundHub.GAME_START);
 }
 
 ElementHub.playAgainButtonRef.addEventListener("click", startGame);
 ElementHub.tryAgainButtonRef.addEventListener("click", startGame);
-ElementHub.muteButtonRef.addEventListener("click", muteSound);
-ElementHub.unmuteButtonRef.addEventListener("click", unmuteSound);
+ElementHub.muteButtonRef.addEventListener("click", toggleSound);
+ElementHub.unmuteButtonRef.addEventListener("click", toggleSound);
 
-
-function showCanvas(){
+function showCanvas() {
     ElementHub.canvasRef.classList.remove("display-none");
     ElementHub.canvasContainerRef.classList.remove("display-none");
 }
 
-function hideCanvas(){
+function hideCanvas() {
     ElementHub.canvasRef.classList.add("display-none");
     ElementHub.canvasContainerRef.classList.add("display-none");
 }
@@ -46,15 +45,13 @@ function hideAllScreens() {
     ElementHub.winnerScreenRef.classList.add("display-none");
 }
 
-
-function muteSound(){
-    SoundHub.muteAllSounds();
-    ElementHub.muteButtonRef.classList.add("display-none");
-    ElementHub.unmuteButtonRef.classList.remove("display-none");
-}
-
-function unmuteSound(){
-    SoundHub.unmuteAllSounds();
-    ElementHub.muteButtonRef.classList.remove("display-none");
-    ElementHub.unmuteButtonRef.classList.add("display-none");
+function toggleSound() {
+    SoundHub.toogleSoundSetting();
+    if (SoundHub.SOUND_MUTED) {
+        ElementHub.muteButtonRef.classList.add("display-none");
+        ElementHub.unmuteButtonRef.classList.remove("display-none");
+    } else {
+        ElementHub.muteButtonRef.classList.remove("display-none");
+        ElementHub.unmuteButtonRef.classList.add("display-none");
+    }
 }

@@ -41,7 +41,7 @@ export class World {
     //#endregion
 
     constructor(canvas) {
-        SoundHub.VOLUME = 0.5;
+        SoundHub.VOLUME = 1;
         this.level = level1;
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
