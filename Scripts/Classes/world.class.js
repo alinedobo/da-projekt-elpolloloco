@@ -50,7 +50,7 @@ export class World {
         IntervalHub.startInterval(this.checkThrowBottle, 50);
         IntervalHub.startInterval(this.checkGameLost, 50);
         IntervalHub.startInterval(this.checkGameWon, 50);
-        /* SoundHub.playOneLoop(SoundHub.BACKGROUND); */
+        SoundHub.playOneLoop(SoundHub.BACKGROUND);
     }
 
     //#region Methods
@@ -265,6 +265,7 @@ export class World {
             IntervalHub.stopAllIntervals();
 
             SoundHub.playOne(SoundHub.PEPE_DEAD);
+            SoundHub.pauseOne(SoundHub.BACKGROUND);
 
             ElementHub.canvasRef.classList.add("display-none");
             ElementHub.loserScreenRef.classList.remove("display-none");
@@ -277,6 +278,7 @@ export class World {
                 IntervalHub.stopAllIntervals();
 
                 SoundHub.playOne(SoundHub.GAME_START);
+                SoundHub.pauseOne(SoundHub.BACKGROUND);
 
                 ElementHub.canvasRef.classList.add("display-none");
                 ElementHub.winnerScreenRef.classList.remove("display-none");

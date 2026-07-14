@@ -90,7 +90,7 @@ export class Character extends MovableObject {
 
     playSound = () => {
         if (this.checkIfSleeping()) {
-            SoundHub.playOne(SoundHub.PEPE_SNORING);
+            SoundHub.playOneContinuously(SoundHub.PEPE_SNORING);
         }
         
         if (!this.checkIfSleeping()) {
@@ -98,7 +98,7 @@ export class Character extends MovableObject {
         }
         
         if (Keyboard.KEY_RIGHT || Keyboard.KEY_LEFT) {
-            SoundHub.playOne(SoundHub.PEPE_RUN);
+            SoundHub.playOneContinuously(SoundHub.PEPE_RUN);
         }
         
         if (!Keyboard.KEY_RIGHT && !Keyboard.KEY_LEFT) {

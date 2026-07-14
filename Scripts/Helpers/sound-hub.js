@@ -33,7 +33,9 @@ export class SoundHub {
         "./Assets/sounds/sounds/collectibles/collectSound.wav",
     );
     static GAME_START = new Audio("./Assets/sounds/sounds/game/gameStart.mp3");
-    static BACKGROUND = new Audio('./Assets/sounds/sounds/background/chickenDance.mp3');
+    static BACKGROUND = new Audio(
+        "./Assets/sounds/sounds/background/chickenDance.mp3",
+    );
 
     static ALL_SOUNDS = [
         SoundHub.PEPE_DAMAGE,
@@ -48,6 +50,7 @@ export class SoundHub {
         SoundHub.BOTTLE_THROW,
         SoundHub.COIN_COLLECT,
         SoundHub.GAME_START,
+        SoundHub.BACKGROUND,
     ];
 
     // Spielt eine einzelne Audiodatei ab
@@ -57,17 +60,20 @@ export class SoundHub {
         sound.play(); // Spielt das übergebene Sound-Objekt ab
     }
 
-/*     static playOneLoop(sound) {
-        if (typeof sound.loop == "boolean") {
-            sound.loop = true;
+    static playOneContinuously(sound) {
+        sound.volume = 0.2; // Setzt die Lautstärke auf 0.2 = 20% / 1 = 100%
+        sound.play(); // Spielt das übergebene Sound-Objekt ab
+    }
+
+    static playOneLoop(sound) {
+        sound.loop = true;
+        sound.play();
+        if (sound === this.BACKGROUND) {
+            sound.volume = 0.02;
         } else {
-            sound.addEventListener("ended", function () {
-                    sound.volume = 0.2;
-                    sound.currentTime = 0;
-                    sound.play();
-                }, false);
-            }
-        } */
+            sound.volume = 0.2;
+        }
+    }
 
     static playOneError(sound) {
         setInterval(() => {
