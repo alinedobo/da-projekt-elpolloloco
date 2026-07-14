@@ -41,6 +41,7 @@ export class World {
     //#endregion
 
     constructor(canvas) {
+        SoundHub.VOLUME = 0.5;
         this.level = level1;
         this.ctx = canvas.getContext("2d");
         this.canvas = canvas;
@@ -268,6 +269,7 @@ export class World {
             SoundHub.pauseOne(SoundHub.BACKGROUND);
 
             ElementHub.canvasRef.classList.add("display-none");
+            ElementHub.canvasContainerRef.classList.add("display-none");
             ElementHub.loserScreenRef.classList.remove("display-none");
         }
     };
@@ -281,6 +283,7 @@ export class World {
                 SoundHub.pauseOne(SoundHub.BACKGROUND);
 
                 ElementHub.canvasRef.classList.add("display-none");
+                ElementHub.canvasContainerRef.classList.add("display-none");
                 ElementHub.winnerScreenRef.classList.remove("display-none");
             }
         });

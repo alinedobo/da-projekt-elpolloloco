@@ -21,22 +21,45 @@
             <div id="start-screen">
                 <div id="instructions">
                     <h2>The chicken are out to get you!</h2>
-                    <p>Press SPACE or UP to jump, LEFT and RIGHT to move. Press D to throw bottles.</p>
                     <p>
-                        Chicken and chicks can be killed by jumping on them,
-                        but the Endboss can only be killed with bottles, so use them
+                        Press SPACE or UP to jump, LEFT and RIGHT to move. Press
+                        D to throw bottles.
+                    </p>
+                    <p>
+                        Chicken and chicks can be killed by jumping on them, but
+                        the Endboss can only be killed with bottles, so use them
                         sparingly.
                     </p>
                 </div>
                 <button id="start-button">START</button>
             </div>
-            <canvas width="720" height="480" id="canvas" class="display-none"></canvas>
+            <div id="canvas-container" class="display-none">
+                <div id="mute-unmute">
+                    <button id="mute-button">
+                        <p>MUTE</p>
+                    </button>
+                    <button id="unmute-button" class="display-none">
+                        <p>UNMUTE</p>
+                    </button>
+                </div>
+                <canvas
+                    width="720"
+                    height="480"
+                    id="canvas"
+                    class="display-none"
+                >
+                </canvas>
+            </div>
             <div id="you-won" class="display-none">
-                <p id="well-done">Well done, you killed a bunch of harmless chicken.</p>
+                <p id="well-done">
+                    Well done, you killed a bunch of harmless chicken.
+                </p>
                 <button id="play-again">PLAY AGAIN</button>
             </div>
             <div id="you-lost" class="display-none">
-                <p id="such-a-loser">You got killed by a bunch of harmless chicken. Loser.</p>
+                <p id="such-a-loser">
+                    You got killed by a bunch of harmless chicken. Loser.
+                </p>
                 <button id="try-again">TRY AGAIN</button>
             </div>
         </main>

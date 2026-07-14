@@ -46,6 +46,21 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 
+    button {
+        height: fit-content;
+        width: fit-content;
+        padding: 4px 8px;
+        font-size: 16px;
+        border: 1px solid black;
+        border-radius: 8px;
+        background: orange;
+    }
+
+    button:hover {
+        cursor: pointer;
+        border: 2px solid black;
+    }
+
     h1 {
         color: white;
         font-size: 64px;
@@ -74,16 +89,9 @@ body {
             position: relative;
 
             button {
-                height: fit-content;
-                width: fit-content;
-                padding: 4px 8px;
-                font-size: 24px;
-                border: 1px solid black;
-                border-radius: 8px;
                 position: absolute;
                 right: 16px;
                 bottom: 16px;
-                background: orange;
             }
             button:hover {
                 cursor: pointer;
@@ -113,16 +121,9 @@ body {
             }
 
             button {
-                height: fit-content;
-                width: fit-content;
-                padding: 4px 8px;
-                font-size: 24px;
-                border: 1px solid black;
-                border-radius: 8px;
                 position: absolute;
                 right: 16px;
                 bottom: 16px;
-                background: orange;
             }
             button:hover {
                 cursor: pointer;
@@ -153,25 +154,35 @@ body {
             }
 
             button {
-                height: fit-content;
-                width: fit-content;
-                padding: 4px 8px;
-                font-size: 24px;
-                border: 1px solid black;
-                border-radius: 8px;
                 position: absolute;
                 right: 16px;
                 bottom: 16px;
-                background: orange;
-            }
-            button:hover {
-                cursor: pointer;
-                border: 2px solid black;
             }
         }
 
-        canvas {
-            background: black;
+        #canvas-container {
+            position: relative;
+            height: 480px;
+            width: 720px;
+
+            canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: black;
+            }
+
+            #mute-unmute {
+                position: absolute;
+                bottom: 4px;
+                left: 4px;
+                text-align: center;
+                z-index: 1;
+                border-radius: 4px;
+                padding: 4px;
+                background: none;
+                border: none;
+            }
         }
 
         div {

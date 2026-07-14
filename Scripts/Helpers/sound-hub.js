@@ -53,7 +53,19 @@ export class SoundHub {
         SoundHub.BACKGROUND,
     ];
 
-    static VOLUME = 1;
+    static VOLUME;
+
+    static muteAllSounds() {
+        SoundHub.ALL_SOUNDS.forEach((sound) => {
+            sound.muted = true;
+        });
+    }
+
+    static unmuteAllSounds() {
+        SoundHub.ALL_SOUNDS.forEach((sound) => {
+            sound.muted = false;
+        });
+    }
 
     // Spielt eine einzelne Audiodatei ab
     static playOne(sound) {

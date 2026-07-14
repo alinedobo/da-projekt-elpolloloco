@@ -26,9 +26,18 @@ function startGame() {
 
 ElementHub.playAgainButtonRef.addEventListener("click", startGame);
 ElementHub.tryAgainButtonRef.addEventListener("click", startGame);
+ElementHub.muteButtonRef.addEventListener("click", muteSound);
+ElementHub.unmuteButtonRef.addEventListener("click", unmuteSound);
+
 
 function showCanvas(){
     ElementHub.canvasRef.classList.remove("display-none");
+    ElementHub.canvasContainerRef.classList.remove("display-none");
+}
+
+function hideCanvas(){
+    ElementHub.canvasRef.classList.add("display-none");
+    ElementHub.canvasContainerRef.classList.add("display-none");
 }
 
 function hideAllScreens() {
@@ -37,3 +46,15 @@ function hideAllScreens() {
     ElementHub.winnerScreenRef.classList.add("display-none");
 }
 
+
+function muteSound(){
+    SoundHub.muteAllSounds();
+    ElementHub.muteButtonRef.classList.add("display-none");
+    ElementHub.unmuteButtonRef.classList.remove("display-none");
+}
+
+function unmuteSound(){
+    SoundHub.unmuteAllSounds();
+    ElementHub.muteButtonRef.classList.remove("display-none");
+    ElementHub.unmuteButtonRef.classList.add("display-none");
+}
