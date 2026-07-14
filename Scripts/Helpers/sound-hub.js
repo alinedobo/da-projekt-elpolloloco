@@ -102,7 +102,6 @@ export class SoundHub {
     }
 
     static saveSoundSettingToLocalStorage() {
-        console.log("saving:", SoundHub.SOUND_MUTED);
         localStorage.setItem(
             "soundSetting",
             JSON.stringify(SoundHub.SOUND_MUTED),

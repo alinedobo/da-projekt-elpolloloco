@@ -63,12 +63,12 @@ Als Benutzer möchte ich das Spiel über einen Start Button starten können, um 
 - [x] Es gibt einen Button, der das Spiel startet.  
 - [x] Wenn das Spiel startet, sollte man nicht direkt von Gegnern überrannt werden.  
 - [x] Der Hintergrund des Spiels ist gleichmäßig und hat keine Lücken.  
-- [ ] Das Spiel verfügt über Hintergrundmusik und zusätzliche Soundeffekte. 
-- [ ] Alle Sounds können jederzeit über einen Button stummgeschaltet werden.
-- [ ] Der Status des Mute-Buttons wird dabei im Local Storage gespeichert.  
+- [x] Das Spiel verfügt über Hintergrundmusik und zusätzliche Soundeffekte. 
+- [x] Alle Sounds können jederzeit über einen Button stummgeschaltet werden.
+- [x] Der Status des Mute-Buttons wird dabei im Local Storage gespeichert.  
 - [x] Wenn das Spiel gewonnen oder verloren ist, wird mir ein Endscreen gezeigt. 
 - [x] Es sollte die Möglichkeit zum Restart des Spiels
-- [ ] sowie die Möglichkeit zum Verlassen des Spiels gegeben sein (zurück zum Home Screen).
+- [x] sowie die Möglichkeit zum Verlassen des Spiels gegeben sein (zurück zum Home Screen).
 
 
 ### **Charakter:** {#charakter:}
@@ -128,7 +128,8 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 
 
 ### **Responsiveness** {#responsiveness}
-- [ ] Die Seite funktioniert auf Desktop Geräten und in der mobilen Ansicht nur im Querformat, ansonsten gibt es im Hochformat eine Anzeige, dass man das Gerät nur im Querformat nutzen kann, z.B. Turn your Device to play.  
+- [ ] Die Seite funktioniert auf Desktop Geräten und in der mobilen Ansicht nur im Querformat, 
+- [ ] ansonsten gibt es im Hochformat eine Anzeige, dass man das Gerät nur im Querformat nutzen kann, z.B. Turn your Device to play.  
 - [ ] Die Mobile-Touch-Button sind erst sichtbar, wenn man auf Tablet / Handy Größe ist.  
 - [ ] Kein Scrollbalken bei kleineren Auflösungen
 
@@ -164,8 +165,8 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 - [x] Gegner stirbt auch, wenn ich neben ihn springe  
 - [x] Die Statusbars werden nicht korrekt aktualisiert  
 - [x] Charakter sollte nach Ableben unbeweglich sein.  
-- [ ] Starten / Stoppen Sounds richtig ?  
-- [ ] Mute Button stoppt alle Sounds? Sind die Sounds zu laut?  
+- [x] Starten / Stoppen Sounds richtig ?  
+- [x] Mute Button stoppt alle Sounds? Sind die Sounds zu laut?  
 - [x] Besteht die Möglichkeit zum Neustart nach GameOver?  
 - [x] Restart soll nicht über Reload der Seite gelöst sein.  
 - [ ] mobile  
