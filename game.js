@@ -28,6 +28,13 @@ ElementHub.playAgainButtonRef.addEventListener("click", startGame);
 ElementHub.tryAgainButtonRef.addEventListener("click", startGame);
 ElementHub.muteButtonRef.addEventListener("click", toggleSound);
 ElementHub.unmuteButtonRef.addEventListener("click", toggleSound);
+ElementHub.homePageRef.addEventListener("click", reloadPage);
+ElementHub.restartButtonRef.addEventListener("click", startGame);
+
+
+function reloadPage(){
+    window.location.reload();
+}
 
 function showCanvas() {
     ElementHub.canvasRef.classList.remove("display-none");

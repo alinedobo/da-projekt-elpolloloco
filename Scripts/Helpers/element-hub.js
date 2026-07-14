@@ -11,4 +11,6 @@ export class ElementHub {
     static tryAgainButtonRef = document.getElementById('try-again');
     static muteButtonRef = document.getElementById('mute-button');
     static unmuteButtonRef = document.getElementById('unmute-button');
+    static homePageRef = document.getElementById('homepage');
+    static restartButtonRef = document.getElementById('restart-button');
 }

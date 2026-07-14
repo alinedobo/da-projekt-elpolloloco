@@ -46,25 +46,14 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 
-    button {
-        height: fit-content;
-        width: fit-content;
-        padding: 4px 8px;
-        font-size: 16px;
-        border: 1px solid black;
-        border-radius: 8px;
-        background: orange;
-    }
-
-    button:hover {
-        cursor: pointer;
-        border: 2px solid black;
-    }
-
     h1 {
         color: white;
         font-size: 64px;
         text-shadow: 50px;
+    }
+
+    button:hover{
+        cursor: pointer;
     }
 
     main {
@@ -78,6 +67,21 @@ body {
         padding: 64px;
         gap: 16px;
         max-width: 1440px;
+
+        button {
+            height: fit-content;
+            width: fit-content;
+            padding: 4px 8px;
+            font-size: 16px;
+            border: 1px solid black;
+            border-radius: 8px;
+            background: orange;
+        }
+
+        button:hover {
+            cursor: pointer;
+            border: 2px solid black;
+        }
 
         #start-screen {
             height: 480px;
@@ -179,9 +183,9 @@ body {
                 text-align: center;
                 z-index: 1;
                 border-radius: 4px;
-                padding: 4px;
                 background: none;
                 border: none;
+                padding: 0px;
             }
         }
 
@@ -190,6 +194,13 @@ body {
             border-radius: 8px;
             padding: 8px 16px;
             text-align: center;
+        }
+
+        #restart-button{
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            z-index: 1;
         }
     }
 
