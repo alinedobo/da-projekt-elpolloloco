@@ -53,9 +53,11 @@ export class SoundHub {
         SoundHub.BACKGROUND,
     ];
 
+    static VOLUME = 1;
+
     // Spielt eine einzelne Audiodatei ab
     static playOne(sound) {
-        sound.volume = 0.2; // Setzt die Lautstärke auf 0.2 = 20% / 1 = 100%
+        sound.volume = this.VOLUME * 0.5; // Setzt die Lautstärke auf 0.2 = 20% / 1 = 100%
         sound.currentTime = 0; // Startet ab einer bestimmten stelle (0=Anfang/ 5 = 5 sec.)
         sound.play(); // Spielt das übergebene Sound-Objekt ab
     }
@@ -69,7 +71,7 @@ export class SoundHub {
         sound.loop = true;
         sound.play();
         if (sound === this.BACKGROUND) {
-            sound.volume = 0.02;
+            sound.volume = this.VOLUME * 0.1;
         } else {
             sound.volume = 0.2;
         }
