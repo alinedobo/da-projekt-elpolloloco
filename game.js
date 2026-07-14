@@ -29,7 +29,6 @@ ElementHub.tryAgainButtonRef.addEventListener("click", startGame);
 ElementHub.muteButtonRef.addEventListener("click", toggleSound);
 ElementHub.unmuteButtonRef.addEventListener("click", toggleSound);
 ElementHub.homePageRef.addEventListener("click", reloadPage);
-ElementHub.restartButtonRef.addEventListener("click", startGame);
 
 
 function reloadPage(){
