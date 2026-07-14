@@ -21,7 +21,7 @@ export class Character extends MovableObject {
         left: 30,
     };
     showFrame = false;
-    energy = 100;
+    energy = 10000;
 
     hitSound = SoundHub.PEPE_DAMAGE;
     dyingSound = SoundHub.PEPE_DEAD;

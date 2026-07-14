@@ -173,6 +173,20 @@ body {
                 height: 100%;
                 width: 100%;
 
+                #mobile-impressum{
+                    width: 100%;
+                    position: absolute;
+                    top: 50;
+                    left: 0;
+                    justify-self: center;
+                    z-index: 1;
+                    background: none;
+
+                    p{
+                        font-weight: bolder;
+                    }
+                }
+
                 canvas {
                     height: 100%;
                     width: 100%;
@@ -183,7 +197,6 @@ body {
                 }
 
                 #navigation-buttons {
-                    border: 1px solid green;
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
@@ -248,6 +261,8 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -255,18 +270,13 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 720px) {
+/* @media screen and (max-width: 720px) {
     section {
         width: 100%;
         max-height: 480px;
     }
-
-    #h-one {
-        font-size: 32px;
-        color: lime;
-    }
 }
-
+ */
 @media screen and (max-width: 480px) {
     section {
         height: 100dvh;
@@ -292,16 +302,32 @@ body {
         display: block;
         border: 1px solid pink;
     }
+
+
 }
 
-@media (pointer: coarse) and (orientation: portrait) {         
+/* @media (pointer: coarse) and (orientation: portrait) {         
+    .responsive{
+        display: none;
+    }
+} */
+
+@media screen and (min-width: 700px) {
     .responsive{
         display: none;
     }
 }
 
-@media screen and (min-width: 700px) {
-    .responsive{
+@media screen and (max-width: 700px) {
+    .desktop{
         display: none;
+    }
+
+    #h-one {
+        font-size: 32px;
+    }
+
+    main{
+        max-height: 480px;
     }
 }

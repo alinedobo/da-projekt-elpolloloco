@@ -14,7 +14,7 @@
         <script type="module" src="./game.js"></script>
     </head>
     <body>
-        <header id="header">
+        <header id="header" class="desktop">
             <button id="homepage">
                 <h1 id="h-one">El Pollo Loco</h1>
             </button>
@@ -37,7 +37,10 @@
                     <button id="start-button">START</button>
                 </div>
                 <div id="canvas-container" class="display-none">
-                    
+                    <div id="mobile-impressum" class="responsive">
+                        <p>El Pollo Loco</p>
+                        <a href="https://github.com/alinedobo" target="_blank" rel="noopener noreferrer">by Aline</a>
+                    </div>
                     <canvas
                         width="720"
                         height="480"
@@ -78,8 +81,10 @@
                 </div>
             </section>
         </main>
-        <footer id="footer">
-            <p>Impressum</p>
+        <footer id="footer" class="desktop">
+            <h2>Impressum</h2>
+            <p>Brought to you by Aline D. for the Developer Akademie.</p>
+            <a href="https://github.com/alinedobo" target="_blank" rel="noopener noreferrer">Visit my profile.</a>
         </footer>
     </body>
 </html>
