@@ -13,4 +13,8 @@ export class ElementHub {
     static unmuteButtonRef = document.getElementById('unmute-button');
     static homePageRef = document.getElementById('homepage');
     static restartButtonRef = document.getElementById('restart-button');
+    static moveLeftRef = document.getElementById('move-left');
+    static moveRightRef = document.getElementById('move-right');
+    static jumpRef = document.getElementById('jump');
+    static throwBottleRef = document.getElementById('throw-bottle');
 }

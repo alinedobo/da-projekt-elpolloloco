@@ -1,5 +1,6 @@
 import { World } from "./Scripts/Classes/world.class.js";
 import { ElementHub } from "./Scripts/Helpers/element-hub.js";
+import { Keyboard } from "./Scripts/Helpers/keyboard.js";
 import { SoundHub } from "./Scripts/Helpers/sound-hub.js";
 import { initLevel, level1 } from "./Scripts/Levels/level-01.js";
 
@@ -30,8 +31,58 @@ ElementHub.muteButtonRef.addEventListener("click", toggleSound);
 ElementHub.unmuteButtonRef.addEventListener("click", toggleSound);
 ElementHub.homePageRef.addEventListener("click", reloadPage);
 
+ElementHub.moveLeftRef.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    Keyboard.KEY_LEFT = true;
+    console.log("left");
+});
 
-function reloadPage(){
+ElementHub.moveLeftRef.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    Keyboard.KEY_LEFT = false;
+});
+
+ElementHub.moveRightRef.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    Keyboard.KEY_RIGHT = true;
+});
+
+ElementHub.moveRightRef.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    Keyboard.KEY_RIGHT = false;
+});
+
+ElementHub.jumpRef.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    Keyboard.KEY_SPACE = true;
+});
+
+ElementHub.jumpRef.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    Keyboard.KEY_SPACE = false;
+});
+
+ElementHub.throwBottleRef.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    Keyboard.KEY_D = true;
+});
+
+ElementHub.throwBottleRef.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    Keyboard.KEY_D = false;
+});
+
+ElementHub.muteButtonRef.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    toggleSound();
+});
+
+ElementHub.unmuteButtonRef.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    toggleSound();
+});
+
+function reloadPage() {
     window.location.reload();
 }
 
@@ -61,3 +112,4 @@ function toggleSound() {
         ElementHub.unmuteButtonRef.classList.add("display-none");
     }
 }
+

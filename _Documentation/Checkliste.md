@@ -38,12 +38,12 @@
 
 
 [x] Make responsive
-      [ ] Build div for buttons
+      [x] Build div for buttons
 [ ] JSDOC comments & file
-[ ] Removing winning and losing text
-[ ] Boss too powerful?
-[ ] Can kill chicks from below
-[ ] Still getting damage from dead chicken
+[x] Removing winning and losing text
+[x] Boss too powerful?
+[x] Can kill chicks from below
+[x] Still getting damage from dead chicken
 
 ------------------------------------------------------------------------------------------------
 
@@ -101,10 +101,10 @@ Als Benutzer möchte ich herausfordernde verschiedene Gegner haben, jedoch sollt
 
 ### **User Story 1**  {#user-story-1}
 Als Benutzer möchte ich das Spiel auch auf Mobilgeräten spielen.
-- [ ] Es gibt die Möglichkeit, im Querformat auf einem Mobilgerät zu spielen.  
-- [ ] Es gibt nur in der Mobilansicht extra Buttons, um auf dem Mobilgerät (Smartphone  / Tablet) zu spielen.  
+- [x] Es gibt die Möglichkeit, im Querformat auf einem Mobilgerät zu spielen.  
+- [x] Es gibt nur in der Mobilansicht extra Buttons, um auf dem Mobilgerät (Smartphone  / Tablet) zu spielen.  
 - [ ] Das Kontextmenü (Rechtsklick / Touch-and-Hold) ist bei den Mobile-Touch-Buttons deaktiviert.  
-- [ ] Wenn das Gerät hochkant gehalten wird, sollte eine Meldung anzeigen, dass das Gerät gedreht werden muss, um spielen zu können.
+- [x] Wenn das Gerät hochkant gehalten wird, sollte eine Meldung anzeigen, dass das Gerät gedreht werden muss, um spielen zu können.
 
 
 ### **User Story 2** {#user-story-2}
@@ -123,7 +123,7 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 
 
 ### **Funktionalität** {#funktionalität}
-- [ ] Alle Links und Buttons sind funktionstüchtig.  
+- [x] Alle Links und Buttons sind funktionstüchtig.  
 - [ ] Es gibt keine Konsolenfehler & keine console.log ausgaben.
 
 
@@ -135,10 +135,10 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 
 
 ### **Responsiveness** {#responsiveness}
-- [ ] Die Seite funktioniert auf Desktop Geräten und in der mobilen Ansicht nur im Querformat, 
-- [ ] ansonsten gibt es im Hochformat eine Anzeige, dass man das Gerät nur im Querformat nutzen kann, z.B. Turn your Device to play.  
-- [ ] Die Mobile-Touch-Button sind erst sichtbar, wenn man auf Tablet / Handy Größe ist.  
-- [ ] Kein Scrollbalken bei kleineren Auflösungen
+- [x] Die Seite funktioniert auf Desktop Geräten und in der mobilen Ansicht nur im Querformat, 
+- [x] ansonsten gibt es im Hochformat eine Anzeige, dass man das Gerät nur im Querformat nutzen kann, z.B. Turn your Device to play.  
+- [x] Die Mobile-Touch-Button sind erst sichtbar, wenn man auf Tablet / Handy Größe ist.  
+- [x] Kein Scrollbalken bei kleineren Auflösungen
 
 
 ### **Technische Umsetzung** {#technische-umsetzung}
@@ -176,6 +176,6 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 - [x] Mute Button stoppt alle Sounds? Sind die Sounds zu laut?  
 - [x] Besteht die Möglichkeit zum Neustart nach GameOver?  
 - [x] Restart soll nicht über Reload der Seite gelöst sein.  
-- [ ] mobile  
+- [x] mobile  
 - [ ] Buttons funktionieren nicht auf dem Tablet  
 - [ ] keine echten Daten im Impressum  
