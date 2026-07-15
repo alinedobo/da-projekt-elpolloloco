@@ -14,9 +14,6 @@ export class StatusBar extends DrawableObject {
 
     constructor() {
         super();
-        this.loadImage(this.imageArray[0]);
-        this.loadImages(this.imageArray);
-        this.showPercentageStatusBar(100);
     }
 
     //#region Methods

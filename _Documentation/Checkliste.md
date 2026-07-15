@@ -34,9 +34,16 @@
       [x] Start Button
 [x] Win Screen
 [x] Loose screen
+
+
+
 [ ] Make responsive
       [ ] Build div for buttons
 [ ] JSDOC comments & file
+[ ] Removing winning and losing text
+[ ] Boss too powerful?
+[ ] Can kill chicks from below
+[ ] Still getting damage from dead chicken
 
 ------------------------------------------------------------------------------------------------
 

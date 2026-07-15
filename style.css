@@ -123,19 +123,6 @@ body {
                 background-size: cover;
                 background-position: center;
 
-                #such-a-loser {
-                    height: fit-content;
-                    width: fit-content;
-                    font-size: 16px;
-                    border-radius: 8px;
-                    position: absolute;
-                    left: 16px;
-                    bottom: 16px;
-                    background: rgb(255, 255, 255, 0.5);
-                    padding: 8px 16px;
-                    text-align: center;
-                }
-
                 button {
                     position: absolute;
                     right: 16px;
@@ -155,19 +142,6 @@ body {
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center;
-
-                #well-done {
-                    height: fit-content;
-                    width: fit-content;
-                    font-size: 16px;
-                    border-radius: 8px;
-                    position: absolute;
-                    left: 16px;
-                    bottom: 16px;
-                    background: rgb(255, 255, 255, 0.5);
-                    padding: 8px 16px;
-                    text-align: center;
-                }
 
                 button {
                     position: absolute;
@@ -276,7 +250,11 @@ body {
     display: none;
 }
 
-/* Don't touch this one */
+
+
+
+
+
 @media screen and (max-width: 480px) and (orientation: portrait) {
     .change-orientation {
         display: block;
@@ -300,37 +278,46 @@ body {
     }
 }
 
-@media screen and (max-width: 900px) and (orientation: landscape) {
-    .change-orientation{
-        display: none;
-    }
-    .desktop{
-        display: none;
-    }
-
-    #canvas-container{
-        height: 100dvh;
-        width: 100dvw;
-    }
-    
-}
-
-
-@media screen and (min-width: 720px) and (orientation: landscape){
-    .change-orientation{
-        display: none;
-    }
-
-    .desktop{
-        display: none;
-    }
-
-}
-
-
 @media screen and (min-width: 720px) and (max-width: 900px) and (orientation: portrait){
     .change-orientation{
         display: none;
     }
-
+    .responsive{
+        display: block;
+    }
 }
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
+    .change-orientation{
+        display: none;
+    }
+
+    .desktop{
+        display: none;
+    }
+
+    #container{
+        height: 100dvh;
+        /* width: 100dvw; */
+    }
+    
+
+    .responsive{
+        display: block;
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (orientation: landscape){
+    .change-orientation{
+        display: none;
+    }
+    .responsive{
+        display: none;
+    }
+}
+
+
+
+
+

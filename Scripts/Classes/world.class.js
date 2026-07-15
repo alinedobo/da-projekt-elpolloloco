@@ -130,10 +130,10 @@ export class World {
     }
 
     checkCollisions() {
-        IntervalHub.startInterval(this.checkCollisionWithBabyEnemy, 10);
-        IntervalHub.startInterval(this.checkCollisionWithEnemy, 10);
-        IntervalHub.startInterval(this.checkCollisionWithEndboss, 10);
-        IntervalHub.startInterval(this.checkCollisionWithBottle, 10);
+        IntervalHub.startInterval(this.checkCollisionWithBabyEnemy, 50);
+        IntervalHub.startInterval(this.checkCollisionWithEnemy, 50);
+        IntervalHub.startInterval(this.checkCollisionWithEndboss, 50);
+        IntervalHub.startInterval(this.checkCollisionWithBottle, 50);
         IntervalHub.startInterval(this.checkCollisionWithCoin, 10);
         IntervalHub.startInterval(this.checkBottleCollisionWithEnemies, 10);
     }
@@ -144,6 +144,7 @@ export class World {
                 enemy.energy = 0;
             } else if (this.character.isColliding(enemy)) {
                 this.character.isHit(1);
+                console.log(this.character.energy);
                 SoundHub.playOne(this.character.hitSound);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
@@ -156,7 +157,8 @@ export class World {
                 enemy.energy = 0;
                 SoundHub.playOne(enemy.dyingSound);
             } else if (this.character.isColliding(enemy)) {
-                this.character.isHit(1);
+                this.character.isHit(2);
+                console.log(this.character.energy);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
@@ -166,6 +168,7 @@ export class World {
         this.level.endBosses.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
                 this.character.isHit(5);
+                console.log(this.character.energy);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
