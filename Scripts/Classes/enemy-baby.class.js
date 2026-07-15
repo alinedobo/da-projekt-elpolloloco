@@ -35,7 +35,7 @@ export class EnemyBaby extends MovableObject {
             this.playAnimation(ImageHub.CHICK.walking);
             this.moveLeft();
         } else {
-            this.position_y = 410;
+            this.position_y = 420;
             this.playAnimation(ImageHub.CHICK.dead);
             this.offset = {
                 top: 25,

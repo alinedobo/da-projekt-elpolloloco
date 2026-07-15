@@ -140,7 +140,7 @@ export class World {
 
     checkCollisionWithBabyEnemy = () => {
         this.level.enemyBabies.forEach((enemy) => {
-            if (this.character.isCollidingFromAbove(enemy)) {
+            if (this.character.isCollidingFromAbove(enemy) && this.character.isAboveGround()) {
                 enemy.energy = 0;
             } else if (this.character.isColliding(enemy)) {
                 this.character.isHit(1);
@@ -153,7 +153,7 @@ export class World {
 
     checkCollisionWithEnemy = () => {
         this.level.enemies.forEach((enemy) => {
-            if (this.character.isCollidingFromAbove(enemy)) {
+            if (this.character.isCollidingFromAbove(enemy)  && this.character.isAboveGround()) {
                 enemy.energy = 0;
                 SoundHub.playOne(enemy.dyingSound);
             } else if (this.character.isColliding(enemy)) {

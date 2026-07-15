@@ -35,7 +35,7 @@ export class Enemy extends MovableObject {
             this.playAnimation(ImageHub.CHICKEN.walking);
             this.moveLeft();
         } else{
-            this.position_y = 410;
+            this.position_y = 415;
             this.playAnimation(ImageHub.CHICKEN.dead);
             this.offset = {
                 top: 50,
