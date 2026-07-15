@@ -25,9 +25,9 @@
 [x] Collision between bottle and baby enemies
 [x] Collision bewteen bottle and endboss
 [x] Dying animation Endboss
-[ ] Impelement sounds
-      [ ] Volume control
-[ ] Save sound settings to local storage
+[x] Impelement sounds
+      [x] Volume control
+[x] Save sound settings to local storage
 [x] Get font
 [x] Start screen
       [x] Game rules explanation
@@ -37,7 +37,7 @@
 
 
 
-[ ] Make responsive
+[x] Make responsive
       [ ] Build div for buttons
 [ ] JSDOC comments & file
 [ ] Removing winning and losing text

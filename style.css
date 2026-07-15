@@ -188,14 +188,15 @@ body {
                     bottom: 0;
                     left: 0;
                     padding: 4px;
+                    
 
                     button {
                         height: 40px;
                         width: 40px;
                         background-color: rgb(0, 0, 0, 0.2);
-                        border: 1px solid black;
                         border-radius: 50%;
                         padding: 4px;
+                        border: none;
                     }
 
                     #mute-unmute {
