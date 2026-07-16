@@ -57,9 +57,14 @@ export class World {
     //#region Methods
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
         this.ctx.translate(this.camera_x, 0);
+        this.addObjectsAndCharacterToMap();
+        this.ctx.translate(-this.camera_x, 0);
+        this.addStatusBarsToMap();
+        requestAnimationFrame(() => this.draw()); //repeat the redraw of the canvas based on graphics card ability
+    }
 
+    addObjectsAndCharacterToMap() {
         this.addObjectToMap(this.level.backgroundObjects);
         this.addObjectToMap(this.level.clouds);
         this.addToMap(this.character);
@@ -69,15 +74,13 @@ export class World {
         this.addObjectToMap(this.level.coins);
         this.addObjectToMap(this.level.collectableBottles);
         this.addObjectToMap(this.throwableBottles);
+    }
 
-        this.ctx.translate(-this.camera_x, 0);
-
+    addStatusBarsToMap() {
         this.addToMap(this.healthBar);
         this.addToMap(this.bottleBar);
         this.addToMap(this.coinBar);
         this.addToMap(this.endbossHealthBar);
-
-        requestAnimationFrame(() => this.draw()); //repeat the redraw of the canvas based on graphics card ability
     }
 
     addToMap(mo) {
@@ -118,7 +121,7 @@ export class World {
         // If we want to character t have access to the world (i.e. the camera showing the world), we need to give it access to said world
         // this method says: "this character's world (property 'world') is this world (this instance of the class World)"
         // meaning the character has now access to everyhting in the world
-/*         this.level.enemies.forEach((enemy) => {
+        /*         this.level.enemies.forEach((enemy) => {
             enemy.world = this;
         });
         this.level.enemyBabies.forEach((enemy) => {
@@ -140,7 +143,11 @@ export class World {
 
     checkCollisionWithBabyEnemy = () => {
         this.level.enemyBabies.forEach((enemy) => {
-            if (this.character.isCollidingFromAbove(enemy)  && this.character.isAboveGround() && this.character.speed_Y < 0) {
+            if (
+                this.character.isCollidingFromAbove(enemy) &&
+                this.character.isAboveGround() &&
+                this.character.speed_Y < 0
+            ) {
                 enemy.energy = 0;
                 SoundHub.playOne(enemy.dyingSound);
             } else if (this.character.isColliding(enemy)) {
@@ -153,7 +160,11 @@ export class World {
 
     checkCollisionWithEnemy = () => {
         this.level.enemies.forEach((enemy) => {
-            if (this.character.isCollidingFromAbove(enemy)  && this.character.isAboveGround() && this.character.speed_Y < 0) {
+            if (
+                this.character.isCollidingFromAbove(enemy) &&
+                this.character.isAboveGround() &&
+                this.character.speed_Y < 0
+            ) {
                 enemy.energy = 0;
                 SoundHub.playOne(enemy.dyingSound);
             } else if (this.character.isColliding(enemy)) {
