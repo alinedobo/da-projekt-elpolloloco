@@ -13,7 +13,7 @@ export class EnemyBaby extends MovableObject {
         this.loadImages(ImageHub.CHICK.dead);
 
         this.position_x = 400 + Math.random() * 3000;
-        this.position_y = 400;
+        this.position_y = 405;
         this.width = 25;
         this.height = 25;
         this.offset = {

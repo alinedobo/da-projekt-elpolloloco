@@ -5,7 +5,7 @@ import { DrawableObject } from "./drawable-object.class.js";
 
 export class CollectableBottle extends DrawableObject {
     position_x = 500 + Math.random() * 2000;
-    position_y = 370;
+    position_y = 370 + Math.random() * 5;
     height = 60;
     width = 50;
     showFrame = false;
