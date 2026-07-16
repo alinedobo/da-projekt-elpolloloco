@@ -112,3 +112,9 @@ function toggleSound() {
     }
 }
 
+
+
+/* window.addEventListener('blur', () => {
+    console.log('blur')
+    SoundHub.SOUND_MUTED = true;
+}); */
