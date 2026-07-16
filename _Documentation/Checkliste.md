@@ -34,16 +34,14 @@
       [x] Start Button
 [x] Win Screen
 [x] Loose screen
-
-
-
 [x] Make responsive
       [x] Build div for buttons
-[ ] JSDOC comments & file
 [x] Removing winning and losing text
 [x] Boss too powerful?
 [x] Can kill chicks from below
 [x] Still getting damage from dead chicken
+
+[ ] JSDOC comments & file
 
 ------------------------------------------------------------------------------------------------
 
@@ -109,7 +107,7 @@ Als Benutzer möchte ich das Spiel auch auf Mobilgeräten spielen.
 
 ### **User Story 2** {#user-story-2}
 Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um Informationen über den Anbieter und den Nutzungsbedingungen zu erhalten.
-- [ ] Durch Anklicken des Links werde ich zu einer Seite weitergeleitet, die alle notwendigen Informationen über den Anbieter und rechtliche Hinweise enthält.
+- [x] Durch Anklicken des Links werde ich zu einer Seite weitergeleitet, die alle notwendigen Informationen über den Anbieter und rechtliche Hinweise enthält.
 
 
 1. ## **Allgemein**
@@ -124,7 +122,7 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 
 ### **Funktionalität** {#funktionalität}
 - [x] Alle Links und Buttons sind funktionstüchtig.  
-- [ ] Es gibt keine Konsolenfehler & keine console.log ausgaben.
+- [x] Es gibt keine Konsolenfehler & keine console.log ausgaben.
 
 
 ### **Design** {#design}
@@ -151,14 +149,14 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 
 
 ### **JavaScript / Clean Code** {#javascript-/-clean-code}
-- [ ] Eine Funktion hat nur eine Aufgabe  
+- [x] Eine Funktion hat nur eine Aufgabe  
 - [ ] Eine Funktion ist maximal 14 Zeilen lang (HTML ausgenommen)  
-- [ ] Deutliche Datei, Funktions- und Variablennamen in konsistenter Schreibweise  
-- [ ] Der erste Buchstabe von Funktionen / Variablen ist klein geschrieben  
+- [x] Deutliche Datei, Funktions- und Variablennamen in konsistenter Schreibweise  
+- [x] Der erste Buchstabe von Funktionen / Variablen ist klein geschrieben  
 - [ ] 1 oder 2 Leerzeilen Abstand zwischen Funktionen  
-- [ ] Max 400 LOCs (Lines of Code) pro Datei  
+- [x] Max 400 LOCs (Lines of Code) pro Datei  
 - [x] Dateien sind richtig benannt: index.html, script.js, style.css  
-- [ ] Ggf. HTML Code in extra Funktion  
+- [x] Ggf. HTML Code in extra Funktion  
 - [x] Extra Ordner für templates und Bilder (img)  
 - [x] Statischer HTML Code wird nicht über JavaScript generiert  
 - [ ] Funktionen sind nach JSDoc Standard dokumentiert: [https://jsdoc.app/about-getting-started.html](https://jsdoc.app/about-getting-started.html)
@@ -177,5 +175,5 @@ Als Benutzer möchte ich das Impressum von El Pollo Loco einsehen können, um In
 - [x] Besteht die Möglichkeit zum Neustart nach GameOver?  
 - [x] Restart soll nicht über Reload der Seite gelöst sein.  
 - [x] mobile  
-- [ ] Buttons funktionieren nicht auf dem Tablet  
-- [ ] keine echten Daten im Impressum  
+- [x] Buttons funktionieren nicht auf dem Tablet  
+- [x] keine echten Daten im Impressum  

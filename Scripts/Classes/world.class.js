@@ -144,7 +144,6 @@ export class World {
                 enemy.energy = 0;
             } else if (this.character.isColliding(enemy)) {
                 this.character.isHit(1);
-                console.log(this.character.energy);
                 SoundHub.playOne(this.character.hitSound);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
@@ -158,7 +157,6 @@ export class World {
                 SoundHub.playOne(enemy.dyingSound);
             } else if (this.character.isColliding(enemy)) {
                 this.character.isHit(2);
-                console.log(this.character.energy);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
@@ -168,7 +166,6 @@ export class World {
         this.level.endBosses.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
                 this.character.isHit(5);
-                console.log(this.character.energy);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });

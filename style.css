@@ -299,17 +299,15 @@ body {
 
     #container{
         height: 100dvh;
-        /* width: 100dvw; */
     }
     
-
     .responsive{
         display: block;
     }
     
 }
 
-@media screen and (min-width: 768px) and (orientation: landscape){
+@media screen and (min-width: 900px) and (orientation: landscape){
     .change-orientation{
         display: none;
     }

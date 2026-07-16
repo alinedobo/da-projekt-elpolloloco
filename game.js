@@ -34,7 +34,6 @@ ElementHub.homePageRef.addEventListener("click", reloadPage);
 ElementHub.moveLeftRef.addEventListener("touchstart", (e) => {
     e.preventDefault();
     Keyboard.KEY_LEFT = true;
-    console.log("left");
 });
 
 ElementHub.moveLeftRef.addEventListener("touchend", (e) => {
