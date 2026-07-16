@@ -35,6 +35,7 @@
 }
 
 body {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: top;
@@ -67,9 +68,17 @@ body {
         gap: 16px;
         max-width: 1440px;
 
+        .change-orientation {
+            display: none;
+            height: 100dvh;
+            width: 100dvw;
+            text-align: center;
+            font-size: 64px;
+            color: black;
+        }
+
         section {
-            width: 100%;
-            max-width: 720px;
+            width: 720px;
             height: 480px;
 
             button {
@@ -188,7 +197,6 @@ body {
                     bottom: 0;
                     left: 0;
                     padding: 4px;
-                    
 
                     button {
                         height: 40px;
@@ -251,19 +259,9 @@ body {
     display: none;
 }
 
-
-
-
-
-
-@media screen and (max-width: 480px) and (orientation: portrait) {
-    .change-orientation {
+@media (pointer: coarse) and (orientation: portrait) {
+    #change-orientation {
         display: block;
-        height: 100dvh;
-        width: 100dvw;
-        text-align: center;
-        font-size: 64px;
-        color: black;
     }
 
     .desktop {
@@ -279,44 +277,31 @@ body {
     }
 }
 
-@media screen and (min-width: 720px) and (max-width: 900px) and (orientation: portrait){
-    .change-orientation{
-        display: none;
-    }
-    .responsive{
-        display: block;
-    }
-}
-
-@media screen and (max-width: 900px) and (orientation: landscape) {
-    .change-orientation{
+@media (hover: none) and (orientation: landscape) {
+    change-orientation {
         display: none;
     }
 
-    .desktop{
+    .desktop {
         display: none;
     }
 
-    #container{
+    main {
         height: 100dvh;
+        width: 100%;
     }
-    
-    .responsive{
+
+    #container {
+        height: 100dvh;
+        width: 100%;
+    }
+
+    #canvas {
+        height: 100dvh;
+        width: 100%;
+    }
+
+    .responsive {
         display: block;
     }
-    
 }
-
-@media screen and (min-width: 900px) and (orientation: landscape){
-    .change-orientation{
-        display: none;
-    }
-    .responsive{
-        display: none;
-    }
-}
-
-
-
-
-

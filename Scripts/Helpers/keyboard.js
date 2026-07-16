@@ -1,4 +1,6 @@
-
+/**
+ * @class that store the global keyboard key variables
+ */
 export class Keyboard {
     static KEY_LEFT = false;
     static KEY_RIGHT = false;
