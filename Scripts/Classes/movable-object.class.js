@@ -89,6 +89,7 @@ export class MovableObject extends DrawableObject {
             this.energy = 0;
             this.timeOfDeath = new Date().getTime();
             SoundHub.playOne(this.dyingSound);
+            SoundHub.pauseOne(SoundHub.PEPE_DAMAGE);
         } else {
             this.lastHit = new Date().getTime(); //timestamp: seconds passed since 01.01.1970
             SoundHub.playOne(this.hitSound);
