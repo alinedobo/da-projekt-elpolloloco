@@ -6,7 +6,7 @@ export class Level {
     backgroundObjects;
     coins;
     collectableBottles;
-    level_end_x = 3000;
+    level_end_x = 2900;
 
     constructor(
         enemyBabies,

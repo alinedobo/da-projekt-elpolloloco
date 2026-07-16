@@ -15,7 +15,7 @@ export class Endboss extends MovableObject {
         this.loadImages(ImageHub.ENDBOSS.hurt);
         this.loadImages(ImageHub.ENDBOSS.dead);
 
-        this.position_x = 3000;
+        this.position_x = 3200;
         this.position_y = 150;
         this.width = 300;
         this.height = 300;
@@ -25,7 +25,7 @@ export class Endboss extends MovableObject {
             bottom: 60,
             left: 50,
         };
-        this.speed_X = 2;
+        this.speed_X = 7.5;
         this.energy = 100;
         this.dyingSound = SoundHub.CHICKEN_DEAD;
         this.hitSound = SoundHub.CHICKEN_DEAD;
