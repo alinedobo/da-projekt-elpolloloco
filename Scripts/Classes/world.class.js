@@ -138,7 +138,9 @@ export class World {
         IntervalHub.startInterval(this.checkCollisionWithEndboss, 10);
         IntervalHub.startInterval(this.checkCollisionWithBottle, 10);
         IntervalHub.startInterval(this.checkCollisionWithCoin, 10);
-        IntervalHub.startInterval(this.checkBottleCollisionWithEnemies, 10);
+        IntervalHub.startInterval(this.checkBottleCollisionWithEnemies, 5);
+        IntervalHub.startInterval(this.checkBottleCollisionWithBabyEnemies, 5);
+        IntervalHub.startInterval(this.checkBottleCollisionWithEndboss, 5);
     }
 
     checkCollisionWithBabyEnemy = () => {
@@ -196,38 +198,6 @@ export class World {
         }
     };
 
-    checkBottleCollisionWithEnemies = () => {
-        this.throwableBottles.forEach((bottle, i) => {
-            this.level.enemyBabies.forEach((enemy) => {
-                if (enemy.isColliding(bottle)) {
-                    this.throwableBottles.splice(i, 1);
-                    SoundHub.playOne(SoundHub.BOTTLE_THROW);
-                    enemy.isHit(20);
-                    SoundHub.playOne(enemy.dyingSound);
-                }
-            });
-
-            this.level.enemies.forEach((enemy) => {
-                if (enemy.isColliding(bottle, i)) {
-                    this.throwableBottles.splice(i, 1);
-                    SoundHub.playOne(SoundHub.BOTTLE_THROW);
-                    enemy.isHit(20);
-                    SoundHub.playOne(enemy.dyingSound);
-                }
-            });
-
-            this.level.endBosses.forEach((enemy) => {
-                if (enemy.isColliding(bottle, i)) {
-                    this.throwableBottles.splice(i, 1);
-                    SoundHub.playOne(SoundHub.BOTTLE_THROW);
-                    enemy.isHit(20);
-                    SoundHub.playOne(enemy.dyingSound);
-                    this.endbossHealthBar.showPercentageStatusBar(enemy.energy);
-                }
-            });
-        });
-    };
-
     checkCollisionWithCoin = () => {
         for (let i = 0; i < this.level.coins.length; i++) {
             let coin = this.level.coins[i];
@@ -242,6 +212,47 @@ export class World {
                 this.coinBar.showPercentageStatusBar(percentage);
             }
         }
+    };
+
+    checkBottleCollisionWithBabyEnemies = () => {
+        this.throwableBottles.forEach((bottle, i) => {
+            this.level.enemyBabies.forEach((enemy) => {
+                if (enemy.isColliding(bottle)) {
+                    this.throwableBottles.splice(i, 1);
+                    SoundHub.playOne(SoundHub.BOTTLE_THROW);
+                    enemy.isHit(20);
+                    SoundHub.playOne(enemy.dyingSound);
+                }
+            });
+        });
+    };
+
+    checkBottleCollisionWithEnemies = () => {
+        this.throwableBottles.forEach((bottle, i) => {
+            this.level.enemies.forEach((enemy) => {
+                if (enemy.isColliding(bottle, i)) {
+                    this.throwableBottles.splice(i, 1);
+                    SoundHub.playOne(SoundHub.BOTTLE_THROW);
+                    enemy.isHit(20);
+                    SoundHub.playOne(enemy.hitSound);
+                }
+            });
+        });
+    };
+
+
+    checkBottleCollisionWithEndboss = () => {
+        this.throwableBottles.forEach((bottle, i) => {
+            this.level.endBosses.forEach((enemy) => {
+                if (enemy.isColliding(bottle, i)) {
+                    this.throwableBottles.splice(i, 1);
+                    SoundHub.playOne(SoundHub.BOTTLE_THROW);
+                    enemy.isHit(20);
+                    SoundHub.playOne(enemy.dyingSound);
+                    this.endbossHealthBar.showPercentageStatusBar(enemy.energy);
+                }
+            });
+        });
     };
 
     checkThrowBottle = () => {
