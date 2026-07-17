@@ -177,9 +177,9 @@ export class World {
      * Method that starts an interval for each checkCollision method
      */
     checkCollisions() {
-        IntervalHub.startInterval(this.checkCollisionWithBabyEnemy, 10);
-        IntervalHub.startInterval(this.checkCollisionWithEnemy, 10);
-        IntervalHub.startInterval(this.checkCollisionWithEndboss, 10);
+        IntervalHub.startInterval(this.checkCollisionWithBabyEnemy, 5);
+        IntervalHub.startInterval(this.checkCollisionWithEnemy, 5);
+        IntervalHub.startInterval(this.checkCollisionWithEndboss, 5);
         IntervalHub.startInterval(this.checkCollisionWithBottle, 10);
         IntervalHub.startInterval(this.checkCollisionWithCoin, 10);
         IntervalHub.startInterval(this.checkBottleCollisionWithEnemies, 5);
@@ -407,8 +407,7 @@ export class World {
     checkGameLost = () => {
         if (this.character.isDead() && this.character.checkIfDeadLongEnough()) {
             IntervalHub.stopAllIntervals();
-
-            SoundHub.playOne(SoundHub.PEPE_DEAD);
+            
             SoundHub.pauseOne(SoundHub.BACKGROUND);
 
             ElementHub.canvasRef.classList.add("display-none");
