@@ -64,6 +64,5 @@ export class DrawableObject {
             ctx.stroke();
         }
     }
-
     //#endregion Methods
 }

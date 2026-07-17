@@ -16,8 +16,7 @@
     src: url("./Assets/fonts/coustard-v19-latin-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* https://pixabay.com/illustrations/dinosaur-desert-fantasy-background-7155713/ */
-/* https://pixabay.com/illustrations/ai-generated-sunset-desert-nature-8286299/ */
+/* Background image source: https://pixabay.com/illustrations/ai-generated-sunset-desert-nature-8286299/ */
 
 * {
     margin: 0;
@@ -259,6 +258,32 @@ body {
         align-items: center;
         display: flex;
         flex-direction: column;
+    }
+
+    #impressum {
+            background-color: rgb(0, 0, 0, 0.5);
+            border: 1px solid black;
+            border-radius: 8px;
+            width: fit-content;
+            height: fit-content;
+            padding: 8px;
+            z-index: 1;
+            position: absolute;
+            bottom: 10px;
+
+        button{
+        justify-self: right;
+        }
+
+        #impressum-text{
+            text-align: center;
+            justify-content: center;
+            justify-self: center;
+            padding: 0px 24px 24px 24px;
+            color: white;
+            border: none;
+            background: none;
+        }
     }
 }
 
