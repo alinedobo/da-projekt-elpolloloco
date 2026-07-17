@@ -247,7 +247,7 @@ export class World {
     checkCollisionWithEndboss = () => {
         this.level.endBosses.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
-                this.character.isHit(0.75);
+                this.character.isHit(2);
                 this.healthBar.showPercentageStatusBar(this.character.energy);
             }
         });
