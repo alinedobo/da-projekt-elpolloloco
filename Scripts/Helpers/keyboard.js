@@ -1,5 +1,6 @@
 /**
- * @class that store the global keyboard key variables
+ * @class 
+ * Helper class that stores the global keyboard key variables
  */
 export class Keyboard {
     static KEY_LEFT = false;
@@ -10,8 +11,11 @@ export class Keyboard {
     static KEY_D = false;
 }
 
-// https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
-
+//#region Methods
+/**
+ * Event listener that checks if any of the listed keys is pressed down and updated the global value accordingly (true or false)
+ * https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript
+ */
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
         case "ArrowLeft":
@@ -39,6 +43,9 @@ document.addEventListener("keydown", (event) => {
     event.preventDefault();
 });
 
+/**
+ * Event listener that checks if any of the listed keys is not pressed down anymore and updated the global value accordingly (true or false)
+ */
 document.addEventListener("keyup", (event) => {
     switch (event.key) {
         case "ArrowLeft":
@@ -65,3 +72,4 @@ document.addEventListener("keyup", (event) => {
     }
     event.preventDefault();
 });
+//#endregion

@@ -6,6 +6,11 @@ import { Level } from "./level.class.js";
 import { MovableObject } from "./movable-object.class.js";
 import { World } from "./world.class.js";
 
+/**
+ * @class
+ * Class that contains all the properties and methods that relate to our main character.
+ * Inherits from MovableObject
+ */
 export class Character extends MovableObject {
     //#region Properties
     world;
@@ -27,6 +32,12 @@ export class Character extends MovableObject {
     lastMovement;
     //#endregion
 
+    //#region Constructor
+    /**
+     * Calls various methods from MovableObject to load and show the pictures of our character
+     * Starts several intervals to animate the character
+     * Calculate the real frame of our character for the Collision calculation
+     */
     constructor() {
         super().loadImage(ImageHub.PEPE.walking[0]);
         this.loadImages(ImageHub.PEPE.walking);
@@ -44,6 +55,9 @@ export class Character extends MovableObject {
     }
 
     //#region Methods
+    /**
+     * Method that selects which images to use for the character animation based on its state
+     */
     animateCharacter = () => {
         if (this.isAboveGround()) {
             this.playAnimation(ImageHub.PEPE.jumping);
@@ -59,8 +73,11 @@ export class Character extends MovableObject {
         } else {
             this.playAnimation(ImageHub.PEPE.idle);
         }
-    }
+    };
 
+    /**
+     * Method that selects which sound to play based on the state of the character
+     */
     playSound = () => {
         if (this.checkIfSleeping()) {
             SoundHub.playOneContinuously(SoundHub.PEPE_SNORING);
@@ -79,6 +96,10 @@ export class Character extends MovableObject {
         }
     };
 
+    /**
+     * Method that allows the character to move (left, right, up) based on keyboard or responsive button input
+     * reverseDirection variable allows us to move backwards (x decreasing)
+     */
     moveCharacter = () => {
         if (
             Keyboard.KEY_RIGHT &&

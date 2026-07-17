@@ -1,5 +1,8 @@
 
-
+/**
+ * @class
+ * Helper class that list all the html elements as global variables so they can easily be called in various area of the code
+ */
 export class ElementHub {
     static canvasRef = document.getElementById("canvas");
     static canvasContainerRef = document.getElementById("canvas-container");

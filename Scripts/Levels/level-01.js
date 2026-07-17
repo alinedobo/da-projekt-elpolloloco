@@ -10,6 +10,9 @@ import { Level } from "../Classes/level.class.js";
 
 export let level1;
 
+/**
+ * @function that initialises the level by updating the value of level1 to what has been predefined in the object
+ */
 export function initLevel(){
     level1 = new Level(
     [

@@ -17,17 +17,28 @@ export class DrawableObject {
     image;
     imageCache = {};
     currentImage = 0;
+    /**
+     * showFrame variable allows us to tag for wich movable object we want to display the real frame.
+     * The real frame is used to calculate the collisions.
+     * We used this variable instead of the instanceOf solution presented in the video to avoid a dependency between scripts (A needs B to be created but B needs A to be created first)
+     */
     showFrame = false;
-    // Needed to replace "instanceof" in video S3V9 because there is a dependency (A needs B to be created but B needs A to be created first)
-    // Using Daniel's idea of a variable that allows to define if an object is a movable object or not
     //#endregion
 
     //#region Methods
+    /**
+     * Loads the image we want to display
+     * @param {string} path - Relative path of the image we want to load
+     */
     loadImage(path) {
         this.image = new Image();
         this.image.src = path;
     }
 
+    /**
+     * Loads the various images we want to animate
+     * @param {Array} arr - array containing the paths of the various images we want to load
+     */
     loadImages(arr) {
         arr.forEach((path) => {
             let img = new Image();
@@ -36,6 +47,10 @@ export class DrawableObject {
         });
     }
 
+    /**
+     * Methods that draws the loaded images into the canvas based on the context
+     * @param {*} ctx - context used for the canvas
+     */
     draw(ctx) {
         ctx.drawImage(
             this.image,
@@ -46,6 +61,10 @@ export class DrawableObject {
         );
     }
 
+    /**
+     * Method that calculate the real frame of a movable object (the size of the image frame minus the offsets)
+     * The real frame is needed to have accurate collisions based on the seeable size of the movable objects
+     */
     getRealFrame() {
         this.rX = this.position_x + this.offset.left;
         this.rY = this.position_y + this.offset.top;
@@ -53,6 +72,10 @@ export class DrawableObject {
         this.rW = this.width - this.offset.left - this.offset.right;
     }
 
+    /**
+     * Methods that draws a frame around the movable objects based on the real frame variables for each object
+     * @param {*} ctx - context used for the canvas
+     */
     drawFrame(ctx) {
         this.getRealFrame();
         // Drawing a rectangle: https://www.w3schools.com/tags/canvas_rect.asp

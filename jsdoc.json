@@ -1,0 +1,29 @@
+{
+    "source": {
+        "include": [
+            "Scripts/Classes/background-object.class.js",
+            "Scripts/Classes/character.class.js",
+            "Scripts/Classes/clouds.class.js",
+            "Scripts/Classes/coin.class.js",
+            "Scripts/Classes/collectable-bottle.class.js",
+            "Scripts/Classes/drawable-object.class.js",
+            "Scripts/Classes/endboss.class.js",
+            "Scripts/Classes/enemy-baby.class.js",
+            "Scripts/Classes/level.class.js",
+            "Scripts/Classes/movable-object.class.js",
+            "Scripts/Classes/status-bar.class.js",
+            "Scripts/Classes/throwable-bottle.class.js",
+            "Scripts/Classes/world.class.js",
+            "Scripts/Helpers/element-hub.js",
+            "Scripts/Helpers/image-hub.js",
+            "Scripts/Helpers/interval-hub.js",
+            "Scripts/Helpers/keyboard.js",
+            "Scripts/Helpers/sound-hub.js",
+            "Scripts/Levels/level-01.js",
+            "game.js"
+        ]
+    },
+    "opts": {
+        "destination": "./out"
+    }
+}

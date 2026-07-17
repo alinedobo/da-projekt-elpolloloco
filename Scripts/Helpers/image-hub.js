@@ -1,3 +1,7 @@
+/**
+ * @class
+ * Helper class that list all the image paths as global variables so they can easily be called in various area of the code
+ */
 export class ImageHub {
     static PEPE = {
         walking: [
