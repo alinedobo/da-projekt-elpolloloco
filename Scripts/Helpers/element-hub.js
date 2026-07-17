@@ -17,4 +17,7 @@ export class ElementHub {
     static moveRightRef = document.getElementById('move-right');
     static jumpRef = document.getElementById('jump');
     static throwBottleRef = document.getElementById('throw-bottle');
+    static impressumRef = document.getElementById('impressum');
+    static impressumOpenButtonRespRef = document.getElementById('impressum-open-reponsive');
+    static impressumCloseButtonRef = document.getElementById('close-impressum');
 }

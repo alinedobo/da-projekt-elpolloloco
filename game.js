@@ -30,6 +30,9 @@ ElementHub.tryAgainButtonRef.addEventListener("click", startGame);
 ElementHub.muteButtonRef.addEventListener("click", toggleSound);
 ElementHub.unmuteButtonRef.addEventListener("click", toggleSound);
 ElementHub.homePageRef.addEventListener("click", reloadPage);
+ElementHub.impressumOpenButtonRespRef.addEventListener("click", showImpressum);
+ElementHub.impressumCloseButtonRef.addEventListener('click', closeImpressum);
+
 
 ElementHub.moveLeftRef.addEventListener("touchstart", (e) => {
     e.preventDefault();
@@ -112,9 +115,10 @@ function toggleSound() {
     }
 }
 
+function showImpressum(){
+    ElementHub.impressumRef.classList.remove('display-none');
+}
 
-
-/* window.addEventListener('blur', () => {
-    console.log('blur')
-    SoundHub.SOUND_MUTED = true;
-}); */
+function closeImpressum(){
+    ElementHub.impressumRef.classList.add('display-none');
+}
