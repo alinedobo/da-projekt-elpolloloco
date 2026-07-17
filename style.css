@@ -253,8 +253,7 @@ body {
         }
     }
 
-    header,
-    footer {
+    header, footer {
         color: white;
         height: 15dvh;
         width: 100%;
