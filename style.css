@@ -200,16 +200,17 @@ body {
                     background: black;
                 }
 
-                #navigation-buttons {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    background: none;
+                #mute-unmute {
                     position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    padding: 4px;
+                    top: 25px;
+                    left: 50%;
+                    background: none;
+                    text-align: center;
+                    z-index: 1;
+                    border-radius: 4px;
+                    background: none;
+                    border: none;
+                    padding: 0px;
 
                     button {
                         height: 40px;
@@ -219,32 +220,47 @@ body {
                         padding: 4px;
                         border: none;
                     }
+                }
 
-                    #mute-unmute {
-                        background: none;
-                        text-align: center;
-                        z-index: 1;
-                        border-radius: 4px;
-                        background: none;
-                        border: none;
-                        padding: 0px;
-                    }
+                #navigation-buttons {
+                    display: none;
+                }
 
-                    #right-navigation {
+                @media (hover: none) and (orientation: landscape) {
+                    #navigation-buttons {
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        align-items: center;
                         background: none;
-                        text-align: center;
-                        z-index: 1;
-                    }
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        padding: 4px;
 
-                    #left-navigation {
-                        background: none;
-                        text-align: center;
-                        z-index: 1;
+                        button {
+                            height: 40px;
+                            width: 40px;
+                            background-color: rgb(0, 0, 0, 0.2);
+                            border-radius: 50%;
+                            padding: 4px;
+                            border: none;
+                        }
+
+                        #right-navigation {
+                            background: none;
+                            text-align: center;
+                        }
+
+                        #left-navigation {
+                            background: none;
+                            text-align: center;
+                        }
                     }
                 }
             }
 
-            div {
+            #instructions {
                 background: rgb(255, 255, 255, 0.5);
                 border-radius: 8px;
                 padding: 8px 16px;
@@ -253,7 +269,8 @@ body {
         }
     }
 
-    header, footer {
+    header,
+    footer {
         color: white;
         height: 15dvh;
         width: 100%;
@@ -337,9 +354,5 @@ body {
     #canvas {
         height: 100dvh;
         width: 100%;
-    }
-
-    .responsive {
-        display: block;
     }
 }
