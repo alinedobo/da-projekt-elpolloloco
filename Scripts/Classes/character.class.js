@@ -99,14 +99,14 @@ export class Character extends MovableObject {
     /**
      * Method that allows the character to move (left, right, up) based on keyboard or responsive button input
      * reverseDirection variable allows us to move backwards (x decreasing)
+     * Level_end_x is part of the level, the level is part of the world
+     * For the character to access the value level_end_x in level, we need to go up into the world and back down into the world
      */
     moveCharacter = () => {
         if (
             Keyboard.KEY_RIGHT &&
             this.position_x < this.world.level.level_end_x
         ) {
-            // level_end_x is part of the level, the level is part of the world
-            // for the character to access the value level_end_x in level, we need to go up into the world and back down into the world
             this.moveRight();
             this.reverseDirection = false;
         }
